@@ -7,7 +7,6 @@ import util.runner.Answer;
 import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
-import util.runner.UsingTestData;
 
 /**
  * https://leetcode.com/problems/fraction-to-recurring-decimal/
@@ -34,7 +33,6 @@ import util.runner.UsingTestData;
 @RunWith(LeetCodeRunner.class)
 public class Q166_FractionToRecurringDecimal {
 
-    @UsingTestData()
     @Answer
     public String fractionToDecimal(int numerator, int denominator) {
         StringBuilder sb = new StringBuilder();
