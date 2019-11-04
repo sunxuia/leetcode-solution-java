@@ -185,7 +185,7 @@ public class ObjectEqualsHelper {
                     }
                     if (!success) {
                         ErrorStringBuilder error = new ErrorStringBuilder();
-                        error.append("%s expected value", subFieldName)
+                        error.append("%s expected value ", subFieldName)
                                 .append(expectedArray[i])
                                 .append(" not found in actual");
                         throw new NotEqualException(error.toString());

@@ -9,7 +9,7 @@ public class TestDataFileHelper {
     private static final String DEFAULT_PREFIX = ".test.txt";
 
     public static int[] readIntegerArray(String fileName) {
-        String content = readFileContent(fileName);
+        String content = readString(fileName);
         String[] strs = content.split(",");
         int[] res = new int[strs.length];
         for (int i = 0; i < strs.length; i++) {
@@ -22,7 +22,7 @@ public class TestDataFileHelper {
         return res;
     }
 
-    private static String readFileContent(String fileName) {
+    public static String readString(String fileName) {
         fileName = wrapFileName(fileName);
         StringBuilder sb = new StringBuilder();
         String filePath = TestDataFileHelper.class.getClassLoader().getResource(fileName).getFile();
