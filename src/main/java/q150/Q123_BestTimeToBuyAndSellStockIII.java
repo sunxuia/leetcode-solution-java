@@ -1,6 +1,7 @@
 package q150;
 
 import org.junit.runner.RunWith;
+import q200.Q188_BestTimeToBuyAndSellStockIV;
 import util.runner.Answer;
 import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
@@ -36,6 +37,8 @@ import util.runner.TestData;
  * Input: [7,6,4,3,1]
  * Output: 0
  * Explanation: In this case, no transaction is done, i.e. max profit = 0.
+ *
+ * 题解: 下一题 {@link Q188_BestTimeToBuyAndSellStockIV}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q123_BestTimeToBuyAndSellStockIII {
@@ -82,7 +85,7 @@ public class Q123_BestTimeToBuyAndSellStockIII {
                 global[j] = Math.max(local[j], global[j]);
             }
         }
-        return global[2];
+        return global[n];
     }
 
     @TestData
