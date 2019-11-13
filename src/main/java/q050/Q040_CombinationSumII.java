@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.runner.RunWith;
+import q250.Q216_CombinationSumIII;
 import util.runner.Answer;
 import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
@@ -42,6 +43,8 @@ import util.runner.TestData;
  *
  * 题解:
  * 和上一题相比, 每个数字的使用次数变成1 次, 且 candidates 中有重复值
+ *
+ * 相关题目: {@link Q216_CombinationSumIII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q040_CombinationSumII {
