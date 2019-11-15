@@ -1,5 +1,6 @@
 package q250;
 
+import java.util.PriorityQueue;
 import org.junit.runner.RunWith;
 import util.runner.Answer;
 import util.runner.DataExpectation;
@@ -123,10 +124,25 @@ public class Q215_KthLargestElementInAnArray {
         }
     }
 
+    // 在Java 中有现成的最小/大堆的实现: 优先队列.
+    @Answer
+    public int findKthLargest2(int[] nums, int k) {
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        for (int num : nums) {
+            if (queue.size() < k) {
+                queue.add(num);
+            } else if (queue.element() < num) {
+                queue.remove();
+                queue.add(num);
+            }
+        }
+        return queue.element();
+    }
+
     // LeetCode 的解法, 使用快速排序的方式每次确定一个点, 然后按照k 的位置去继续寻找
     // 时间复杂度是 O(nlogn)
     @Answer
-    public int findKthLargest2(int[] nums, int k) {
+    public int findKthLargest3(int[] nums, int k) {
         return recursive(nums, 0, nums.length - 1, k - 1);
     }
 
