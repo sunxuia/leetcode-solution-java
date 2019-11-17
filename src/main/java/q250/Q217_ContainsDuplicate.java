@@ -30,6 +30,8 @@ import util.runner.TestData;
  *
  * Input: [1,1,1,3,3,4,3,2,4,2]
  * Output: true
+ *
+ * 相关题目: {@link Q219_ContainsDuplicateII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q217_ContainsDuplicate {
