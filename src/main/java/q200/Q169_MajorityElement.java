@@ -3,6 +3,7 @@ package q200;
 import java.util.HashMap;
 import java.util.Map;
 import org.junit.runner.RunWith;
+import q250.Q229_MajorityElementII;
 import util.runner.Answer;
 import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
@@ -25,6 +26,8 @@ import util.runner.TestData;
  *
  * Input: [2,2,1,1,1,2,2]
  * Output: 2
+ *
+ * 相关题目: {@link Q229_MajorityElementII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q169_MajorityElement {
@@ -45,6 +48,7 @@ public class Q169_MajorityElement {
     }
 
     // LeetCode 上的做法. 通过计算数字的出现次数来判断, 因为主要数字的出现次数超过一半, 所以这里的count 不会被扣完.
+    // 算法是摩尔投票法
     @Answer
     public int majorityElement(int[] nums) {
         int n = nums[0];
