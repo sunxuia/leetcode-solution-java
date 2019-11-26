@@ -41,6 +41,12 @@ public class Q231_PowerOfTwo {
         return count == 1;
     }
 
+    // LeetCode 上最好的解法
+    @Answer
+    public boolean leetCode(int n) {
+        return n > 0 && (n & (n - 1)) == 0;
+    }
+
     @TestData
     public DataExpectation example1 = DataExpectation.create(1).expect(true);
 
