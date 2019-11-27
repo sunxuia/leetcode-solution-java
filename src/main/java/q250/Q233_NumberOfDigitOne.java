@@ -43,16 +43,16 @@ public class Q233_NumberOfDigitOne {
     public int countDigitOne(int n) {
         int res = 0, prevF = 0, remain = 0, digit = 1;
         while (n > 0) {
-            int v = n % 10;
-            if (v == 1) {
+            int k = n % 10;
+            if (k == 1) {
                 res += remain + 1 + prevF;
-            } else if (v > 0) {
-                res += digit + v * prevF;
+            } else if (k > 0) {
+                res += digit + k * prevF;
             }
             prevF = digit + 10 * prevF;
-            remain += digit * v;
-            n /= 10;
+            remain += digit * k;
             digit *= 10;
+            n /= 10;
         }
         return res;
     }
