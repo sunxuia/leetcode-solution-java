@@ -66,6 +66,14 @@ public class DataExpectationBuilder {
         return this;
     }
 
+    public <T> DataExpectationBuilder assertMethod(Runnable assertMethod) {
+        if (!expects.containsKey(-1)) {
+            expects.put(-1, null);
+        }
+        assertMethods.put(-1, (BiConsumer<T, T>) (expect, actual) -> assertMethod.run());
+        return this;
+    }
+
     public <T> DataExpectationBuilder argumentAssertMethod(int index, BiConsumer<T, T> assertMethod) {
         checkRange(index);
         assertMethods.put(index, assertMethod);

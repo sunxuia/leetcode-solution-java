@@ -1,6 +1,7 @@
 package q100;
 
 import org.junit.runner.RunWith;
+import q250.Q240_SearchA2DMatrixII;
 import util.runner.Answer;
 import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
@@ -33,6 +34,8 @@ import util.runner.TestData;
  * ]
  * target = 13
  * Output: false
+ *
+ * 相关题目: {@link Q240_SearchA2DMatrixII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q074_SearchA2DMatrix {
