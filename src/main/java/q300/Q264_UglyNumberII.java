@@ -30,7 +30,7 @@ import util.runner.TestData;
 public class Q264_UglyNumberII {
 
     // n 序号从1 开始.
-    // 晚上的解法
+    // 网上的解法
     @Answer
     public int nthUglyNumber(int n) {
         List<Integer> nums = new ArrayList<>();
