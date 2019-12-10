@@ -2,6 +2,7 @@ package q200;
 
 import org.junit.runner.RunWith;
 import q150.Q123_BestTimeToBuyAndSellStockIII;
+import q350.Q309_BestTimeToBuyAndSellStockWithCooldown;
 import util.asserthelper.TestDataFileHelper;
 import util.runner.Answer;
 import util.runner.DataExpectation;
@@ -31,7 +32,9 @@ import util.runner.TestData;
  * Explanation: Buy on day 2 (price = 2) and sell on day 3 (price = 6), profit = 6-2 = 4.
  * Then buy on day 5 (price = 0) and sell on day 6 (price = 3), profit = 3-0 = 3.
  *
- * 题解: 上一题 {@link Q123_BestTimeToBuyAndSellStockIII}, 这题的买入卖出次数作为参数输入.
+ * 相关题目:
+ *  上一题 {@link Q123_BestTimeToBuyAndSellStockIII}, 这题的买入卖出次数作为参数输入.
+ *  下一题 {@link Q309_BestTimeToBuyAndSellStockWithCooldown}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q188_BestTimeToBuyAndSellStockIV {

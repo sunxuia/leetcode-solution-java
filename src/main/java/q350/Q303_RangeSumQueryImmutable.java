@@ -20,6 +20,8 @@ import org.junit.Test;
  *
  * You may assume that the array does not change.
  * There are many calls to sumRange function.
+ *
+ *  * 相关题目: 下一题, {@link Q307_RangeSumQueryMutable}
  */
 public class Q303_RangeSumQueryImmutable {
 
