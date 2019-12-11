@@ -16,6 +16,11 @@ public class DataExpectation {
     private Map<Integer, BiConsumer> assertMethods = new HashMap<>();
 
     public Object[] getArguments() {
+        for (int i = 0; i < arguments.length; i++) {
+            if (arguments[i] instanceof LazyDataProvider) {
+                arguments[i] = ((LazyDataProvider) arguments[i]).get();
+            }
+        }
         return arguments;
     }
 
@@ -24,7 +29,11 @@ public class DataExpectation {
     }
 
     public Object getExpect() {
-        return expects.get(-1);
+        Object expect = expects.get(-1);
+        if (expect instanceof LazyDataProvider) {
+            expect = ((LazyDataProvider) expects).get();
+        }
+        return expect;
     }
 
     public void setExpect(Object expect) {

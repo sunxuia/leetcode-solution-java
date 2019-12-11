@@ -26,8 +26,18 @@ public class DataExpectationBuilder {
         return this;
     }
 
+    public DataExpectationBuilder addArgument(LazyDataProvider provider) {
+        arguments.add(provider);
+        return this;
+    }
+
     public DataExpectationBuilder expect(Object val) {
         expects.put(-1, val);
+        return this;
+    }
+
+    public DataExpectationBuilder expect(LazyDataProvider provider) {
+        expects.put(-1, provider);
         return this;
     }
 
@@ -40,6 +50,12 @@ public class DataExpectationBuilder {
     public DataExpectationBuilder expectArgument(int index, Object val) {
         checkRange(index);
         expects.put(index, val);
+        return this;
+    }
+
+    public DataExpectationBuilder expectArgument(int index, LazyDataProvider provider) {
+        checkRange(index);
+        expects.put(index, provider);
         return this;
     }
 
