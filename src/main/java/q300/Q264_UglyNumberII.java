@@ -3,6 +3,7 @@ package q300;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.runner.RunWith;
+import q350.Q313_SuperUglyNumber;
 import util.runner.Answer;
 import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
@@ -25,6 +26,8 @@ import util.runner.TestData;
  *
  * 1 is typically treated as an ugly number.
  * n does not exceed 1690.
+ *
+ * 相关题目 {@link Q313_SuperUglyNumber}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q264_UglyNumberII {
@@ -53,7 +56,7 @@ public class Q264_UglyNumberII {
         return nums.get(nums.size() - 1);
     }
 
-    // LeetCode 上最快的解法
+    // LeetCode 上最快的解法, 将上面的nums 换成了ugly 数组.
     @Answer
     public int leetCode(int n) {
         int[] ugly = new int[n];
@@ -87,13 +90,13 @@ public class Q264_UglyNumberII {
     public DataExpectation normal1 = DataExpectation.create(1).expect(1);
 
     @TestData
-    public DataExpectation normal2 = DataExpectation.create(1).expect(1);
+    public DataExpectation normal2 = DataExpectation.create(2).expect(2);
 
     @TestData
-    public DataExpectation normal3 = DataExpectation.create(2).expect(2);
+    public DataExpectation normal3 = DataExpectation.create(3).expect(3);
 
     @TestData
-    public DataExpectation normal4 = DataExpectation.create(3).expect(3);
+    public DataExpectation normal4 = DataExpectation.create(4).expect(4);
 
     @TestData
     public DataExpectation normal7 = DataExpectation.create(7).expect(8);
