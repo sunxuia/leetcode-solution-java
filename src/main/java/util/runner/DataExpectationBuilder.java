@@ -75,23 +75,20 @@ public class DataExpectationBuilder {
     }
 
     public <T> DataExpectationBuilder assertMethod(Consumer<T> assertMethod) {
-        if (!expects.containsKey(-1)) {
-            expects.put(-1, null);
-        }
+        expects.putIfAbsent(-1, null);
         assertMethods.put(-1, (BiConsumer<T, T>) (expect, actual) -> assertMethod.accept(actual));
         return this;
     }
 
     public <T> DataExpectationBuilder assertMethod(Runnable assertMethod) {
-        if (!expects.containsKey(-1)) {
-            expects.put(-1, null);
-        }
+        expects.putIfAbsent(-1, null);
         assertMethods.put(-1, (BiConsumer<T, T>) (expect, actual) -> assertMethod.run());
         return this;
     }
 
     public <T> DataExpectationBuilder argumentAssertMethod(int index, BiConsumer<T, T> assertMethod) {
         checkRange(index);
+        expects.putIfAbsent(index, null);
         assertMethods.put(index, assertMethod);
         return this;
     }
