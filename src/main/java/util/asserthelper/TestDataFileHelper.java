@@ -25,6 +25,12 @@ public class TestDataFileHelper {
         return res;
     }
 
+    public static String[] readStringArray(String fileName) {
+        String content = readString(fileName);
+        String[] res = content.split("\",\"");
+        return content.replaceAll("[\\[\\] \"]", "").split(",");
+    }
+
     // 读取文件所有的文本
     public static String readString(String fileName) {
         fileName = wrapFileName(fileName);
