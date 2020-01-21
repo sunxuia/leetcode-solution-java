@@ -1,6 +1,7 @@
 package q350;
 
 import org.junit.runner.RunWith;
+import q250.Q231_PowerOfTwo;
 import util.runner.Answer;
 import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
@@ -33,6 +34,8 @@ import util.runner.TestData;
  *
  * Follow up:
  * Could you do it without using any loop / recursion?
+ *
+ * 相关题目 {@link Q231_PowerOfTwo}, {@link Q342_PowerOfFour}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q326_PowerOfThree {
