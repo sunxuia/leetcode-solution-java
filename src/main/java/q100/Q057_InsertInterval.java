@@ -3,6 +3,7 @@ package q100;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.runner.RunWith;
+import q400.Q352_DataStreamAsDisjointIntervals;
 import util.runner.Answer;
 import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
@@ -26,6 +27,8 @@ import util.runner.TestData;
  * Explanation: Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].
  * NOTE: input types have been changed on April 15, 2019. Please reset to default code definition to get new method
  * signature.
+ *
+ * 相关题目: {@link Q352_DataStreamAsDisjointIntervals}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q057_InsertInterval {
