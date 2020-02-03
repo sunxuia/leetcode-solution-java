@@ -3,9 +3,9 @@ package q050;
 import java.util.Arrays;
 import org.junit.runner.RunWith;
 import util.runner.Answer;
-import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
+import util.runner.data.DataExpectation;
 
 /**
  * Given an array nums of n integers and an integer target, find three integers in nums such that the sum is closest

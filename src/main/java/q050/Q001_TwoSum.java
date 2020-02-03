@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 import org.junit.runner.RunWith;
 import util.runner.Answer;
-import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
+import util.runner.data.DataExpectation;
 
 /**
  * Given an array of integers, return indices of the two numbers such that they add up to a specific target.

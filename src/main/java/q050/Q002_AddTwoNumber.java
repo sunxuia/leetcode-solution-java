@@ -5,9 +5,9 @@ import static util.provided.ListNode.createListNode;
 import org.junit.runner.RunWith;
 import util.provided.ListNode;
 import util.runner.Answer;
-import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
+import util.runner.data.DataExpectation;
 
 /**
  * You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse

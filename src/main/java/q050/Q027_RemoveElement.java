@@ -4,9 +4,9 @@ import org.junit.runner.RunWith;
 import util.asserthelper.AssertUtils;
 import util.asserthelper.ObjectEqualsHelper;
 import util.runner.Answer;
-import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
+import util.runner.data.DataExpectation;
 
 /**
  * https://leetcode.com/problems/remove-element/
@@ -94,7 +94,7 @@ public class Q027_RemoveElement {
                 .addArgument(input)
                 .addArgument(2)
                 .expect("return value and input match")
-                .assertMethod((expected, actual) -> {
+                .assertMethod((expected, actual, o) -> {
                     AssertUtils.assertEquals(5, actual);
                     ObjectEqualsHelper helper = new ObjectEqualsHelper();
                     helper.unorder("*");

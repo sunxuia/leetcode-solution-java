@@ -2,10 +2,9 @@ package q050;
 
 import org.junit.runner.RunWith;
 import util.runner.Answer;
-import util.runner.DataExpectation;
-import util.runner.DataExpectationBuilder;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
+import util.runner.data.DataExpectation;
 
 /**
  * Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
@@ -148,8 +147,8 @@ public class Q005_LongestPalindromicSubstring {
     @TestData
     public DataExpectation example1 = DataExpectation.builder()
             .addArgument("abad")
-            .expect(new String[]{"bab", "aba"})
-            .assertMethod(DataExpectationBuilder.orExpectAssertMethod)
+            .expect("bab")
+            .orExpect("aba")
             .build();
 
     @TestData
@@ -161,8 +160,9 @@ public class Q005_LongestPalindromicSubstring {
     @TestData
     public DataExpectation border1 = DataExpectation.builder()
             .addArgument("abc")
-            .expect(new String[]{"a", "b", "c"})
-            .assertMethod(DataExpectationBuilder.orExpectAssertMethod)
+            .expect("a")
+            .orExpect("b")
+            .orExpect("c")
             .build();
 
     @TestData

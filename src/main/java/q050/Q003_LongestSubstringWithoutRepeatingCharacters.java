@@ -4,9 +4,9 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import org.junit.runner.RunWith;
 import util.runner.Answer;
-import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
+import util.runner.data.DataExpectation;
 
 /**
  * Given a string, find the length of the longest substring without repeating characters.

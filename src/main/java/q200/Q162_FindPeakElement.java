@@ -2,10 +2,9 @@ package q200;
 
 import org.junit.runner.RunWith;
 import util.runner.Answer;
-import util.runner.DataExpectation;
-import util.runner.DataExpectationBuilder;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
+import util.runner.data.DataExpectation;
 
 /**
  * https://leetcode.com/problems/find-peak-element/
@@ -61,8 +60,8 @@ public class Q162_FindPeakElement {
     @TestData
     public DataExpectation example2 = DataExpectation.builder()
             .addArgument(new int[]{1, 2, 1, 3, 5, 6, 4})
-            .expect(new int[]{1, 5})
-            .assertMethod(DataExpectationBuilder.orExpectAssertMethod)
+            .expect(1)
+            .orExpect(5)
             .build();
 
     @TestData

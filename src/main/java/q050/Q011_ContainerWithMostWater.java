@@ -2,10 +2,10 @@ package q050;
 
 import org.junit.runner.RunWith;
 import util.runner.Answer;
-import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
 import util.runner.UsingTestData;
+import util.runner.data.DataExpectation;
 
 /**
  * Given n non-negative integers a1, a2, ..., an , where each represents a point at coordinate (i, ai). n vertical

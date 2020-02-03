@@ -1,4 +1,4 @@
-package util.runner;
+package util.runner.data;
 
 public class SimpleDataExpectationBuilder {
 

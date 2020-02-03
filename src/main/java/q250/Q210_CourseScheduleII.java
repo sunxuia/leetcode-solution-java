@@ -6,10 +6,9 @@ import java.util.Deque;
 import java.util.List;
 import org.junit.runner.RunWith;
 import util.runner.Answer;
-import util.runner.DataExpectation;
-import util.runner.DataExpectationBuilder;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
+import util.runner.data.DataExpectation;
 
 /**
  * https://leetcode.com/problems/course-schedule-ii
@@ -98,8 +97,8 @@ public class Q210_CourseScheduleII {
     public DataExpectation example2 = DataExpectation.builder()
             .addArgument(4)
             .addArgument(new int[][]{{1, 0}, {2, 0}, {3, 1}, {3, 2}})
-            .expect(new int[][]{{0, 1, 2, 3}, {0, 2, 1, 3}})
-            .assertMethod(DataExpectationBuilder.orExpectAssertMethod)
+            .expect(new int[]{0, 1, 2, 3})
+            .orExpect(new int[]{0, 2, 1, 3})
             .build();
 
     @TestData

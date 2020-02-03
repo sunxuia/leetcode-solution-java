@@ -3,9 +3,9 @@ package q050;
 import java.util.Stack;
 import org.junit.runner.RunWith;
 import util.runner.Answer;
-import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
+import util.runner.data.DataExpectation;
 
 /**
  * Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is

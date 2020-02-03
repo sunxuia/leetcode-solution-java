@@ -6,10 +6,10 @@ import util.asserthelper.AssertUtils;
 import util.provided.ListNode;
 import util.provided.TreeNode;
 import util.runner.Answer;
-import util.runner.DataExpectation;
-import util.runner.DataExpectationBuilder;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
+import util.runner.data.DataExpectation;
+import util.runner.data.DataExpectationBuilder;
 
 /**
  * https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/
@@ -71,7 +71,7 @@ public class Q109_ConvertSortedListToBinarySearchTree {
         int[] arg = new int[]{-10, -3, 0, 5, 9};
         builder.addArgument(ListNode.createListNode(arg));
         builder.expect(null);
-        builder.<TreeNode>assertMethod((a, res) -> {
+        builder.<TreeNode>assertMethod(res -> {
             assertBst(res, Long.MIN_VALUE, Long.MAX_VALUE);
             assertBalancedTree(res);
             AssertUtils.assertEquals(arg, res.inOrderTraversal());

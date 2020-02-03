@@ -2,9 +2,9 @@ package q050;
 
 import org.junit.runner.RunWith;
 import util.runner.Answer;
-import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
+import util.runner.data.DataExpectation;
 
 /**
  * The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: (you may want to

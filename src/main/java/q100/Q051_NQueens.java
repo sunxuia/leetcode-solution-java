@@ -6,9 +6,9 @@ import org.junit.runner.RunWith;
 import util.asserthelper.AssertUtils;
 import util.asserthelper.ObjectEqualsHelper;
 import util.runner.Answer;
-import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
+import util.runner.data.DataExpectation;
 
 /**
  * https://leetcode.com/problems/n-queens/

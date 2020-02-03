@@ -6,10 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.junit.runner.RunWith;
 import util.runner.Answer;
-import util.runner.DataExpectation;
-import util.runner.DataExpectationBuilder;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
+import util.runner.data.DataExpectation;
 
 /**
  * https://leetcode.com/problems/gray-code/
@@ -90,8 +89,8 @@ public class Q089_GrayCode {
     @TestData
     public DataExpectation example1 = DataExpectation.builder()
             .addArgument(2)
-            .expect(asList(asList(0, 1, 3, 2), asList(0, 2, 3, 1)))
-            .assertMethod(DataExpectationBuilder.orExpectAssertMethod)
+            .expect(asList(0, 1, 3, 2))
+            .orExpect(asList(0, 2, 3, 1))
             .build();
 
     @TestData

@@ -2,9 +2,9 @@ package q050;
 
 import org.junit.runner.RunWith;
 import util.runner.Answer;
-import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
+import util.runner.data.DataExpectation;
 
 /**
  * There are two sorted arrays nums1 and nums2 of size m and n respectively.

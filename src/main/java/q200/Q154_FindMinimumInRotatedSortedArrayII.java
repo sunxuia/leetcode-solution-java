@@ -1,8 +1,8 @@
 package q200;
 
 import util.runner.Answer;
-import util.runner.DataExpectation;
 import util.runner.TestData;
+import util.runner.data.DataExpectation;
 
 /**
  * https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/

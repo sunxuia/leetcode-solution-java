@@ -3,9 +3,9 @@ package q350;
 import org.junit.runner.RunWith;
 import q300.Q264_UglyNumberII;
 import util.runner.Answer;
-import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
+import util.runner.data.DataExpectation;
 
 /**
  * https://leetcode.com/problems/super-ugly-number/

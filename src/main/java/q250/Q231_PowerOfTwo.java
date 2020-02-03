@@ -3,9 +3,9 @@ package q250;
 import org.junit.runner.RunWith;
 import q350.Q326_PowerOfThree;
 import util.runner.Answer;
-import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
+import util.runner.data.DataExpectation;
 
 /**
  * https://leetcode.com/problems/power-of-two/

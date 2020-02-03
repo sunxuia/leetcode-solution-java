@@ -3,9 +3,9 @@ package q300;
 import org.junit.runner.RunWith;
 import q150.Q137_SingleNumberII;
 import util.runner.Answer;
-import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
+import util.runner.data.DataExpectation;
 
 /**
  * https://leetcode.com/problems/single-number-iii/

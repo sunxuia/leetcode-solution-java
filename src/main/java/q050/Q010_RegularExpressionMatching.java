@@ -5,10 +5,10 @@ import java.util.List;
 import java.util.Stack;
 import org.junit.runner.RunWith;
 import util.runner.Answer;
-import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
 import util.runner.UsingTestData;
+import util.runner.data.DataExpectation;
 
 /**
  * Given an input string (s) and a pattern (p), implement regular expression matching with support for '.' and '*'.

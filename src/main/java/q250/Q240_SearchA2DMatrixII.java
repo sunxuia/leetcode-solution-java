@@ -3,9 +3,9 @@ package q250;
 import org.junit.runner.RunWith;
 import q100.Q074_SearchA2DMatrix;
 import util.runner.Answer;
-import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
+import util.runner.data.DataExpectation;
 
 /**
  * https://leetcode.com/problems/search-a-2d-matrix-ii/

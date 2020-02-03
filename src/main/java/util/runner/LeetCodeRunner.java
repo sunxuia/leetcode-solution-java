@@ -25,16 +25,17 @@ import org.junit.runner.manipulation.NoTestsRemainException;
 import org.junit.runner.notification.Failure;
 import org.junit.runner.notification.RunNotifier;
 import util.asserthelper.ErrorStringBuilder;
+import util.runner.data.DataExpectation;
 
 public class LeetCodeRunner extends Runner implements Filterable {
 
-    private Class testedClass;
+    private final Class<?> testedClass;
 
-    private List<AnswerMethod> testMethods;
+    private final List<AnswerMethod> testMethods;
 
     private Map<String, Object> cache = new HashMap<>();
 
-    public LeetCodeRunner(Class testedClass) {
+    public LeetCodeRunner(Class<?> testedClass) {
         super();
         this.testedClass = testedClass;
         this.testMethods = createTestMethods();
@@ -162,12 +163,16 @@ public class LeetCodeRunner extends Runner implements Filterable {
                     esb.append("Error while validate ").append(holder.name).append(":\n");
                     esb.append("    expect: ").append(holder.testData.getExpect()).newLine();
                     esb.append("    actual: ").append(res);
-                    System.err.println(esb.toString());
+                    logError(esb.toString());
                     throw err;
                 }
             }
         }
         return runTimes;
+    }
+
+    private void logError(String msg) {
+        System.err.println(msg);
     }
 
     private List<TestDataHolder> getTestDataHolders(Object testedObject)
@@ -198,7 +203,7 @@ public class LeetCodeRunner extends Runner implements Filterable {
             if (errorMessageParas.length > 0) {
                 errorMessage = String.format(errorMessage, errorMessageParas);
             }
-            System.err.println(errorMessage);
+            logError(errorMessage);
             throw err.getCause();
         }
     }

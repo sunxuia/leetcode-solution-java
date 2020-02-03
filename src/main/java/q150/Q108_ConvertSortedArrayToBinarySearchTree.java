@@ -5,10 +5,10 @@ import org.junit.runner.RunWith;
 import util.asserthelper.AssertUtils;
 import util.provided.TreeNode;
 import util.runner.Answer;
-import util.runner.DataExpectation;
-import util.runner.DataExpectationBuilder;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
+import util.runner.data.DataExpectation;
+import util.runner.data.DataExpectationBuilder;
 
 /**
  * https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/

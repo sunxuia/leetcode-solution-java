@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import util.UtilPackageHelper;
 
 public class AssertUtilsTest {
 
@@ -17,7 +18,7 @@ public class AssertUtilsTest {
             AssertUtils.fail("%s message", "fail");
         } catch (AssertionError err) {
             exceptionThrown = true;
-            Assert.assertEquals(err.getStackTrace()[0].getClassName(), AssertUtilsTest.class.getName());
+            Assert.assertFalse(err.getStackTrace()[0].getClassName().startsWith(UtilPackageHelper.PACKAGE_NAME + "."));
             Assert.assertEquals(err.getMessage(), "fail message");
         } finally {
             if (!exceptionThrown) {

@@ -2,9 +2,9 @@ package q050;
 
 import org.junit.runner.RunWith;
 import util.runner.Answer;
-import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
+import util.runner.data.DataExpectation;
 
 /**
  * Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.

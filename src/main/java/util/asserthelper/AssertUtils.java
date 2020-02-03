@@ -1,6 +1,7 @@
 package util.asserthelper;
 
 import java.util.Arrays;
+import util.UtilPackageHelper;
 
 public class AssertUtils {
 
@@ -19,7 +20,7 @@ public class AssertUtils {
         AssertionError assertionError = new AssertionError(message);
         StackTraceElement[] stackTraces = assertionError.getStackTrace();
         int subIndex = 1;
-        while (stackTraces[subIndex].getClassName().equals(AssertUtils.class.getName())) {
+        while (UtilPackageHelper.isInPackage(stackTraces[subIndex].getClassName())) {
             subIndex++;
         }
         assertionError.setStackTrace(Arrays.copyOfRange(stackTraces, subIndex, stackTraces.length));

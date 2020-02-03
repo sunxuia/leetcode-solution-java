@@ -2,10 +2,10 @@ package q050;
 
 import org.junit.runner.RunWith;
 import util.runner.Answer;
-import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
 import util.runner.UsingTestData;
+import util.runner.data.DataExpectation;
 
 /**
  * https://leetcode.com/problems/integer-to-roman/

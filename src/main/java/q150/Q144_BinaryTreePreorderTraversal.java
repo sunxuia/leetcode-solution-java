@@ -7,9 +7,9 @@ import java.util.Stack;
 import org.junit.runner.RunWith;
 import util.provided.TreeNode;
 import util.runner.Answer;
-import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
+import util.runner.data.DataExpectation;
 
 /**
  * https://leetcode.com/problems/binary-tree-preorder-traversal/

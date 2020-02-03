@@ -3,9 +3,9 @@ package q050;
 import org.junit.runner.RunWith;
 import util.provided.ListNode;
 import util.runner.Answer;
-import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
+import util.runner.data.DataExpectation;
 
 /**
  * https://leetcode.com/problems/merge-two-sorted-lists/

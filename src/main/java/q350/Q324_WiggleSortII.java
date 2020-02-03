@@ -5,9 +5,9 @@ import java.util.function.BiConsumer;
 import org.junit.Assert;
 import org.junit.runner.RunWith;
 import util.runner.Answer;
-import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
+import util.runner.data.DataExpectation;
 
 /**
  * https://leetcode.com/problems/wiggle-sort-ii/

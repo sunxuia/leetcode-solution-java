@@ -3,9 +3,9 @@ package q150;
 import org.junit.runner.RunWith;
 import util.provided.TreeNode;
 import util.runner.Answer;
-import util.runner.DataExpectation;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
+import util.runner.data.DataExpectation;
 
 /**
  * https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
