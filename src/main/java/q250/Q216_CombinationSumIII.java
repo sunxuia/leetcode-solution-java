@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import org.junit.runner.RunWith;
 import q050.Q040_CombinationSumII;
+import q400.Q377_CombinationSumIV;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -31,7 +32,8 @@ import util.runner.data.DataExpectation;
  * Input: k = 3, n = 9
  * Output: [[1,2,6], [1,3,5], [2,3,4]]
  *
- * 相关题目: {@link Q040_CombinationSumII}
+ * 上一题: {@link Q040_CombinationSumII}
+ * 下一题: {@link Q377_CombinationSumIV}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q216_CombinationSumIII {
