@@ -51,6 +51,9 @@ public class TestDataFileHelper {
             } catch (IOException err) {
                 throw new DataExpectationException(err, "Error while read file [%s]", realFileName);
             }
+            if (sb.length() > 0) {
+                sb.setLength(sb.length() - 1);
+            }
             return sb.toString();
         };
     }
