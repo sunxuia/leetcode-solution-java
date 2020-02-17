@@ -27,7 +27,7 @@ import util.runner.data.DataExpectation;
  * >    [2,3,3,4]
  * >  ]
  *
- * (图 Q390_PIC1.png)
+ * (图 Q390_PIC1.gif)
  *
  * Return true. All 5 rectangles together form an exact cover of a rectangular region.
  *
@@ -43,7 +43,7 @@ import util.runner.data.DataExpectation;
  * >    [3,2,4,4]
  * >  ]
  *
- * (图 Q390_PIC2.png)
+ * (图 Q390_PIC2.gif)
  *
  * Return false. Because there is a gap between the two rectangular regions.
  *
@@ -59,7 +59,7 @@ import util.runner.data.DataExpectation;
  * >    [3,2,4,4]
  * >  ]
  *
- * (图 Q390_PIC3.png)
+ * (图 Q390_PIC3.gif)
  *
  * Return false. Because there is a gap in the top center.
  *
@@ -75,7 +75,7 @@ import util.runner.data.DataExpectation;
  * >    [2,2,4,4]
  * >  ]
  *
- * (图 Q390_PIC4.png)
+ * (图 Q390_PIC4.gif)
  *
  * Return false. Because two of the rectangles overlap with each other.
  */
