@@ -1,6 +1,9 @@
 package q050;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import org.junit.runner.RunWith;
+import q450.Q407_TrappingRainWaterII;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -21,6 +24,8 @@ import util.runner.data.DataExpectation;
  *
  * Input: [0,1,0,2,1,0,1,3,2,1,2,1]
  * Output: 6
+ *
+ * 下一题: {@link Q407_TrappingRainWaterII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q042_TrappingRainWater {
@@ -91,6 +96,27 @@ public class Q042_TrappingRainWater {
                     res += rightMax - height[right];
                 }
                 right--;
+            }
+        }
+        return res;
+    }
+
+    // 单调递增栈的实现方式. 当遇到比栈顶高度大的时候, 就说明有可能会有坑存在, 可以装雨水.
+    @Answer
+    public int trap3(int[] height) {
+        Deque<Integer> stack = new ArrayDeque<>();
+        int res = 0;
+        for (int i = 0; i < height.length;) {
+            if (stack.isEmpty() || height[stack.peek()] >= height[i]) {
+                stack.push(i);
+                i++;
+            } else {
+                // 形成水坑, 此时 height[i] 是右边的坡, stack 栈顶元素是底, stack 栈顶第2 个元素是左边的坡
+                int j = stack.pop();
+                if (!stack.isEmpty()) {
+                    res += (Math.min(height[i], height[stack.peek()]) - height[j]) * (i - stack.peek() - 1);
+                }
+                // 栈顶出坑后, 可能新的栈顶也是底, 所以这里i 不自增.
             }
         }
         return res;
