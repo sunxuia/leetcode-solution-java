@@ -52,7 +52,7 @@ import util.runner.data.DataExpectation;
 public class Q117_PopulatingNextRightPointersInEachNodeII {
 
 
-    public static class Node {
+    private static class Node {
 
         public int val;
         public Node left;

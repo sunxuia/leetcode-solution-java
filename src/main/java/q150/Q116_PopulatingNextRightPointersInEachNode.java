@@ -55,7 +55,7 @@ import util.runner.data.DataExpectation;
 @RunWith(LeetCodeRunner.class)
 public class Q116_PopulatingNextRightPointersInEachNode {
 
-    public static class Node {
+    private static class Node {
 
         public int val;
         public Node left;
