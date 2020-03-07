@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.runner.RunWith;
+import q450.Q440_KthSmallestInLexicographicalOrder;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -17,6 +18,8 @@ import util.runner.data.DataExpectation;
  * For example, given 13, return: [1,10,11,12,13,2,3,4,5,6,7,8,9].
  *
  * Please optimize your algorithm to use less time and space. The input size may be as large as 5,000,000.
+ *
+ * 相关题目 {@link Q440_KthSmallestInLexicographicalOrder}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q386_LexicographicalNumbers {

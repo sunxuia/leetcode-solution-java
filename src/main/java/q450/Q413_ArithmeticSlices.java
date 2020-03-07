@@ -36,17 +36,23 @@ import util.runner.data.DataExpectation;
  * A = [1, 2, 3, 4]
  *
  * return: 3, for 3 arithmetic slices in A: [1, 2, 3], [2, 3, 4] and [1, 2, 3, 4] itself.
+ *
+ * 下一题 {@link Q446_ArithmeticSlicesIISubsequence}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q413_ArithmeticSlices {
 
     @Answer
     public int numberOfArithmeticSlices(int[] A) {
+        // count 表示连续序列的数量.
         int res = 0, count = 2;
         for (int i = 2; i < A.length; i++) {
             if (A[i] - A[i - 1] == A[i - 1] - A[i - 2]) {
+                // 是一个连续序列
                 count++;
             } else {
+                // 不是连续序列.
+                // 计算可以组合出来的序列组合的数量. (3元素组合, 4元素组合, ..., count 元素组合)
                 res += (count - 2) * (count - 1) / 2;
                 count = 2;
             }
