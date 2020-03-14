@@ -6,12 +6,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.BiConsumer;
 import org.junit.runner.RunWith;
+import q500.Q454_4SumII;
 import util.asserthelper.AssertUtils;
 import util.asserthelper.ObjectEqualsHelper;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
-import util.runner.UsingTestData;
 import util.runner.data.DataExpectation;
 
 /**
@@ -34,6 +34,8 @@ import util.runner.data.DataExpectation;
  * [-2, -1, 1, 2],
  * [-2,  0, 0, 2]
  * ]
+ *
+ * 下一题 {@link Q454_4SumII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q018_4Sum {
@@ -42,7 +44,6 @@ public class Q018_4Sum {
      * 类似 Q015, 3 个数之和变成了4 个数. 时间复杂度 O(n^2logn) ~ O(n^3)
      */
     @Answer
-    @UsingTestData({"normal3"})
     public List<List<Integer>> fourSum(int[] nums, int target) {
         if (nums.length < 4) {
             return Collections.emptyList();
