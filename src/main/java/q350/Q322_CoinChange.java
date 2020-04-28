@@ -2,6 +2,7 @@ package q350;
 
 import java.util.Arrays;
 import org.junit.runner.RunWith;
+import q550.Q518_CoinChange2;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -24,6 +25,8 @@ import util.runner.data.DataExpectation;
  *
  * Input: coins = [2], amount = 3
  * Output: -1
+ *
+ * 下一题 {@link Q518_CoinChange2}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q322_CoinChange {

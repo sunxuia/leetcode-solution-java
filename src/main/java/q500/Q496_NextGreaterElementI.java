@@ -3,6 +3,7 @@ package q500;
 import java.util.HashMap;
 import java.util.Map;
 import org.junit.runner.RunWith;
+import q550.Q503_NextGreaterElementII;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -39,6 +40,8 @@ import util.runner.data.DataExpectation;
  *
  * All elements in nums1 and nums2 are unique.
  * The length of both nums1 and nums2 would not exceed 1000.
+ *
+ * 下一题 {@link Q503_NextGreaterElementII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q496_NextGreaterElementI {
