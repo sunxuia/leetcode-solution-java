@@ -61,7 +61,7 @@ public class Q493_ReversePairs {
         return end;
     }
 
-    // LeetCode 上比较快的方式, 使用分治的方式, 这样的时间复杂度在 O(NlongN)
+    // LeetCode 上比较快的方式, 使用分治的方式, 这样的时间复杂度在 O(NlogN)
     // 详情见 https://www.cnblogs.com/grandyang/p/6657956.html
     @Answer
     public int reversePairs2(int[] nums) {
