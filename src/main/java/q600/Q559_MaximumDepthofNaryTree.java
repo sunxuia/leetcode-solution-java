@@ -1,11 +1,11 @@
-package q450;
+package q600;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 import org.junit.runner.RunWith;
-import q600.Q559_MaximumDepthofNaryTree;
+import q450.Q429_NaryTreeLevelOrderTraversal;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -20,31 +20,30 @@ import util.runner.data.DataExpectation;
  * by the null value (See examples).
  *
  *
+ *
  * Example 1:
  *
- * (图 Q429_PIC1.png)
+ * (图 Q559_PIC1.png)
  *
  * Input: root = [1,null,3,2,4,null,5,6]
  * Output: [[1],[3,2,4],[5,6]]
  *
  * Example 2:
  *
- * (图 Q429_PIC2.png)
+ * (图 Q559_PIC2.png)
  *
  * Input: root = [1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14]
  * Output: [[1],[2,3,4,5],[6,7,8,9,10],[11,12,13],[14]]
- *
- *
  *
  * Constraints:
  *
  * The height of the n-ary tree is less than or equal to 1000
  * The total number of nodes is between [0, 10^4]
  *
- * 关联题目 {@link Q559_MaximumDepthofNaryTree}
+ * 关联题目 {@link Q429_NaryTreeLevelOrderTraversal}
  */
 @RunWith(LeetCodeRunner.class)
-public class Q429_NaryTreeLevelOrderTraversal {
+public class Q559_MaximumDepthofNaryTree {
 
     // Definition for a Node.
     private static class Node {
@@ -65,35 +64,34 @@ public class Q429_NaryTreeLevelOrderTraversal {
     }
 
     @Answer
-    public List<List<Integer>> levelOrder(Node root) {
-        List<List<Integer>> res = new ArrayList<>();
+    public int maxDepth(Node root) {
         if (root == null) {
-            return res;
+            return 0;
         }
-        Queue<Node> queue = new ArrayDeque<>();
-        queue.add(root);
-        while (!queue.isEmpty()) {
-            List<Integer> level = new ArrayList<>();
-            for (int i = queue.size(); i > 0; i--) {
-                Node node = queue.remove();
-                level.add(node.val);
-                if (node.children != null) {
-                    queue.addAll(node.children);
-                }
+        int res = 1;
+        if (root.children != null) {
+            for (Node child : root.children) {
+                res = Math.max(res, 1 + maxDepth(child));
             }
-            res.add(level);
         }
         return res;
     }
 
     @TestData
-    public DataExpectation example1 = DataExpectation.create(createNodeByLevel(1, null,
+    public DataExpectation exmaple1 = DataExpectation.create(createNodeByLevel(
+            1, null,
             3, 2, 4, null,
-            5, 6, null)).expect(new int[][]{
-            {1},
-            {3, 2, 4},
-            {5, 6}
-    });
+            5, 6
+    )).expect(3);
+
+    @TestData
+    public DataExpectation exmaple2 = DataExpectation.create(createNodeByLevel(
+            1, null,
+            2, 3, 4, 5, null,
+            null, 6, 7, null, 8, null, 9, 10, null,
+            null, 11, null, 12, null, 13, null, null,
+            14
+    )).expect(5);
 
     /**
      * 构造测试Node 数据.
@@ -116,21 +114,5 @@ public class Q429_NaryTreeLevelOrderTraversal {
         }
         return dummy.children.get(0);
     }
-
-    @TestData
-    public DataExpectation example2 = DataExpectation.create(createNodeByLevel(1, null,
-            2, 3, 4, 5, null,
-            null, 6, 7, null, 8, null, 9, 10, null,
-            null, 11, null, 12, null, 13, null, null,
-            14, null)).expect(new int[][]{
-            {1},
-            {2, 3, 4, 5},
-            {6, 7, 8, 9, 10},
-            {11, 12, 13},
-            {14}
-    });
-
-    @TestData
-    public DataExpectation border = DataExpectation.create(null).expect(new int[0]);
 
 }

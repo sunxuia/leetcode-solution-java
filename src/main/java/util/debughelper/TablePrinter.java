@@ -393,6 +393,19 @@ public class TablePrinter {
         return this;
     }
 
+    public TablePrinter print(long[][] table) {
+        String[][] strTable = new String[table.length][];
+        for (int i = 0; i < table.length; i++) {
+            strTable[i] = new String[table[i].length];
+            for (int j = 0; j < table[i].length; j++) {
+                strTable[i][j] = String.valueOf(table[i][j]);
+            }
+        }
+
+        print(strTable);
+        return this;
+    }
+
     public static TablePrinter printArray(int[] array, Object... pointersIndexString) {
         System.out.println();
         TablePrinter printer = createTablePrinterForArray(pointersIndexString);

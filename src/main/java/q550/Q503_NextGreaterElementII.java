@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.Stack;
 import org.junit.runner.RunWith;
 import q500.Q496_NextGreaterElementI;
+import q600.Q556_NextGreaterElementIII;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -29,6 +30,7 @@ import util.runner.data.DataExpectation;
  * Note: The length of given array won't exceed 10000.
  *
  * 上一题 {@link Q496_NextGreaterElementI}
+ * 下一题 {@link Q556_NextGreaterElementIII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q503_NextGreaterElementII {
