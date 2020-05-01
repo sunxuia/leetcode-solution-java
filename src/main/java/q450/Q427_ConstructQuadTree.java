@@ -2,6 +2,7 @@ package q450;
 
 import org.junit.Assert;
 import org.junit.runner.RunWith;
+import q600.Q558_LogicalOROfTwoBinaryGridsRepresentedAsQuadTrees;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -95,6 +96,8 @@ import util.runner.data.DataExpectation;
  *
  * n == grid.length == grid[i].length
  * n == 2^x where 0 <= x <= 6
+ *
+ * 关联题目 {@link Q558_LogicalOROfTwoBinaryGridsRepresentedAsQuadTrees}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q427_ConstructQuadTree {
