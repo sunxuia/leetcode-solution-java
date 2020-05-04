@@ -51,7 +51,7 @@ public class Q440_KthSmallestInLexicographicalOrder {
                 k -= step;
             } else {
                 cur *= 10;
-                k++;
+                k--;
             }
         }
         return cur;

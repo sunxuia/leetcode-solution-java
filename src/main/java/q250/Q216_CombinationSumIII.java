@@ -49,6 +49,7 @@ public class Q216_CombinationSumIII {
         return res;
     }
 
+    @SuppressWarnings("unchecked")
     private void dfs(List<List<Integer>> res, ArrayList<Integer> path, int k, int n, int sum, int start) {
         if (sum + (10 - k + 9) * k / 2 < n || sum + (start + start + k - 1) * k / 2 > n) {
             return;
