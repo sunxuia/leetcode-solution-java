@@ -7,7 +7,6 @@ import org.junit.runner.RunWith;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
-import util.runner.UsingTestData;
 import util.runner.data.DataExpectation;
 
 /**
@@ -237,7 +236,6 @@ public class Q010_RegularExpressionMatching {
      * leetcode 中运行最快的方式是动态规划.
      */
     @Answer
-    @UsingTestData({})
     public boolean isMatch_Dp(String s, String p) {
         final int sLength = s.length();
         final int pLength = p.length();

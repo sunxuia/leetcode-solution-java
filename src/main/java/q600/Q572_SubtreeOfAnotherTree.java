@@ -5,7 +5,6 @@ import util.provided.TreeNode;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
-import util.runner.UsingTestData;
 import util.runner.data.DataExpectation;
 
 /**
@@ -54,7 +53,6 @@ import util.runner.data.DataExpectation;
 @RunWith(LeetCodeRunner.class)
 public class Q572_SubtreeOfAnotherTree {
 
-    @UsingTestData("normal1")
     @Answer
     public boolean isSubtree(TreeNode s, TreeNode t) {
         return isSubtree(s, t, false);

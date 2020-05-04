@@ -11,7 +11,6 @@ import org.junit.runner.RunWith;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
-import util.runner.UsingTestData;
 import util.runner.data.DataExpectation;
 
 /**
@@ -93,7 +92,6 @@ public class Q022_GenerateParentheses {
      * 针对上面运行缓慢的问题进行修改. 利用括号的特性, 在最后才生成字符串.
      */
     @Answer
-    @UsingTestData({})
     public List<String> generateParenthesis(int n) {
         if (n == 0) {
             return Collections.emptyList();

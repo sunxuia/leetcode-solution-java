@@ -4,7 +4,6 @@ import org.junit.runner.RunWith;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
-import util.runner.UsingTestData;
 import util.runner.data.DataExpectation;
 
 /**
@@ -48,7 +47,6 @@ public class Q011_ContainerWithMostWater {
      * 两边逼近的方式.
      */
     @Answer
-    @UsingTestData({})
     public int maxArea(int[] height) {
         int left = 0, right = height.length - 1;
         int res = 0;

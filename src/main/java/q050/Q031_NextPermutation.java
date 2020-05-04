@@ -5,7 +5,6 @@ import util.asserthelper.AssertUtils;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
-import util.runner.UsingTestData;
 import util.runner.data.DataExpectation;
 
 /**
@@ -36,7 +35,6 @@ public class Q031_NextPermutation {
      * 这题套用特定公式即可
      */
     @Answer
-    @UsingTestData({})
     public void nextPermutation(int[] nums) {
         if (nums == null || nums.length < 2) {
             return;

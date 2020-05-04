@@ -5,7 +5,6 @@ import q550.Q503_NextGreaterElementII;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
-import util.runner.UsingTestData;
 import util.runner.data.DataExpectation;
 
 /**
@@ -36,7 +35,6 @@ public class Q556_NextGreaterElementIII {
      * 找出本位小于低1位数字的位置, 然后从低位中找出比它大的最小数,
      * 替换到本位, 其余数字按顺序排列即可.
      */
-    @UsingTestData("normal2")
     @Answer
     public int nextGreaterElement(int n) {
         // 采用桶排序找出本位小于低1位数字的位置和为低位的各个数字排序

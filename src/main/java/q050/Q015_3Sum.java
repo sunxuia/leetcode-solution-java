@@ -10,7 +10,6 @@ import util.asserthelper.ObjectEqualsHelper;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
-import util.runner.UsingTestData;
 import util.runner.data.DataExpectation;
 
 /**
@@ -40,7 +39,6 @@ public class Q015_3Sum {
      * 排序后, 选择一个数字, 然后从两边查找匹配的数字. 时间复杂度在 O(nlogn) ~ O(n^2).
      */
     @Answer
-    @UsingTestData({})
     public List<List<Integer>> threeSum(int[] nums) {
         if (nums.length < 3) {
             return Collections.emptyList();

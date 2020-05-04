@@ -4,7 +4,6 @@ import org.junit.runner.RunWith;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
-import util.runner.UsingTestData;
 import util.runner.data.DataExpectation;
 
 /**
@@ -63,7 +62,6 @@ public class Q012_IntegerToRoman {
      * 罗马数字规则参见 https://www.douban.com/note/335254352/
      */
     @Answer
-    @UsingTestData({})
     public String intToRoman(int num) {
         int[] nums = new int[]{1000, 500, 100, 50, 10, 5, 1};
         int[] limit = new int[]{900, 400, 90, 40, 9, 4, 1};
