@@ -49,7 +49,7 @@
                 <configuration>
                     <includes>
                         <include>q???/Q???_*.java</include>
-                        <include>util/**/*.java</include>
+                        <include>util/**/*Test.java</include>
                     </includes>
                     <testClassesDirectory>${project.build.directory}/classes/</testClassesDirectory>
                 </configuration>
