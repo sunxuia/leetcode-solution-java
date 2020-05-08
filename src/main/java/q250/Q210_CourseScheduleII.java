@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 import org.junit.runner.RunWith;
+import q650.Q630_CourseScheduleIII;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -44,6 +45,9 @@ import util.runner.data.DataExpectation;
  * The input prerequisites is a graph represented by a list of edges, not adjacency matrices. Read more about how
  * a graph is represented.
  * You may assume that there are no duplicate edges in the input prerequisites.
+ *
+ * 上一题 {@link Q207_CourseSchedule}
+ * 下一题 {@link Q630_CourseScheduleIII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q210_CourseScheduleII {
