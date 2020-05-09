@@ -41,6 +41,8 @@ import util.runner.data.TestDataFileHelper;
  * The input prerequisites is a graph represented by a list of edges, not adjacency matrices. Read more about how
  * a graph is represented.
  * You may assume that there are no duplicate edges in the input prerequisites.
+ *
+ * 下一题 {@link Q210_CourseScheduleII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q207_CourseSchedule {
