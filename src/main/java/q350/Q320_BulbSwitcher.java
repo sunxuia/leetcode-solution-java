@@ -1,6 +1,7 @@
 package q350;
 
 import org.junit.runner.RunWith;
+import q700.Q672_BulbSwitcherII;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -25,11 +26,14 @@ import util.runner.data.DataExpectation;
  * After third round, the three bulbs are [on, off, off].
  *
  * So you should return 1, because there is only one bulb is on.
+ *
+ * 下一题 {@link Q672_BulbSwitcherII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q320_BulbSwitcher {
 
     // 符合题意的解法, 这个会超时
+//    @Answer
     public int bruceForce(int n) {
         boolean[] bulbs = new boolean[n + 1];
         for (int step = 1; step <= n; step++) {
@@ -61,6 +65,6 @@ public class Q320_BulbSwitcher {
     public DataExpectation normal1 = DataExpectation.create(1).expect(1);
 
     @TestData
-    public DataExpectation normal2 = DataExpectation.create(99999999).expect(9999);
+    public DataExpectation overTime = DataExpectation.create(99999999).expect(9999);
 
 }
