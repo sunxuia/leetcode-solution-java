@@ -1,6 +1,7 @@
 package q150;
 
 import org.junit.runner.RunWith;
+import q700.Q680_ValidPalindromeII;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -22,6 +23,8 @@ import util.runner.data.DataExpectation;
  *
  * Input: "race a car"
  * Output: false
+ *
+ * 下一题 {@link Q680_ValidPalindromeII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q125_ValidPalindrome {

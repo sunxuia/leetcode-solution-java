@@ -1,6 +1,7 @@
 package q150;
 
 import org.junit.runner.RunWith;
+import q700.Q684_RedundantConnection;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -85,6 +86,8 @@ public class Q130_SurroundedRegions {
      * union find 的思路是:
      * 图中的不同节点(比如 a, b) 如果有关联, 则将其连接起来 (b -> a), 其它节点的关联也是如此 (比如 c -> a, a -> d, e -> d),
      * 那么查找c 和e 之间是否关联就可以通过分别找出c 和d 的根节点 (c -> a -> d, e -> d) 来判断.
+     *
+     * 另一个使用示例参见 {@link Q684_RedundantConnection}
      */
     @Answer
     public void solve_UnionFind(char[][] board) {
