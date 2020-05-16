@@ -1,6 +1,7 @@
 package q450;
 
 import org.junit.runner.RunWith;
+import q700.Q698_PartitionToKEqualSumSubsets;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -44,6 +45,8 @@ public class Q416_PartitionEqualSubsetSum {
      * 通常的遍历方式会超时,
      * https://www.cnblogs.com/grandyang/p/5951422.html
      * 中提供了一种dp 的方式.
+     *
+     * 类似题目参见 {@link Q698_PartitionToKEqualSumSubsets}, 将2 份扩展为多份
      */
     @Answer
     public boolean canPartition(int[] nums) {
@@ -121,6 +124,7 @@ public class Q416_PartitionEqualSubsetSum {
     public DataExpectation overTime = DataExpectation.create(new int[]{
             1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
             1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-            1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 100}).expect(false);
+            1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 100
+    }).expect(false);
 
 }
