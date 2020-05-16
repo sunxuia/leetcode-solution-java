@@ -90,6 +90,11 @@ public class Q667_BeautifulArrangementII {
             .build();
 
     @TestData
-    public DataExpectation normal1 = DataExpectation.createWith(5, 2).expect(new int[]{1, 3, 2, 4, 5});
+    public DataExpectation normal1 = DataExpectation.builder()
+            .addArgument(5)
+            .addArgument(2)
+            .expect(new int[]{1, 3, 2, 4, 5})
+            .orExpect(new int[]{1, 2, 3, 5, 4})
+            .build();
 
 }
