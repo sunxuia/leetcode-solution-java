@@ -55,7 +55,7 @@ public class DataExpectationBuilder {
     @SuppressWarnings("unchecked")
     private OrList<Object> getOrList(int idx) {
         if (!expects.containsKey(idx)) {
-            throw new DataExpectationException("expect not exist");
+            throw new TestDataException("expect not exist");
         }
         Object exist = expects.get(idx);
         if (exist instanceof OrList) {

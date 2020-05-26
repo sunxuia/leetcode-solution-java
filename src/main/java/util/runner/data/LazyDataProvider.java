@@ -2,6 +2,9 @@ package util.runner.data;
 
 import java.util.function.Function;
 
+/**
+ * 表示测试数据中的懒加载数据
+ */
 @FunctionalInterface
 public interface LazyDataProvider<T> {
 

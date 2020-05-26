@@ -1,12 +1,12 @@
 package util.runner.data;
 
-public class DataExpectationException extends RuntimeException {
+public class TestDataException extends RuntimeException {
 
-    DataExpectationException(String msg, Object... paras) {
+    TestDataException(String msg, Object... paras) {
         super(format(msg, paras));
     }
 
-    DataExpectationException(Throwable cause, String msg, Object... paras) {
+    TestDataException(Throwable cause, String msg, Object... paras) {
         super(format(msg, paras), cause);
     }
 

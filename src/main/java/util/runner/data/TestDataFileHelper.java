@@ -22,7 +22,7 @@ public class TestDataFileHelper {
                 try {
                     res[i] = Integer.parseInt(strs[i].trim());
                 } catch (NumberFormatException err) {
-                    throw new DataExpectationException(err, "Error while parse %dth number: %s.", i, strs[i]);
+                    throw new TestDataException(err, "Error while parse %dth number: %s.", i, strs[i]);
                 }
             }
             return res;
@@ -49,7 +49,7 @@ public class TestDataFileHelper {
                     sb.append(line).append("\n");
                 }
             } catch (IOException err) {
-                throw new DataExpectationException(err, "Error while read file [%s]", realFileName);
+                throw new TestDataException(err, "Error while read file [%s]", realFileName);
             }
             if (sb.length() > 0) {
                 sb.setLength(sb.length() - 1);

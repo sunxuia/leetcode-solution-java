@@ -5,15 +5,31 @@ import java.util.Map;
 import java.util.Map.Entry;
 import util.asserthelper.AssertUtils;
 
+/**
+ * 表示方法类型的LeetCode 中的一个测试数据(测试用例).
+ * 测试用例可以是方法返回值, 可以是类中的实例字段 (都需要是 public 类型).
+ * 方法返回类型/ 字段类型可以是DataExpection, Collection<DataExpection>, DataExpection[], Map<String, DataExpectation> 等类型.
+ */
 public class DataExpectation {
 
     static final DefaultDataAssertMethod<?> DEFAULT_ASSERT_METHOD = new DefaultDataAssertMethod<>((
             e, a, o) -> AssertUtils.assertEquals(e, a), null);
 
-    private Object[] arguments;
+    /**
+     * 方法参数
+     */
+    private Object[] arguments = new Object[0];
 
+    /**
+     * 期望数据的值.
+     * -1 表示是返回值, >=0 的表示期望的方法运行后的参数值.
+     */
     private Map<Integer, Object> expects = new HashMap<>();
 
+    /**
+     * 期望数据的判定方法.
+     * -1 表示是返回值, >=0 的表示期望的方法运行后的参数值.
+     */
     private Map<Integer, DefaultDataAssertMethod<?>> assertMethods = new HashMap<>();
 
     public Object[] getArguments() {
@@ -24,11 +40,8 @@ public class DataExpectation {
     }
 
     private Object unwrapValue(Object value) {
-        if (value == null) {
-            return null;
-        }
-        if (value instanceof LazyDataProvider) {
-            return ((LazyDataProvider) value).get();
+        while (value instanceof LazyDataProvider) {
+            value = ((LazyDataProvider<?>) value).get();
         }
         return value;
     }
@@ -72,7 +85,7 @@ public class DataExpectation {
         assertMethods.put(i, wrapDefaultAssertMethod(assertMethod));
     }
 
-    public void assertEquals(Object actual) {
+    public void assertResult(Object actual) {
         for (Entry<Integer, Object> entry : expects.entrySet()) {
             int index = entry.getKey();
             Object expected = entry.getValue();

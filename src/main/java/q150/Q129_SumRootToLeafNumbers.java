@@ -50,11 +50,12 @@ public class Q129_SumRootToLeafNumbers {
 
     @Answer
     public int sumNumbers(TreeNode root) {
+        res = 0;
         dfs(root, 0);
         return res;
     }
 
-    private int res = 0;
+    private int res;
 
     private void dfs(TreeNode node, int sum) {
         if (node == null) {
