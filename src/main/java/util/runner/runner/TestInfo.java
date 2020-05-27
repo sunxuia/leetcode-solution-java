@@ -69,7 +69,7 @@ public class TestInfo {
         }
         Set<String> set = shouldTestDatas.get(testDataName);
         if (set == null) {
-            throw new RuntimeException("Test data " + testDataName + " not exist.");
+            return false;
         }
         return isNullOrEmpty(subName)
                 || set.isEmpty()

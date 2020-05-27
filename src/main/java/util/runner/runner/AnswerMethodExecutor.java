@@ -49,7 +49,7 @@ public class AnswerMethodExecutor extends AbstractTestExecutor {
 
             // test method
             Object res = invokeMethod(testedObject, method, dataExpectation.getArguments(),
-                    "Error while calculate for input %s", testInfo.getName());
+                    "Error while calculate for input %s", testData.getName());
 
             // validate
             try {
