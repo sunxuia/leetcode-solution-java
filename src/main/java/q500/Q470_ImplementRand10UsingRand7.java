@@ -67,7 +67,7 @@ public class Q470_ImplementRand10UsingRand7 {
     @Test
     public void testMethod() {
         Solution solution = new Solution();
-        final int total = 10000;
+        final int total = 20000;
         int[] count = new int[10];
         for (int i = 0; i < total; i++) {
             count[solution.rand10() - 1]++;

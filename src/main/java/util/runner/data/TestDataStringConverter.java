@@ -1,5 +1,6 @@
 package util.runner.data;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -54,8 +55,8 @@ class TestDataStringConverter {
         if (type instanceof TypeVariable) {
             return parseObject(genericTypes.get(type), data);
         } else if (type instanceof GenericArrayType) {
-            Type componentType = ((GenericArrayType) type).getGenericComponentType();
-            return parseArray(componentType, data);
+            Type rawType = ((GenericArrayType) type).getGenericComponentType();
+            return parseArray(Object.class, rawType, data);
         } else if (type instanceof ParameterizedType) {
             return parseParameterizedType((ParameterizedType) type, data);
         } else if (type instanceof WildcardType) {
@@ -64,7 +65,7 @@ class TestDataStringConverter {
             Class<?> clazz = (Class<?>) type;
             if (clazz.isArray()) {
                 // array
-                return parseArray(clazz.getComponentType(), data);
+                return parseArray(clazz.getComponentType(), clazz.getComponentType(), data);
             } else {
                 // java object
                 throw new TestDataException("Unparseable java object: " + clazz.getName());
@@ -72,24 +73,24 @@ class TestDataStringConverter {
         }
     }
 
-    private Object[] parseArray(Type componentType, TestDataString data) {
+    private <T> T[] parseArray(Class<T> componentType, Type rawType, TestDataString data) {
         if (!data.isArray()) {
-            throw new TestDataException("Try to parse List with non-array type.");
+            throw new TestDataException("Try to parse array with non-array type.");
         }
         List<TestDataString> children = data.getChildren();
-        Object[] res = new Object[children.size()];
+        Object res = Array.newInstance(componentType, children.size());
         for (int i = 0; i < children.size(); i++) {
-            res[i] = parseObject(componentType, children.get(i));
+            Array.set(res, i, parseObject(rawType, children.get(i)));
         }
-        return res;
+        return (T[]) res;
     }
 
     private Object parseParameterizedType(ParameterizedType type, TestDataString data) {
         final Type rawType = type.getRawType();
         if (rawType.equals(List.class) || rawType.equals(Collections.class)) {
-            return Arrays.asList(parseArray(rawType, data));
+            return Arrays.asList(parseArray(Object.class, rawType, data));
         } else if (rawType.equals(Set.class)) {
-            return Arrays.stream(parseArray(rawType, data)).collect(Collectors.toSet());
+            return Arrays.stream(parseArray(Object.class, rawType, data)).collect(Collectors.toSet());
         } else if (type.getOwnerType() instanceof Class) {
             addGenericType((Class<?>) rawType, type);
             return parseObject(rawType, data);

@@ -56,7 +56,8 @@ public class AnswerMethodExecutor extends AbstractTestExecutor {
                 dataExpectation.assertResult(res);
             } catch (AssertionError err) {
                 ErrorStringBuilder esb = new ErrorStringBuilder();
-                esb.append("Error while validate ").append(testInfo.getName()).append(":\n");
+                esb.append("Error while validate ").append(testInfo.getName())
+                        .append(" with test data ").append(testData.getName()).append(":\n");
                 esb.append("    expect: ").append(dataExpectation.getExpect()).newLine();
                 esb.append("    actual: ").append(res);
                 logError(esb.toString());
