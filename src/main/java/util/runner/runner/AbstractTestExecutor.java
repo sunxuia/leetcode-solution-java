@@ -54,7 +54,8 @@ public abstract class AbstractTestExecutor {
     protected Object invokeMethod(Object testedObject, Method method, Object[] args,
             String errorMessage, Object... errorMessageParas) throws Throwable {
         try {
-            return method.invoke(testedObject, args);
+            Object res = method.invoke(testedObject, args);
+            return res;
         } catch (Throwable err) {
             if (errorMessageParas.length > 0) {
                 errorMessage = String.format(errorMessage, errorMessageParas);
