@@ -1,6 +1,7 @@
 package q550;
 
 import org.junit.runner.RunWith;
+import q800.Q783_MinimumDistanceBetweenBSTNodes;
 import util.provided.TreeNode;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
@@ -35,6 +36,8 @@ import util.runner.data.DataExpectation;
  *
  * There are at least two nodes in this BST.
  * This question is the same as 783: https://leetcode.com/problems/minimum-distance-between-bst-nodes/
+ *
+ * 相同题目 {@link Q783_MinimumDistanceBetweenBSTNodes}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q530_MinimumAbsoluteDifferenceInBST {
