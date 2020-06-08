@@ -48,7 +48,7 @@ import util.runner.data.DataExpectation;
 @RunWith(LeetCodeRunner.class)
 public class Q809_ExpressiveWords {
 
-    // LeetCode 上直接比较字符串反而会快一点
+    // LeetCode 上直接比较字符串会快一点
     @Answer
     public int expressiveWords(String S, String[] words) {
         List<int[]> repeats = getRepeats(S);

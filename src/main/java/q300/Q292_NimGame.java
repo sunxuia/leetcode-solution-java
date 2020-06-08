@@ -1,6 +1,7 @@
 package q300;
 
 import org.junit.runner.RunWith;
+import q850.Q810_ChalkboardXORGame;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -25,6 +26,8 @@ import util.runner.data.DataExpectation;
  * removed by your friend.
  *
  * 题解: Nim 游戏, 桌子上有一堆石头, 每人每次可以移走1-3 个石头, 移走最后一个石头的人是胜者, 你先手. 问你是否能赢?
+ *
+ * 类似题目 {@link Q810_ChalkboardXORGame}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q292_NimGame {
