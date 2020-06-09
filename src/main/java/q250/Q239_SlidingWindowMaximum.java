@@ -42,7 +42,7 @@ import util.runner.data.DataExpectation;
 @RunWith(LeetCodeRunner.class)
 public class Q239_SlidingWindowMaximum {
 
-    // O(nlogn) 的解法, 使用优先队列
+    // O(NlogK) 的解法, 使用优先队列
     @Answer
     public int[] maxSlidingWindow(int[] nums, int k) {
         if (nums.length == 0) {
@@ -54,6 +54,7 @@ public class Q239_SlidingWindowMaximum {
             pq.add(nums[i]);
             if (i >= k - 1) {
                 res[i - k + 1] = pq.peek();
+                // 这一步的比较操作时间复杂度是 O(K), 因此实际上的时间复杂度是 O(NK),可以优化一下
                 pq.remove(nums[i - k + 1]);
             }
         }
@@ -73,10 +74,13 @@ public class Q239_SlidingWindowMaximum {
         int[] res = new int[nums.length - k + 1];
         Deque<Integer> queue = new ArrayDeque<>(k);
         for (int i = 0; i < nums.length; i++) {
+            // 移除队列尾巴中小于这个数的元素
             while (!queue.isEmpty() && queue.getLast() < nums[i]) {
                 queue.removeLast();
             }
             queue.addLast(nums[i]);
+
+            // 移除窗口移动造成的出队元素
             if (i >= k - 1) {
                 res[i - k + 1] = queue.getFirst();
                 if (nums[i - k + 1] == queue.getFirst()) {

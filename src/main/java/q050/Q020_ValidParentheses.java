@@ -8,6 +8,8 @@ import util.runner.TestData;
 import util.runner.data.DataExpectation;
 
 /**
+ * https://leetcode.com/problems/valid-parentheses/
+ *
  * Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is
  * valid.
  *
@@ -61,10 +63,6 @@ public class Q020_ValidParentheses {
             }
         }
         return stack.isEmpty();
-    }
-
-    private boolean inRange(char c, char c1, char c2, char c3) {
-        return c == c1 || c == c2 || c == c3;
     }
 
     @TestData
