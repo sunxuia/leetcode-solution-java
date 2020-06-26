@@ -3,8 +3,6 @@ package q100;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.runner.RunWith;
-import util.asserthelper.AssertUtils;
-import util.asserthelper.ObjectEqualsHelper;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -45,18 +43,17 @@ public class Q051_NQueens {
     @Answer
     public List<List<String>> solveNQueens(int n) {
         this.n = n;
+
+        // 可选的不同情况(Q 在一行中不同列的情况), 用于生成结果
         queues = new String[n];
         StringBuilder sb = new StringBuilder(n);
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < i; j++) {
-                sb.append('.');
-            }
-            sb.append('Q');
-            for (int j = i + 1; j < n; j++) {
-                sb.append('.');
-            }
+            sb.append('.');
+        }
+        for (int i = 0; i < n; i++) {
+            sb.setCharAt(i, 'Q');
             queues[i] = sb.toString();
-            sb.setLength(0);
+            sb.setCharAt(i, '.');
         }
 
         candidates = new ArrayList<>(n);
@@ -74,10 +71,12 @@ public class Q051_NQueens {
 
     private List<List<String>> result;
 
+    // dfs 遍历时可能的排列
     private ArrayList<String> candidates;
 
     private String[] queues;
 
+    // 行, 列, 2个对角线的占用情况
     private boolean[] row, column, diagonal, diagonalReverse;
 
     private void dfs(int y) {
@@ -127,10 +126,6 @@ public class Q051_NQueens {
                             ".Q.."
                     }
             })
-            .assertMethod((e, a) -> {
-                ObjectEqualsHelper helper = new ObjectEqualsHelper();
-                helper.unorder("");
-                AssertUtils.assertEquals(e, a, helper);
-            })
+            .unorderResult()
             .build();
 }

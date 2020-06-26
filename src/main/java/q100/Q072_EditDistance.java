@@ -40,10 +40,10 @@ public class Q072_EditDistance {
 
     /**
      * dp 的方式, distance[i][j] 表示从 word1[i] 字符变化到 word2[j] 的字符需要的最小变化次数.
-     * 如果 word1[i] 和 word2[j] 不同, 则变化次数是 i-1 ↔ j-1 或 i ↔ j-1 或 i-1 ↔ j 匹配的变化次数 +1; 因为需要找到最小值,
-     * 所以只需要取这 3 个值的最小值 +1.
      * 如果 word1[i] 和 word2[j] 相同, 则变化次数不增加, 和 distance[i-1][j-1] 相同, 因为只有在 i 与 j 对应的时候才不增加,
      * 所以变化次数与 i-1 ↔ j-1 的次数一样;
+     * 如果 word1[i] 和 word2[j] 不同, 则 i ↔ j 的变化次数是 i-1 ↔ j-1 (替换word[i]为word[j]) 或 i ↔ j-1 (新增 word1[i])
+     * 或 i-1 ↔ j (新增 word2[j]) 三种情况匹配的变化次数 +1; 因为需要找到最小值, 所以只需要取这 3 个值的最小值 +1.
      */
     @Answer
     public int minDistance(String word1, String word2) {

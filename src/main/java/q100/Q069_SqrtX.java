@@ -43,6 +43,26 @@ public class Q069_SqrtX {
         return (int) r;
     }
 
+    /**
+     * 二分查找的方式
+     */
+    @Answer
+    public int mySqrt2(int x) {
+        if (x < 2) {
+            return x;
+        }
+        long start = 0, end = x;
+        while (start < end) {
+            long mid = (start + end + 1) / 2;
+            if (mid * mid > x) {
+                end = mid - 1;
+            } else {
+                start = mid;
+            }
+        }
+        return (int) start;
+    }
+
     @TestData
     public DataExpectation example1 = DataExpectation.createWith(4).expect(2);
 

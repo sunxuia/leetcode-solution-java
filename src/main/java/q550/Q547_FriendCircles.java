@@ -46,6 +46,7 @@ import util.runner.data.DataExpectation;
 @RunWith(LeetCodeRunner.class)
 public class Q547_FriendCircles {
 
+    // dfs 染色解法
     @Answer
     public int findCircleNum(int[][] M) {
         int res = 0;
@@ -62,12 +63,46 @@ public class Q547_FriendCircles {
         if (M[i][i] != 1) {
             return;
         }
+        // 标记这个人已经查找过了
         M[i][i] = 0;
         for (int j = 0; j < M.length; j++) {
             if (M[i][j] == 1) {
                 search(M, j);
             }
         }
+    }
+
+    // union find 解法
+    @Answer
+    public int findCircleNum2(int[][] M) {
+        final int n = M.length;
+        int[] roots = new int[n];
+        for (int i = 0; i < n; i++) {
+            roots[i] = i;
+        }
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (M[i][j] == 1) {
+                    roots[findRoot(roots, j)] = findRoot(roots, i);
+                }
+            }
+        }
+
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            if (roots[i] == i) {
+                res++;
+            }
+        }
+        return res;
+    }
+
+    private int findRoot(int[] roots, int i) {
+        if (roots[i] == i) {
+            return i;
+        }
+        return roots[i] = findRoot(roots, roots[i]);
     }
 
     @TestData

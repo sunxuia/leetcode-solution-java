@@ -35,8 +35,11 @@ public class Q322_CoinChange {
     @Answer
     public int coinChange(int[] coins, int amount) {
         Arrays.sort(coins);
+        // dp[i] 表示组成 i 元钱需要的最小硬币数
         int[] dp = new int[amount + 1];
-        // 因为钱的最小单位是1, 所以最大次数不会超过 amount, 这里可以用 amount+1 (Integer.MAX_VALUE 则需要考虑溢出的情况)
+        // 因为钱的最小单位是1, 所以最大次数不会超过 amount,
+        // 因此这里可以用 amount+1 作为哨兵 (Integer.MAX_VALUE 则需要考虑溢出的情况).
+        // 另外 dp[0] = 0, 不需要硬币.
         Arrays.fill(dp, 1, amount + 1, amount + 1);
         for (int i = 1; i <= amount; i++) {
             for (int j = 0; j < coins.length; j++) {

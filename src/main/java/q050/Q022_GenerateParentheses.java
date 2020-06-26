@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 import org.junit.runner.RunWith;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
@@ -57,7 +56,7 @@ public class Q022_GenerateParentheses {
                 }
             }
         }
-        return set.stream().collect(Collectors.toList());
+        return new ArrayList<>(set);
     }
 
     /**
@@ -85,7 +84,7 @@ public class Q022_GenerateParentheses {
             }
             cache[i] = set;
         }
-        return cache[n].stream().collect(Collectors.toList());
+        return new ArrayList<>(cache[n]);
     }
 
     /**
@@ -111,7 +110,7 @@ public class Q022_GenerateParentheses {
             dfs(res, n, open + 1, close, sb);
             sb.setLength(open + close);
         }
-        if (close < n && open > close) {
+        if (close < open) {
             sb.append(')');
             dfs(res, n, open, close + 1, sb);
             sb.setLength(open + close);

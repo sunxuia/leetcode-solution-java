@@ -64,6 +64,23 @@ public class Q191_NumberOf1Bits {
         return res;
     }
 
+    // 利用了位运算中 n = n & (n-1) 可以清除 n 中最低位的1 的特性
+    @Answer
+    public int hammingWeight2(int n) {
+        int res = 0;
+        while (n != 0) {
+            n = n & (n - 1);
+            res++;
+        }
+        return res;
+    }
+
+    // LeetCode 中最快的位数
+    @Answer
+    public int hammingWeight3(int n) {
+        return Integer.bitCount(n);
+    }
+
     @TestData
     public DataExpectation example1 = DataExpectation.create(0b00000000000000000000000000001011).expect(3);
 

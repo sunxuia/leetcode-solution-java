@@ -44,7 +44,8 @@ public class Q231_PowerOfTwo {
         return count == 1;
     }
 
-    // LeetCode 上最好的解法
+    // LeetCode 上最快的解法
+    // 利用了位运算中 n & (n-1) 可以清除n 中最后1 个1 的位的特性
     @Answer
     public boolean leetCode(int n) {
         return n > 0 && (n & (n - 1)) == 0;

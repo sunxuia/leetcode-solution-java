@@ -35,13 +35,15 @@ public class Q152_MaximumProductSubarray {
         int res = nums[0], max = res, min = res;
         for (int i = 1; i < nums.length; i++) {
             final int num = nums[i];
-            if (num < 0) {
-                int t = max;
-                max = min;
-                min = t;
+            if (num > 0) {
+                max = Math.max(num, max * num);
+                min = Math.min(num, min * num);
+            } else {
+                // 如果num<0, 则 min*num 就变成最大的数, max*num 就变成最小的数
+                int oldMax = max;
+                max = Math.max(num, min * num);
+                min = Math.min(num, oldMax * num);
             }
-            max = Math.max(num, max * num);
-            min = Math.min(num, min * num);
             res = Math.max(res, max);
         }
         return res;

@@ -1,5 +1,6 @@
 package q050;
 
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import org.junit.runner.RunWith;
@@ -81,6 +82,28 @@ public class Q003_LongestSubstringWithoutRepeatingCharacters {
             res = Math.max(i - start + 1, res);
         }
         return res;
+    }
+
+    /**
+     * 针对上面方式的进一步优化, 一次遍历即可
+     */
+    @Answer
+    public int lengthOfLongestSubstring3(String s) {
+        // 保存下标对应的字符(在遍历时)最近一次位置
+        int[] occupied = new int[128];
+        Arrays.fill(occupied, -1);
+
+        // last 表示本次无重复匹配的开始下标
+        int res = 0, last = 0;
+        char[] sc = s.toCharArray();
+        for (int i = 0; i < sc.length; i++) {
+            if (occupied[sc[i]] >= last) {
+                res = Math.max(res, i - last);
+                last = occupied[sc[i]] + 1;
+            }
+            occupied[sc[i]] = i;
+        }
+        return Math.max(res, sc.length - last);
     }
 
     @TestData

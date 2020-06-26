@@ -1,5 +1,7 @@
 package q200;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import org.junit.runner.RunWith;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
@@ -36,6 +38,7 @@ import util.runner.data.DataExpectation;
 @RunWith(LeetCodeRunner.class)
 public class Q200_NumberOfIslands {
 
+    // dfs 染色方法
     @Answer
     public int numIslands(char[][] grid) {
         int res = 0;
@@ -55,10 +58,93 @@ public class Q200_NumberOfIslands {
             return;
         }
         grid[i][j] = '0';
-        dfs(grid, i - 1, j);
-        dfs(grid, i, j + 1);
-        dfs(grid, i + 1, j);
-        dfs(grid, i, j - 1);
+        for (int[] direction : DIRECTIONS) {
+            dfs(grid, i + direction[0], j + direction[1]);
+        }
+    }
+
+    private static final int[][] DIRECTIONS = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+
+    // bfs 染色方法
+    @Answer
+    public int numIslands2(char[][] grid) {
+        final int m = grid.length, n = grid[0].length;
+        int res = 0;
+        Deque<Integer> queue = new ArrayDeque<>();
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] == '1') {
+                    res++;
+                    queue.add(i);
+                    queue.add(j);
+                    grid[i][j] = '0';
+                    while (!queue.isEmpty()) {
+                        int y = queue.poll();
+                        int x = queue.poll();
+                        for (int[] direction : DIRECTIONS) {
+                            int ny = y + direction[0];
+                            int nx = x + direction[1];
+                            if (-1 < ny && ny < m && -1 < nx && nx < n
+                                    && grid[ny][nx] == '1') {
+                                grid[ny][nx] = '0';
+                                queue.add(ny);
+                                queue.add(nx);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return res;
+    }
+
+    // 并查集方式
+    @Answer
+    public int numIslands3(char[][] grid) {
+        final int m = grid.length, n = grid[0].length;
+
+        // 初始化
+        int[] roots = new int[m * n + 1];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] == '1') {
+                    roots[i * n + j + 1] = i * n + j + 1;
+                }
+            }
+        }
+
+        // 连接
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] == '1') {
+                    for (int[] direction : DIRECTIONS) {
+                        int ni = i + direction[0];
+                        int nj = j + direction[1];
+                        if (-1 < ni && ni < m && -1 < nj && nj < n
+                                && grid[ni][nj] == '1') {
+                            roots[findRoot(roots, ni * n + nj + 1)]
+                                    = findRoot(roots, i * n + j + 1);
+                        }
+                    }
+                }
+            }
+        }
+
+        // 计算结果, 根不是自己则从属于其他并查集
+        int res = 0;
+        for (int i = 1; i < roots.length; i++) {
+            if (roots[i] == i) {
+                res++;
+            }
+        }
+        return res;
+    }
+
+    private int findRoot(int[] roots, int i) {
+        if (roots[i] == i) {
+            return i;
+        }
+        return roots[i] = findRoot(roots, roots[i]);
     }
 
     @TestData
