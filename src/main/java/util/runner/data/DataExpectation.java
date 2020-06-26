@@ -12,8 +12,8 @@ import util.asserthelper.AssertUtils;
  */
 public class DataExpectation {
 
-    static final DefaultDataAssertMethod<?> DEFAULT_ASSERT_METHOD = new DefaultDataAssertMethod<>((
-            e, a, o) -> AssertUtils.assertEquals(e, a), null);
+    static final DefaultDataAssertMethod<?> DEFAULT_ASSERT_METHOD =
+            new DefaultDataAssertMethod<>((e, a, o) -> AssertUtils.assertEquals(e, a), null);
 
     /**
      * 方法参数

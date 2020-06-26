@@ -13,7 +13,7 @@ public class ObjectEqualsHelper {
     /**
      * Check or not a field.
      */
-    private Map<String, Boolean> checks = new HashMap<>();
+    private Map<String, Boolean> shouldChecks = new HashMap<>();
 
     /**
      * Check field by default.
@@ -28,28 +28,28 @@ public class ObjectEqualsHelper {
     /**
      * Array/ iterable check in order.
      */
-    private Map<String, Boolean> orders = new HashMap<>();
+    private Map<String, Boolean> hasOrders = new HashMap<>();
 
     private List<Validator> defaultValidators = Arrays.asList(new ArrayValidator());
 
     public ObjectEqualsHelper order(String fieldName) {
-        orders.put(fieldName, true);
+        hasOrders.put(fieldName, true);
         return this;
     }
 
     public ObjectEqualsHelper unorder(String fieldName) {
-        orders.put(fieldName, false);
+        hasOrders.put(fieldName, false);
         return this;
     }
 
     public ObjectEqualsHelper check(String fieldName) {
-        checks.put(fieldName, true);
+        shouldChecks.put(fieldName, true);
         checkByDefault = false;
         return this;
     }
 
     public ObjectEqualsHelper uncheck(String fieldName) {
-        checks.put(fieldName, false);
+        shouldChecks.put(fieldName, false);
         return this;
     }
 
@@ -68,7 +68,7 @@ public class ObjectEqualsHelper {
     }
 
     private void assertEquals(Object expected, Object actual, String fieldName) {
-        Boolean check = checks.get(fieldName);
+        Boolean check = shouldChecks.get(fieldName);
         if (!fieldName.isEmpty() && check == null && !checkByDefault || Boolean.FALSE.equals(check)) {
             return;
         }
@@ -212,7 +212,7 @@ public class ObjectEqualsHelper {
 
         private boolean hasOrder(Object expected, Object actual, String fieldName) {
             Boolean order;
-            if ((order = orders.get(fieldName)) != null) {
+            if ((order = hasOrders.get(fieldName)) != null) {
                 return order;
             }
             String[] names = fieldName.split(".");
@@ -222,11 +222,11 @@ public class ObjectEqualsHelper {
                     sb.append(names[j]).append(".");
                 }
                 sb.append("*");
-                if ((order = orders.get(sb.toString())) != null) {
+                if ((order = hasOrders.get(sb.toString())) != null) {
                     return order;
                 }
             }
-            if ((order = orders.get("*")) != null) {
+            if ((order = hasOrders.get("*")) != null) {
                 return order;
             }
             Class<?> expectedType = expected.getClass();
