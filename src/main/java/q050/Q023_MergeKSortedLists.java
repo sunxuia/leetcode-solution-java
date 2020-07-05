@@ -1,5 +1,7 @@
 package q050;
 
+import java.util.Comparator;
+import java.util.PriorityQueue;
 import org.junit.runner.RunWith;
 import util.provided.ListNode;
 import util.runner.Answer;
@@ -62,6 +64,31 @@ public class Q023_MergeKSortedLists {
         return dummy.next;
     }
 
+    /**
+     * 使用优先队列的合并方式.
+     * 这样的时间复杂度是 O(NlogK), K 是lists 数组长度, N  是所有节点的数量.
+     */
+    @Answer
+    public ListNode mergeKLists2(ListNode[] lists) {
+        PriorityQueue<ListNode> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a.val));
+        for (ListNode node : lists) {
+            if (node != null) {
+                pq.add(node);
+            }
+        }
+
+        ListNode dummy = new ListNode(0), curr = dummy;
+        while (!pq.isEmpty()) {
+            ListNode next = pq.poll();
+            curr.next = next;
+            curr = next;
+            if (next.next != null) {
+                pq.add(next.next);
+            }
+        }
+        return dummy.next;
+    }
+
     @TestData
     public DataExpectation example = DataExpectation.builder()
             .addArgument(new ListNode[]{
@@ -70,5 +97,11 @@ public class Q023_MergeKSortedLists {
                             ListNode.createListNode(2, 6)
                     }
             ).expect(ListNode.createListNode(1, 1, 2, 3, 4, 4, 5, 6))
+            .build();
+
+    @TestData
+    public DataExpectation border = DataExpectation.builder()
+            .addArgument(new ListNode[]{null}
+            ).expect(null)
             .build();
 }

@@ -64,7 +64,7 @@ public class Q004_MedianOfTwoSortedArrays {
             } else {
                 // 边界确定
                 // 找到左边界的最大值(如果总数为奇数的话, 就是中间的中位数)
-                int maxLeft = 0;
+                int maxLeft;
                 if (i == 0) {
                     maxLeft = nums2[j - 1];
                 } else if (j == 0) {
@@ -77,7 +77,7 @@ public class Q004_MedianOfTwoSortedArrays {
                 }
 
                 // 找到右边界的最小值.
-                int minRight = 0;
+                int minRight;
                 if (i == nums1.length) {
                     minRight = nums2[j];
                 } else if (j == nums2.length) {

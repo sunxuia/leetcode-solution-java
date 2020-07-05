@@ -121,12 +121,14 @@ public class Q842_SplitArrayIntoFibonacciSequence {
             if (num < 0) {
                 return false;
             }
-            if (list.size() < 2 || list.get(list.size() - 1) + list.get(list.size() - 2) == num) {
+
+            int len = list.size();
+            if (len < 2 || list.get(len - 1) + list.get(len - 2) == num) {
                 list.add(num);
                 if (helper(sc, i + 1, list)) {
                     return true;
                 }
-                list.remove(list.size() - 1);
+                list.remove(len - 1);
             }
 
             if (i == pos && sc[i] == '0') {
