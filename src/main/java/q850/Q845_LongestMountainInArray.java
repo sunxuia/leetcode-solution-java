@@ -1,6 +1,7 @@
 package q850;
 
 import org.junit.runner.RunWith;
+import q900.Q852_PeakIndexInAMountainArray;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -41,6 +42,8 @@ import util.runner.data.DataExpectation;
  *
  * Can you solve it using only one pass?
  * Can you solve it in O(1) space?
+ *
+ * 类似题目 {@link Q852_PeakIndexInAMountainArray}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q845_LongestMountainInArray {
