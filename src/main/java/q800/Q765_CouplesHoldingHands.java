@@ -1,6 +1,7 @@
 package q800;
 
 import org.junit.runner.RunWith;
+import q900.Q854_KSimilarStrings;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -35,6 +36,8 @@ import util.runner.data.DataExpectation;
  *
  * 1. len(row) is even and in the range of [4, 60].
  * 2. row is guaranteed to be a permutation of 0...len(row)-1.
+ *
+ * 类似题目 {@link Q854_KSimilarStrings} 相比这题, 多了字符重复的情况
  */
 @RunWith(LeetCodeRunner.class)
 public class Q765_CouplesHoldingHands {
@@ -46,22 +49,24 @@ public class Q765_CouplesHoldingHands {
      */
     @Answer
     public int minSwapsCouples(int[] row) {
+        // 保存值在row 中对应的下标
+        int[] pos = new int[row.length];
+        for (int i = 0; i < row.length; i++) {
+            pos[row[i]] = i;
+        }
+
         int res = 0;
         for (int i = 0; i < row.length; i += 2) {
             // a^1 的结果就是和a 配对的数字
-            if ((row[i] ^ 1) == row[i + 1]) {
+            int peer = row[i] ^ 1;
+            if (peer == row[i + 1]) {
                 // 已经配对
                 continue;
             }
             res++;
-            for (int j = i + 1; j < row.length; j++) {
-                if (row[j] == (row[i] ^ 1)) {
-                    // 交换
-                    row[j] = row[i + 1];
-                    row[i + 1] = row[i] ^ 1;
-                    break;
-                }
-            }
+            // 交换位置
+            pos[row[i + 1]] = pos[peer];
+            row[pos[peer]] = row[i + 1];
         }
         return res;
     }
