@@ -39,7 +39,8 @@ public class DataExpectationBuilder {
 
     public DataExpectationBuilder expectDouble(double val, int precision) {
         expect(val);
-        assertMethods.put(-1, this.<Double>createAssertMethod((e, a, o) -> Assert.assertEquals(e, a, precision)));
+        double delta = Math.pow(0.1, precision);
+        assertMethods.put(-1, this.<Double>createAssertMethod((e, a, o) -> Assert.assertEquals(e, a, delta)));
         return this;
     }
 
