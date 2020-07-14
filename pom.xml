@@ -60,6 +60,7 @@
                 <directory>src/main/java</directory>
                 <includes>
                     <include>**/*.test.txt</include>
+                    <include>**/*.template.txt</include>
                 </includes>
             </resource>
             <resource>

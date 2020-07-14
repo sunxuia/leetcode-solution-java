@@ -1,0 +1,23 @@
+package {{ qc.packageName }};
+
+import org.junit.Assert;
+import org.junit.Test;
+
+/**
+ * [{{q.difficulty}}] {{ q.title }}
+ * {{ q.url }}
+ *
+{{ desc }}
+ */
+public class {{ qc.className }} {
+
+{{ code }}
+
+    @Test
+    public void testMethod() {
+        {{ qc.testedClassName }} tested = new {{ qc.testedClassName }}();
+
+    }
+
+}
+
