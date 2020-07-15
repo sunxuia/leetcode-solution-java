@@ -8,7 +8,7 @@ import util.runner.data.DataExpectation;
 import java.util.*;
 
 /**
- * [{{q.difficulty}}] {{ q.title }}
+ * [{{q.difficulty}}] {{ q.no }}. {{ q.title }}
  * {{ q.url }}
  *
 {{ desc }}
@@ -21,7 +21,7 @@ public class {{ qc.className }} {
 
     {{- for(var i = 1; i <= qc.exampleCount; i++) { -}}
     @TestData
-    public DataExpectation example{{ i }} = DataExpectation.{{ qc.methodArgumentCount == 1 ? 'create' : 'createWith' }}().expect();
+    public DataExpectation example{{ qc.exampleCount == 1 ? '' : i }} = DataExpectation.{{ qc.methodArgumentCount == 1 ? 'create' : 'createWith' }}().expect();
 
     {{- } -}}
 }
