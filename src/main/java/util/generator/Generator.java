@@ -21,6 +21,11 @@ import javax.script.ScriptException;
 
 public class Generator {
 
+    /**
+     * 在项目的根目录 (leetcode-solution 目录) 运行这个程序
+     * 示例: java -cp target/classes util.generator.Generator 860
+     * -cp target/classes 指定了class 文件的生成目录, 860 是要生成的题目的编号(第860题)
+     */
     public static void main(String[] args) {
         if (args.length < 1) {
             logger.println("Please specific question no in argument!");
@@ -396,7 +401,16 @@ public class Generator {
         res.packageName = String.format("q%03d", q.no / 50 * 50 + 50);
         res.directory = "src/main/java/" + res.packageName;
         res.className = String.format("Q%03d_%s", q.no, dashToCamel(q.titleSlug));
-        Matcher classNameMatcher = Pattern.compile("^class ([^ ]+) \\{").matcher(q.code);
+
+        res.decodedCode = q.code;
+        res.decodedCode = res.decodedCode
+                .replaceAll("/\\*[\\w\\W]*?\\*/", "")
+                .replaceAll("//.+\\n", "")
+                .replaceAll("^[ \t\r\n]+", "")
+                .replaceAll("[ \t\r\n]+$", "")
+                .replaceAll("(?:\r?\n){3,}", "\n\n");
+
+        Matcher classNameMatcher = Pattern.compile("^class ([^ ]+) \\{").matcher(res.decodedCode);
         if (classNameMatcher.find()) {
             res.testedClassName = classNameMatcher.group(1);
         } else {
@@ -404,10 +418,6 @@ public class Generator {
         }
         res.isMethodQuestion = "Solution".equals(res.testedClassName);
 
-        res.decodedCode = q.code;
-        res.decodedCode = res.decodedCode
-                .replaceAll("/\\*[\\w\\W]*?\\*/", "")
-                .replaceAll("//.+\\n", "");
         Matcher methodMatcher = Pattern.compile("public(?: ([^ ]+)) ([_a-zA-Z0-9]+)\\(([^)]+)\\) \\{")
                 .matcher(res.decodedCode);
         Pattern argumentPattern = Pattern.compile("([^ ]+) ([^, ]+)(?:,|$)");
@@ -438,9 +448,9 @@ public class Generator {
         }
 
         res.decodedContent = q.content;
+        String[][] unescapeStrings = new String[][]{{"\"", "&quot;"}, {"&", "&amp;"}, {"<", "&lt;"}, {">", "&gt;"},
+                {" ", "&nbsp;"}, {"x", "&times;"}, {"/", "&divide;"}};
         for (int i = 0; i < 2; i++) {
-            String[][] unescapeStrings = new String[][]{{"\"", "&quot;"}, {"&", "&amp;"}, {"<", "&lt;"}, {">", "&gt;"},
-                    {" ", "&nbsp;"}, {"x", "&times;"}, {"/", "&divide;"}};
             for (String[] unescapeString : unescapeStrings) {
                 res.decodedContent = res.decodedContent.replaceAll(unescapeString[1], unescapeString[0]);
             }
@@ -509,7 +519,7 @@ public class Generator {
         templateEngine.setVariables(variables);
 
         String templateName = qc.isMethodQuestion ? "method" : "class";
-        templateEngine.setTemplateFile("util/generator/" + templateName + ".template.txt");
+        templateEngine.setTemplateFile("util/generator/template_" + templateName + ".data.txt");
 
         classFile.createNewFile();
         try (FileOutputStream outputStream = new FileOutputStream(classFile)) {
