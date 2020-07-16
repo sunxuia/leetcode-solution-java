@@ -94,13 +94,13 @@ public class Q808_SoupServings {
     @TestData
     public DataExpectation normal2 = DataExpectation.builder()
             .addArgument(800)
-            .expectDouble(0.96162, 6)
+            .expectDouble(0.961618, 6)
             .build();
 
     @TestData
     public DataExpectation normal3 = DataExpectation.builder()
             .addArgument(660295675)
-            .expectDouble(0.96162, 6)
+            .expectDouble(1.0, 6)
             .build();
 
     @TestData

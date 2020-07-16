@@ -128,7 +128,7 @@ public class Q842_SplitArrayIntoFibonacciSequence {
                 if (helper(sc, i + 1, list)) {
                     return true;
                 }
-                list.remove(len - 1);
+                list.remove(len);
             }
 
             if (i == pos && sc[i] == '0') {

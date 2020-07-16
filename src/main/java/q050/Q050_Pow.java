@@ -106,7 +106,7 @@ public class Q050_Pow {
     public DataExpectation normal1 = DataExpectation.builder()
             .addArgument(0.00001)
             .addArgument(2147483647)
-            .expectDouble(0.25, 5)
+            .expectDouble(0, 5)
             .build();
 
 }
