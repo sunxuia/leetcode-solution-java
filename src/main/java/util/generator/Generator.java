@@ -50,8 +50,10 @@ public class Generator {
             logger.println("Question " + question.no + " : " + question.title);
 
             GeneratorQuestionClass questionClass = generator.getQuestionClass(question);
-            generator.generateFiles(question, questionClass);
-            logger.println(question.title + " generated.");
+            boolean generated = generator.generateFiles(question, questionClass);
+            if (generated) {
+                logger.println(question.title + " generated.");
+            }
         } catch (Exception err) {
             err.printStackTrace();
         }
@@ -448,14 +450,12 @@ public class Generator {
         }
 
         res.decodedContent = q.content;
-        String[][] unescapeStrings = new String[][]{{"\"", "&quot;"}, {"&", "&amp;"}, {"<", "&lt;"}, {">", "&gt;"},
-                {" ", "&nbsp;"}, {"x", "&times;"}, {"/", "&divide;"}};
+        HtmlCharacterDecoder decoder = new HtmlCharacterDecoder();
         for (int i = 0; i < 2; i++) {
-            for (String[] unescapeString : unescapeStrings) {
-                res.decodedContent = res.decodedContent.replaceAll(unescapeString[1], unescapeString[0]);
-            }
+            res.decodedContent = decoder.decode(res.decodedContent);
             res.decodedContent = res.decodedContent
-                    .replaceAll("</?\\s*[a-zA-Z]+(?: [a-zA-Z_]+=\"[^\"]+\")*\\s*/?>", "");
+                    .replaceAll("<(?:br|hr)\\s*/?>", "\n")
+                    .replaceAll("</?\\s*[a-zA-Z]+(?: [a-zA-Z_]+=\"[^\"]*\")*\\s*/?>", "");
         }
         res.decodedContent = res.decodedContent
                 .replaceAll("\r?\n[ \t]+\r?\n", "\n\n")
@@ -494,13 +494,13 @@ public class Generator {
         return sb.toString();
     }
 
-    private void generateFiles(GeneratorQuestion q, GeneratorQuestionClass qc) throws IOException, ScriptException {
+    private boolean generateFiles(GeneratorQuestion q, GeneratorQuestionClass qc) throws IOException, ScriptException {
         File dir = new File(qc.directory);
         dir.mkdirs();
         File classFile = new File(dir.getPath() + "/" + qc.className + ".java");
         if (classFile.exists()) {
             logger.println("File " + qc.className + " already exist, skipped.");
-            return;
+            return false;
         }
 
         TemplateEngine templateEngine = new TemplateEngine();
@@ -525,6 +525,7 @@ public class Generator {
         try (FileOutputStream outputStream = new FileOutputStream(classFile)) {
             templateEngine.execute(outputStream);
         }
+        return true;
     }
 
 }
