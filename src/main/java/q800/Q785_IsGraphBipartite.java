@@ -1,6 +1,7 @@
 package q800;
 
 import org.junit.runner.RunWith;
+import q900.Q886_PossibleBipartition;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -48,6 +49,8 @@ import util.runner.data.DataExpectation;
  * 2. graph[i] will contain integers in range [0, graph.length - 1].
  * 3. graph[i] will not contain i or duplicate values.
  * 4. The graph is undirected: if any element j is in graph[i], then i will be in graph[j].
+ *
+ * 关联问题 {@link Q886_PossibleBipartition}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q785_IsGraphBipartite {
