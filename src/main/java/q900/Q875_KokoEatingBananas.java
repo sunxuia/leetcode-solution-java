@@ -1,5 +1,6 @@
 package q900;
 
+import java.util.Arrays;
 import org.junit.runner.RunWith;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
@@ -38,7 +39,7 @@ import util.runner.data.TestDataFileHelper;
  * piles.length <= H <= 10^9
  * 1 <= piles[i] <= 10^9
  *
- * 题解: 有个测试用例的隐含条件: piles 是有序的, 如果再自己排序的话OJ 会比较慢
+ * 提示: 这个OJ 中的测试用例piles 都是有序的, 所以去掉排序会更加快一点
  */
 @RunWith(LeetCodeRunner.class)
 public class Q875_KokoEatingBananas {
@@ -46,7 +47,7 @@ public class Q875_KokoEatingBananas {
     // 简单的二分法然后变遍历计数
     @Answer
     public int minEatingSpeed(int[] piles, int H) {
-//        Arrays.sort(piles);
+        Arrays.sort(piles);
         int start = 1, end = piles[piles.length - 1];
         while (start < end) {
             int mid = (start + end) / 2;
