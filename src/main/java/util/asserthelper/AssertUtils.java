@@ -65,10 +65,12 @@ public class AssertUtils {
             int[] actual, int startInclusive, int endExclusive,
             ObjectEqualsHelper helper) {
         int[] realActual = new int[endExclusive - startInclusive];
+        int[] realExpect = new int[endExclusive - startInclusive];
         for (int i = 0; i < realActual.length; i++) {
             realActual[i] = actual[startInclusive + i];
+            realExpect[i] = expected[startInclusive + i];
         }
-        assertEquals(expected, realActual, helper);
+        assertEquals(realExpect, realActual, helper);
     }
 
 }
