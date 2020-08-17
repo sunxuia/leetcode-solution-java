@@ -48,7 +48,7 @@
                 <version>2.22.2</version>
                 <configuration>
                     <includes>
-                        <include>q???/Q???_*.java</include>
+                        <include>q*/Q*_*.java</include>
                         <include>util/**/*Test.java</include>
                     </includes>
                     <testClassesDirectory>${project.build.directory}/classes/</testClassesDirectory>
