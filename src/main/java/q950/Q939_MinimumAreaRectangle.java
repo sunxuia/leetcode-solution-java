@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import org.junit.runner.RunWith;
+import q1000.Q963_MinimumAreaRectangleII;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -35,18 +36,11 @@ import util.runner.data.DataExpectation;
  * 0 <= points[i][0] <= 40000
  * 0 <= points[i][1] <= 40000
  * All points are distinct.
+ *
+ * 下一题 {@link Q963_MinimumAreaRectangleII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q939_MinimumAreaRectangle {
-
-    @TestData
-    public DataExpectation example1 = DataExpectation
-            .create(new int[][]{{1, 1}, {1, 3}, {3, 1}, {3, 3}, {2, 2}})
-            .expect(4);
-    @TestData
-    public DataExpectation example2 = DataExpectation
-            .create(new int[][]{{1, 1}, {1, 3}, {3, 1}, {3, 3}, {4, 1}, {4, 3}})
-            .expect(2);
 
     // 题目中限定了矩形是和x 轴y 轴平行的
     @Answer
@@ -70,5 +64,15 @@ public class Q939_MinimumAreaRectangle {
         }
         return res == Integer.MAX_VALUE ? 0 : res;
     }
+
+    @TestData
+    public DataExpectation example1 = DataExpectation
+            .create(new int[][]{{1, 1}, {1, 3}, {3, 1}, {3, 3}, {2, 2}})
+            .expect(4);
+
+    @TestData
+    public DataExpectation example2 = DataExpectation
+            .create(new int[][]{{1, 1}, {1, 3}, {3, 1}, {3, 3}, {4, 1}, {4, 3}})
+            .expect(2);
 
 }

@@ -50,16 +50,11 @@ import util.runner.data.DataExpectation;
  * 1 <= A[i].length <= 1000
  *
  * 下一题 {@link Q955_DeleteColumnsToMakeSortedII}
+ *
+ * 题解: A 中的字符串相同长度, 现在要删除每个字符串中特定列的字符, 让结果字符串中的每列字符按字典序递增排序.
  */
 @RunWith(LeetCodeRunner.class)
 public class Q944_DeleteColumnsToMakeSorted {
-
-    @TestData
-    public DataExpectation example1 = DataExpectation.create(new String[]{"cba", "daf", "ghi"}).expect(1);
-    @TestData
-    public DataExpectation example2 = DataExpectation.create(new String[]{"a", "b"}).expect(0);
-    @TestData
-    public DataExpectation example3 = DataExpectation.create(new String[]{"zyx", "wvu", "tsr"}).expect(3);
 
     @Answer
     public int minDeletionSize(String[] A) {
@@ -76,4 +71,13 @@ public class Q944_DeleteColumnsToMakeSorted {
         return res;
     }
 
+
+    @TestData
+    public DataExpectation example1 = DataExpectation.create(new String[]{"cba", "daf", "ghi"}).expect(1);
+
+    @TestData
+    public DataExpectation example2 = DataExpectation.create(new String[]{"a", "b"}).expect(0);
+
+    @TestData
+    public DataExpectation example3 = DataExpectation.create(new String[]{"zyx", "wvu", "tsr"}).expect(3);
 }

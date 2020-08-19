@@ -54,6 +54,8 @@ import util.runner.data.DataExpectation;
  * 1 <= A[i].length <= 100
  *
  * 上一题 {@link Q944_DeleteColumnsToMakeSorted}
+ * 相比上一题, 本题要求结果字符串递增排序.
+ * 下一题 {@link Q960_DeleteColumnsToMakeSortedIII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q955_DeleteColumnsToMakeSortedII {
