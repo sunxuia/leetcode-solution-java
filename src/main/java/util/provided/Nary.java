@@ -48,7 +48,7 @@ public class Nary {
             }
             idx++;
         }
-        return dummy.children.get(0);
+        return dummy.children.isEmpty() ? null : dummy.children.get(0);
     }
 
 }
