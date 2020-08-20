@@ -8,8 +8,8 @@ public class SimpleDataExpectationBuilder {
         expectation.setArguments(arguments);
     }
 
-    public DataExpectation expect(Object expectResult) {
-        expectation.setExpect(expectResult);
+    public DataExpectation expect(Object e) {
+        expectation.setExpect(e);
         return expectation;
     }
 }
