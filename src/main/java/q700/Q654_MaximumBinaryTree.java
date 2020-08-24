@@ -1,6 +1,7 @@
 package q700;
 
 import org.junit.runner.RunWith;
+import q1000.Q998_MaximumBinaryTreeII;
 import util.provided.TreeNode;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
@@ -8,6 +9,7 @@ import util.runner.TestData;
 import util.runner.data.DataExpectation;
 
 /**
+ * [Medium] 654. Maximum Binary Tree
  * https://leetcode.com/problems/maximum-binary-tree/
  *
  * Given an integer array with no duplicates. A maximum tree building on this array is defined as follow:
@@ -28,12 +30,14 @@ import util.runner.data.DataExpectation;
  * >    3     5
  * >     \    /
  * >      2  0
- * >        \
- * >         1
+ * >       \
+ * >        1
  *
  * Note:
  *
  * 1. The size of the given array will be in the range [1,1000].
+ *
+ * 下一题 {@link Q998_MaximumBinaryTreeII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q654_MaximumBinaryTree {
