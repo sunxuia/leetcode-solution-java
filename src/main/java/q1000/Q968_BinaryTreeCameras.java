@@ -91,11 +91,11 @@ public class Q968_BinaryTreeCameras {
      */
     @Answer
     public int minCameraCover2(TreeNode root) {
+        count = 0;
         return (dfs(root) == 0 ? 1 : 0) + count;
-
     }
 
-    int count = 0;
+    private int count;
 
     /**
      * 返回状态码.
