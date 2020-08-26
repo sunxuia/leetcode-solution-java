@@ -19,9 +19,10 @@ public class {{ qc.className }} {
     @Answer
 {{ code }}
 
-    {{- for(var i = 1; i <= qc.exampleCount; i++) { -}}
+    {{- for(var i = 0; i < qc.exampleCount; i++) { -}}
     @TestData
-    public DataExpectation example{{ qc.exampleCount == 1 ? '' : i }} = DataExpectation.{{ qc.methodArgumentCount == 1 ? 'create' : 'createWith' }}().expect();
+    public DataExpectation example{{ qc.exampleCount == 1 ? '' : (i + 1).toString() }} = DataExpectation.{{ qc.methodArgumentCount == 1 ? 'create' : 'createWith' }}({{- if(qc.examples.length > i) { -}}{{-     for(var j = 0; j < qc.examples[i].inputs.length; j++) { -}}{{ qc.examples[i].inputs[j] + (j == qc.examples[i].inputs.length - 1 ? '' : ', ') }}{{-     } -}}{{- } -}})
+        .expect({{- if(qc.examples.length > i) { -}}{{ qc.examples[i].output }}{{- } -}});
 
     {{- } -}}
 }
