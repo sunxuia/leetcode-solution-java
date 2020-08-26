@@ -10,7 +10,6 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +17,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import javax.script.ScriptException;
+import util.generator.model.GeneratorQuestion;
+import util.generator.model.GeneratorQuestionArgument;
+import util.generator.model.GeneratorQuestionClass;
+import util.generator.model.GeneratorQuestionExample;
+import util.generator.model.GeneratorQuestionMethod;
 
 public class Generator {
 
@@ -39,20 +43,21 @@ public class Generator {
                 logger.println("Question " + no + " not found!");
                 return;
             }
-            if (question.paidOnly) {
-                logger.println(question.title + " is paid only!");
+            String title = question.getTitle();
+            if (question.isPaidOnly()) {
+                logger.println(title + " is paid only!");
                 return;
             }
-            if (question.code == null || question.code.isEmpty()) {
-                logger.println(question.title + " has no Java solution.");
+            if (question.getCode() == null || question.getCode().isEmpty()) {
+                logger.println(title + " has no Java solution.");
                 return;
             }
-            logger.println("Question " + question.no + " : " + question.title);
+            logger.println("Question " + question.getNo() + " : " + title);
 
             GeneratorQuestionClass questionClass = generator.getQuestionClass(question);
             boolean generated = generator.generateFiles(question, questionClass);
             if (generated) {
-                logger.println(question.title + " generated.");
+                logger.println(title + " generated.");
             }
         } catch (Exception err) {
             err.printStackTrace();
@@ -60,248 +65,6 @@ public class Generator {
     }
 
     private static final PrintStream logger = System.out;
-
-    public static class GeneratorQuestion {
-
-        long no;
-        String title;
-        String titleSlug;
-        String url;
-        String difficulty;
-        boolean paidOnly;
-        String content;
-        String code;
-
-        public long getNo() {
-            return no;
-        }
-
-        public void setNo(long no) {
-            this.no = no;
-        }
-
-        public String getTitle() {
-            return title;
-        }
-
-        public void setTitle(String title) {
-            this.title = title;
-        }
-
-        public String getTitleSlug() {
-            return titleSlug;
-        }
-
-        public void setTitleSlug(String titleSlug) {
-            this.titleSlug = titleSlug;
-        }
-
-        public String getUrl() {
-            return url;
-        }
-
-        public void setUrl(String url) {
-            this.url = url;
-        }
-
-        public String getDifficulty() {
-            return difficulty;
-        }
-
-        public void setDifficulty(String difficulty) {
-            this.difficulty = difficulty;
-        }
-
-        public boolean isPaidOnly() {
-            return paidOnly;
-        }
-
-        public void setPaidOnly(boolean paidOnly) {
-            this.paidOnly = paidOnly;
-        }
-
-        public String getContent() {
-            return content;
-        }
-
-        public void setContent(String content) {
-            this.content = content;
-        }
-
-        public String getCode() {
-            return code;
-        }
-
-        public void setCode(String code) {
-            this.code = code;
-        }
-    }
-
-    public static class GeneratorQuestionClass {
-
-        public String packageName;
-        public String className;
-        public String directory;
-        public boolean isMethodQuestion;
-        public String decodedContent;
-        public String decodedCode;
-        public List<GeneratorQuestionMethod> methods = new ArrayList<>();
-
-        String testedClassName;
-        int methodArgumentCount;
-        int exampleCount;
-        String methodCode;
-
-        public String getPackageName() {
-            return packageName;
-        }
-
-        public void setPackageName(String packageName) {
-            this.packageName = packageName;
-        }
-
-        public String getClassName() {
-            return className;
-        }
-
-        public void setClassName(String className) {
-            this.className = className;
-        }
-
-        public String getDirectory() {
-            return directory;
-        }
-
-        public void setDirectory(String directory) {
-            this.directory = directory;
-        }
-
-        public boolean isMethodQuestion() {
-            return isMethodQuestion;
-        }
-
-        public void setMethodQuestion(boolean methodQuestion) {
-            isMethodQuestion = methodQuestion;
-        }
-
-        public String getDecodedContent() {
-            return decodedContent;
-        }
-
-        public void setDecodedContent(String decodedContent) {
-            this.decodedContent = decodedContent;
-        }
-
-        public String getDecodedCode() {
-            return decodedCode;
-        }
-
-        public void setDecodedCode(String decodedCode) {
-            this.decodedCode = decodedCode;
-        }
-
-        public List<GeneratorQuestionMethod> getMethods() {
-            return methods;
-        }
-
-        public void setMethods(List<GeneratorQuestionMethod> methods) {
-            this.methods = methods;
-        }
-
-        public String getTestedClassName() {
-            return testedClassName;
-        }
-
-        public void setTestedClassName(String testedClassName) {
-            this.testedClassName = testedClassName;
-        }
-
-        public int getMethodArgumentCount() {
-            return methodArgumentCount;
-        }
-
-        public void setMethodArgumentCount(int methodArgumentCount) {
-            this.methodArgumentCount = methodArgumentCount;
-        }
-
-        public int getExampleCount() {
-            return exampleCount;
-        }
-
-        public void setExampleCount(int exampleCount) {
-            this.exampleCount = exampleCount;
-        }
-    }
-
-    public static class GeneratorQuestionMethod {
-
-        String raw;
-        String methodName;
-        String returnType;
-        String callerType;
-        List<GeneratorQuestionArgument> arguments = new ArrayList<>();
-
-        public String getRaw() {
-            return raw;
-        }
-
-        public void setRaw(String raw) {
-            this.raw = raw;
-        }
-
-        public String getMethodName() {
-            return methodName;
-        }
-
-        public void setMethodName(String methodName) {
-            this.methodName = methodName;
-        }
-
-        public String getReturnType() {
-            return returnType;
-        }
-
-        public void setReturnType(String returnType) {
-            this.returnType = returnType;
-        }
-
-        public String getCallerType() {
-            return callerType;
-        }
-
-        public void setCallerType(String callerType) {
-            this.callerType = callerType;
-        }
-
-        public List<GeneratorQuestionArgument> getArguments() {
-            return arguments;
-        }
-
-        public void setArguments(List<GeneratorQuestionArgument> arguments) {
-            this.arguments = arguments;
-        }
-    }
-
-    public static class GeneratorQuestionArgument {
-
-        private String type, name;
-
-        public String getType() {
-            return type;
-        }
-
-        public void setType(String type) {
-            this.type = type;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-    }
 
     private GeneratorQuestion getQuestion(long no) throws Exception {
         Map<String, Object> algorithms = getForLeetCodeAlgorithms();
@@ -319,20 +82,20 @@ public class Generator {
         }
 
         GeneratorQuestion res = new GeneratorQuestion();
-        res.no = no;
-        res.paidOnly = (boolean) statStatusPair.get("paid_only");
+        res.setNo(no);
+        res.setPaidOnly((boolean) statStatusPair.get("paid_only"));
         Map<String, Object> stat = getMapVal(statStatusPair, "stat");
-        res.title = (String) stat.get("question__title");
-        res.titleSlug = (String) stat.get("question__title_slug");
-        res.url = "https://leetcode.com/problems/" + res.titleSlug + "/";
+        res.setTitle((String) stat.get("question__title"));
+        res.setTitleSlug((String) stat.get("question__title_slug"));
+        res.setUrl("https://leetcode.com/problems/" + res.getTitleSlug() + "/");
         long difficultyLevel = getMapVal(statStatusPair, "difficulty", "level");
-        res.difficulty = new String[]{"", "Easy", "Medium", "Hard"}[(int) difficultyLevel];
-        if (res.paidOnly) {
+        res.setDifficulty(new String[]{"", "Easy", "Medium", "Hard"}[(int) difficultyLevel]);
+        if (res.isPaidOnly()) {
             return res;
         }
 
-        Map<String, Object> questionDetail = getMapVal(postForLeetCodeDetail(res.titleSlug), "data", "question");
-        res.content = getMapVal(questionDetail, "content");
+        Map<String, Object> questionDetail = getMapVal(postForLeetCodeDetail(res.getTitleSlug()), "data", "question");
+        res.setContent(getMapVal(questionDetail, "content"));
 
         Map<String, Object> codeSnippet = null;
         List<Map<String, Object>> codeSnippets = getMapVal(questionDetail, "codeSnippets");
@@ -345,7 +108,7 @@ public class Generator {
         if (codeSnippet == null) {
             return res;
         }
-        res.code = getMapVal(codeSnippet, "code");
+        res.setCode(getMapVal(codeSnippet, "code"));
 
         return res;
     }
@@ -400,77 +163,113 @@ public class Generator {
 
     private GeneratorQuestionClass getQuestionClass(GeneratorQuestion q) {
         GeneratorQuestionClass res = new GeneratorQuestionClass();
-        res.packageName = String.format("q%03d", q.no / 50 * 50 + 50);
-        res.directory = "src/main/java/" + res.packageName;
-        res.className = String.format("Q%03d_%s", q.no, dashToCamel(q.titleSlug));
+        res.setPackageName(String.format("q%03d", (q.getNo() - 1) / 50 * 50 + 50));
+        res.setDirectory("src/main/java/" + res.getPackageName());
+        res.setClassName(String.format("Q%03d_%s", q.getNo(), dashToCamel(q.getTitleSlug())));
 
-        res.decodedCode = q.code;
-        res.decodedCode = res.decodedCode
+        String decodedCode = q.getCode();
+        decodedCode = decodedCode
                 .replaceAll("/\\*[\\w\\W]*?\\*/", "")
                 .replaceAll("//.+\\n", "")
                 .replaceAll("^[ \t\r\n]+", "")
                 .replaceAll("[ \t\r\n]+$", "")
                 .replaceAll("(?:\r?\n){3,}", "\n\n");
+        res.setDecodedCode(decodedCode);
 
-        Matcher classNameMatcher = Pattern.compile("^class ([^ ]+) \\{").matcher(res.decodedCode);
+        Matcher classNameMatcher = Pattern.compile("^class ([^ ]+) \\{").matcher(res.getDecodedCode());
         if (classNameMatcher.find()) {
-            res.testedClassName = classNameMatcher.group(1);
+            res.setTestedClassName(classNameMatcher.group(1));
         } else {
             throw new GeneratorException("Cannot find class info");
         }
-        res.isMethodQuestion = "Solution".equals(res.testedClassName);
+        res.setMethodQuestion("Solution".equals(res.getTestedClassName()));
 
         Matcher methodMatcher = Pattern.compile("public(?: ([^ ]+)) ([_a-zA-Z0-9]+)\\(([^)]+)\\) \\{")
-                .matcher(res.decodedCode);
+                .matcher(res.getDecodedCode());
         Pattern argumentPattern = Pattern.compile("([^ ]+) ([^, ]+)(?:,|$)");
         while (methodMatcher.find()) {
             GeneratorQuestionMethod method = new GeneratorQuestionMethod();
-            method.returnType = methodMatcher.group(1);
-            method.methodName = methodMatcher.group(2);
+            method.setReturnType(methodMatcher.group(1));
+            method.setMethodName(methodMatcher.group(2));
             if (methodMatcher.group(3) != null) {
                 Matcher argumentMatcher = argumentPattern.matcher(methodMatcher.group(3));
                 while (argumentMatcher.find()) {
                     GeneratorQuestionArgument argument = new GeneratorQuestionArgument();
-                    argument.type = argumentMatcher.group(1);
-                    argument.name = argumentMatcher.group(2);
-                    method.arguments.add(argument);
+                    argument.setType(argumentMatcher.group(1));
+                    argument.setName(argumentMatcher.group(2));
+                    method.getArguments().add(argument);
                 }
             }
-            res.methods.add(method);
+            res.getMethods().add(method);
         }
-        if (res.methods.isEmpty()) {
+        if (res.getMethods().isEmpty()) {
             throw new GeneratorException("Cannot find method.");
         }
 
-        if (res.isMethodQuestion) {
-            res.methodArgumentCount = res.methods.get(0).arguments.size();
-            res.methodCode = res.decodedCode.substring(res.decodedCode.indexOf("\n") + 1,
-                    res.decodedCode.lastIndexOf("\n"));
-            res.methodCode = res.methodCode.replaceAll("\n[ \t]+", "\n").trim();
+        if (res.isMethodQuestion()) {
+            res.setMethodArgumentCount(res.getMethods().get(0).getArguments().size());
+            String methodCode = decodedCode.substring(decodedCode.indexOf("\n") + 1, decodedCode.lastIndexOf("\n"));
+            methodCode = methodCode.replaceAll("\n[ \t]+", "\n").trim();
+            res.setMethodCode(methodCode);
         }
 
-        res.decodedContent = q.content;
+        String decodedContent = q.getContent();
         HtmlCharacterDecoder decoder = new HtmlCharacterDecoder();
         for (int i = 0; i < 2; i++) {
-            res.decodedContent = decoder.decode(res.decodedContent);
-            res.decodedContent = res.decodedContent
+            decodedContent = decoder.decode(decodedContent);
+            decodedContent = decodedContent
                     .replaceAll("<(?:br|hr)\\s*/?>", "\n")
                     .replaceAll("</?\\s*[a-zA-Z]+(?: [a-zA-Z_]+=\"[^\"]*\")*\\s*/?>", "");
         }
-        res.decodedContent = res.decodedContent
+        decodedContent = decodedContent
                 .replaceAll("\r?\n[ \t]+\r?\n", "\n\n")
                 .replaceAll("^[ \t\r\n]+", "")
                 .replaceAll("[ \t\r\n]+$", "")
                 .replaceAll("(?:\r?\n){3,}", "\n\n");
+        res.setDecodedContent(decodedContent);
 
-        Matcher exampleMatcher = Pattern.compile("Example\\s*(?:\\d*)\\s*:").matcher(res.decodedContent);
+        Matcher exampleMatcher = Pattern.compile("Example\\s*(?:\\d*)\\s*:").matcher(decodedContent);
+        int exampleCount = 0;
         while (exampleMatcher.find()) {
-            res.exampleCount++;
+            exampleCount++;
         }
-        if (res.exampleCount == 0) {
-            Matcher inputMatcher = Pattern.compile("Input:").matcher(res.decodedContent);
+        if (exampleCount == 0) {
+            Matcher inputMatcher = Pattern.compile("Input:").matcher(decodedContent);
             while (inputMatcher.find()) {
-                res.exampleCount++;
+                exampleCount++;
+            }
+        }
+        res.setExampleCount(exampleCount);
+
+        if (res.isMethodQuestion()) {
+            List<GeneratorQuestionExample> examples = res.getExamples();
+            GeneratorQuestionMethod method = res.getMethods().get(0);
+            Matcher ioMatcher = Pattern.compile("Input:([\\s\\S]+?)(?:\\s+)Output:(.+)").matcher(decodedContent);
+            Pattern argPattern = Pattern.compile("([^ ]+)\\s*=\\s*([^ ]+)(?:,|\r?\n|$)");
+            while (ioMatcher.find()) {
+                String input = ioMatcher.group(1), output = ioMatcher.group(2);
+                GeneratorQuestionExample example = new GeneratorQuestionExample();
+                examples.add(example);
+                if (method.getArguments().size() == 1) {
+                    Matcher argMatcher = argPattern.matcher(input);
+                    if (argMatcher.find()) {
+                        example.getInputs().add(argMatcher.group(2));
+                    } else {
+                        example.getInputs().add(input);
+                    }
+                } else {
+                    Matcher argMatcher = argPattern.matcher(input);
+                    while (argMatcher.find()) {
+                        example.getInputs().add(argMatcher.group(2));
+                    }
+                }
+                for (int i = 0; i < example.getInputs().size(); i++) {
+                    String type = method.getArguments().get(i).getType();
+                    String arg = example.getInputs().get(i);
+                    example.getInputs().set(i, convertType(type, arg));
+                }
+
+                example.setOutput(convertType(method.getReturnType(), output));
             }
         }
 
@@ -494,12 +293,38 @@ public class Generator {
         return sb.toString();
     }
 
+    private String convertType(String type, String raw) {
+        raw = raw.trim();
+        if (type.contains("List")) {
+            raw = raw.replaceAll("\\[", "Arrays.asList(")
+                    .replaceAll("]", ")");
+            if (type.contains("char")) {
+                raw = raw.replaceAll("\"", "'");
+            }
+        } else if (type.contains("TreeNode")) {
+            raw = raw.replaceAll("\\[", "TreeNode.createByLevel(")
+                    .replaceAll("]", ")");
+        } else if (type.contains("ListNode")) {
+            raw = raw.replaceAll("\\[", "ListNode.createListNode(")
+                    .replaceAll("]", ")");
+        }
+        if (type.contains("[")) {
+            raw = raw.replaceAll("\\[", "{")
+                    .replaceAll("]", "}");
+            if (type.contains("char")) {
+                raw = raw.replaceAll("\"", "'");
+            }
+            raw = "new " + type + raw;
+        }
+        return raw;
+    }
+
     private boolean generateFiles(GeneratorQuestion q, GeneratorQuestionClass qc) throws IOException, ScriptException {
-        File dir = new File(qc.directory);
+        File dir = new File(qc.getDirectory());
         dir.mkdirs();
-        File classFile = new File(dir.getPath() + "/" + qc.className + ".java");
+        File classFile = new File(dir.getPath() + "/" + qc.getClassName() + ".java");
         if (classFile.exists()) {
-            logger.println("File " + qc.className + " already exist, skipped.");
+            logger.println("File " + qc.getClassName() + " already exist, skipped.");
             return false;
         }
 
@@ -507,18 +332,18 @@ public class Generator {
 
         Map<String, Object> variables = new HashMap<>();
         String code;
-        if (qc.isMethodQuestion) {
-            code = "    " + qc.methodCode.replaceAll("\n", "\n    ");
+        if (qc.isMethodQuestion()) {
+            code = "    " + qc.getMethodCode().replaceAll("\n", "\n    ");
         } else {
-            code = "    private static " + q.code.replaceAll("\n", "\n    ");
+            code = "    private static " + q.getCode().replaceAll("\n", "\n    ");
         }
         variables.put("code", code);
-        variables.put("desc", " * " + qc.decodedContent.replaceAll("\n", "\n * "));
+        variables.put("desc", " * " + qc.getDecodedContent().replaceAll("\n", "\n * "));
         variables.put("q", q);
         variables.put("qc", qc);
         templateEngine.setVariables(variables);
 
-        String templateName = qc.isMethodQuestion ? "method" : "class";
+        String templateName = qc.isMethodQuestion() ? "method" : "class";
         templateEngine.setTemplateFile("util/generator/template_" + templateName + ".data.txt");
 
         classFile.createNewFile();
