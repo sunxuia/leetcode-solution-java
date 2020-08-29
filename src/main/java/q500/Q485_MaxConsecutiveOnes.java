@@ -1,6 +1,7 @@
 package q500;
 
 import org.junit.runner.RunWith;
+import q1050.Q1004_MaxConsecutiveOnesIII;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -22,6 +23,8 @@ import util.runner.data.DataExpectation;
  *
  * The input array will only contain 0 and 1.
  * The length of input array is a positive integer and will not exceed 10,000
+ *
+ * 下一题 {@link Q1004_MaxConsecutiveOnesIII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q485_MaxConsecutiveOnes {
