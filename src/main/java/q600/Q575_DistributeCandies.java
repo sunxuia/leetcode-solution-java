@@ -1,6 +1,8 @@
 package q600;
 
 import java.util.BitSet;
+import java.util.HashSet;
+import java.util.Set;
 import org.junit.runner.RunWith;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
@@ -50,6 +52,16 @@ public class Q575_DistributeCandies {
             }
         }
         return Math.min(size, candies.length / 2);
+    }
+
+    // 简单的做法, 上面的看不懂什么意思了
+    @Answer
+    public int distributeCandies2(int[] candies) {
+        Set<Integer> set = new HashSet<>();
+        for (int candy : candies) {
+            set.add(candy);
+        }
+        return Math.min(set.size(), candies.length / 2);
     }
 
     @TestData
