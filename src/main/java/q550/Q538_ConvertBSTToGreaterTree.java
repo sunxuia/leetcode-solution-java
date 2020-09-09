@@ -1,6 +1,7 @@
 package q550;
 
 import org.junit.runner.RunWith;
+import q1050.Q1038_BinarySearchTreeToGreaterSumTree;
 import util.provided.TreeNode;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
@@ -26,6 +27,8 @@ import util.runner.data.DataExpectation;
  * >           20     13
  *
  * Note: This question is the same as 1038: https://leetcode.com/problems/binary-search-tree-to-greater-sum-tree/
+ *
+ * 相同题目 {@link Q1038_BinarySearchTreeToGreaterSumTree}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q538_ConvertBSTToGreaterTree {
