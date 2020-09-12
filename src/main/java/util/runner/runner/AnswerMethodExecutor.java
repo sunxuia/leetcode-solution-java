@@ -38,12 +38,14 @@ public class AnswerMethodExecutor extends AbstractTestExecutor {
 
     @Override
     public int invokeTest(TestInfo testInfo) throws Throwable {
-        Object testedObject = createTestedObject();
-        List<TestDataHolder<DataExpectation>> testDatas = getTestDatas(testInfo, testedObject);
+        Object testDataObject = createTestedObject();
+        List<TestDataHolder<DataExpectation>> testDatas = getTestDatas(testInfo, testDataObject);
 
         for (TestDataHolder<DataExpectation> testData : testDatas) {
             DataExpectation dataExpectation = testData.getTestData();
             Method method = testMethods.get(testInfo);
+            Object testedObject = createTestedObject();
+
             // before
             runBeforeMethod(testedObject);
 
