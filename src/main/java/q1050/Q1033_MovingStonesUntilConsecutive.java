@@ -46,6 +46,8 @@ import util.runner.data.DataExpectation;
  * 1 <= b <= 100
  * 1 <= c <= 100
  * a != b, b != c, c != a
+ *
+ * 下一题 {@link Q1040_MovingStonesUntilConsecutiveII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q1033_MovingStonesUntilConsecutive {
