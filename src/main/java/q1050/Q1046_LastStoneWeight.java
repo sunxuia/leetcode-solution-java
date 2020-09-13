@@ -35,6 +35,8 @@ import util.runner.data.DataExpectation;
  *
  * 1 <= stones.length <= 30
  * 1 <= stones[i] <= 1000
+ *
+ * 下一题 {@link Q1049_LastStoneWeightII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q1046_LastStoneWeight {
