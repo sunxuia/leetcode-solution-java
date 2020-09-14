@@ -54,8 +54,10 @@ public class Q1049_LastStoneWeightII {
         dp[0][max] = true;
         for (int i = 0; i < n; i++) {
             for (int val = -max; val <= max; val++) {
-                dp[i + 1][max + val + stones[i]] = dp[i][max + val];
-                dp[i + 1][max + val - stones[i]] = dp[i][max + val];
+                if (dp[i][max + val]) {
+                    dp[i + 1][max + val + stones[i]] = true;
+                    dp[i + 1][max + val - stones[i]] = true;
+                }
             }
         }
 
