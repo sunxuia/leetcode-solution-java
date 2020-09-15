@@ -32,6 +32,14 @@ public class DataExpectationBuilder {
         return this;
     }
 
+    public DataExpectationBuilder setArgument(int index, Object val) {
+        while (index >= arguments.size()) {
+            arguments.add(null);
+        }
+        arguments.set(index, val);
+        return this;
+    }
+
     public DataExpectationBuilder expect(Object val) {
         expects.put(-1, val);
         return this;
