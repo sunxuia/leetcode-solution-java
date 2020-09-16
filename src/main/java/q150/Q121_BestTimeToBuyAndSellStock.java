@@ -7,6 +7,7 @@ import util.runner.TestData;
 import util.runner.data.DataExpectation;
 
 /**
+ * [Easy] 121. Best Time to Buy and Sell Stock
  * https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
  *
  * Say you have an array for which the ith element is the price of a given stock on day i.
@@ -28,11 +29,15 @@ import util.runner.data.DataExpectation;
  * Input: [7,6,4,3,1]
  * Output: 0
  * Explanation: In this case, no transaction is done, i.e. max profit = 0.
+ *
+ * 题解: 股票交易系列第1 题, 题目限制只能进行 1 次买卖 (买完再卖)
  */
 @RunWith(LeetCodeRunner.class)
 public class Q121_BestTimeToBuyAndSellStock {
 
-    // 题目限制只能1 次买卖
+    /**
+     * 这题不需要使用 dp
+     */
     @Answer
     public int maxProfit(int[] prices) {
         int min = 0, res = 0;

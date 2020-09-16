@@ -7,6 +7,7 @@ import util.runner.TestData;
 import util.runner.data.DataExpectation;
 
 /**
+ * [Medium] 152. Maximum Product Subarray
  * https://leetcode.com/problems/maximum-product-subarray/
  *
  * Given an integer array nums, find the contiguous subarray within an array (containing at least one number) which
@@ -32,14 +33,17 @@ public class Q152_MaximumProductSubarray {
         if (nums.length == 0) {
             return 0;
         }
+        // max, min 表示以 nums[i] 结束的子序列的最大/最小乘积值
         int res = nums[0], max = res, min = res;
         for (int i = 1; i < nums.length; i++) {
             final int num = nums[i];
             if (num > 0) {
+                // Math 比较针对 max, min 可能为 0 的情况
                 max = Math.max(num, max * num);
                 min = Math.min(num, min * num);
             } else {
-                // 如果num<0, 则 min*num 就变成最大的数, max*num 就变成最小的数
+                // 如果 num == 0, 则 max 和 min 都是0
+                // 如果 num < 0, 则 min*num 就变成最大的数, max*num 就变成最小的数
                 int oldMax = max;
                 max = Math.max(num, min * num);
                 min = Math.min(num, oldMax * num);

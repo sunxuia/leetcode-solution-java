@@ -9,6 +9,7 @@ import util.runner.TestData;
 import util.runner.data.DataExpectation;
 
 /**
+ * [Medium] 322. Coin Change
  * https://leetcode.com/problems/coin-change
  *
  * You are given coins of different denominations and a total amount of money amount. Write a function to compute the
@@ -31,7 +32,9 @@ import util.runner.data.DataExpectation;
 @RunWith(LeetCodeRunner.class)
 public class Q322_CoinChange {
 
-    // 暴力解法会超时, 所以这里用dp
+    /**
+     * 暴力解法会超时, 这里可以用 dp 来做.
+     */
     @Answer
     public int coinChange(int[] coins, int amount) {
         Arrays.sort(coins);
@@ -58,10 +61,13 @@ public class Q322_CoinChange {
     public DataExpectation example2 = DataExpectation.createWith(new int[]{2}, 3).expect(-1);
 
     @TestData
-    public DataExpectation normal1 = DataExpectation.createWith(new int[]{186, 419, 83, 408}, 6249).expect(20);
+    public DataExpectation normal1 = DataExpectation.createWith(new int[]{1, 6, 7}, 30).expect(5);
 
     @TestData
-    public DataExpectation normal2 = DataExpectation
+    public DataExpectation normal2 = DataExpectation.createWith(new int[]{186, 419, 83, 408}, 6249).expect(20);
+
+    @TestData
+    public DataExpectation normal3 = DataExpectation
             .createWith(new int[]{470, 18, 66, 301, 403, 112, 360}, 8235).expect(20);
 
 }

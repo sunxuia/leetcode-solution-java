@@ -1,6 +1,7 @@
 package q350;
 
 import org.junit.runner.RunWith;
+import q150.Q122_BestTimeToBuyAndSellStockII;
 import q200.Q188_BestTimeToBuyAndSellStockIV;
 import q750.Q714_BestTimeToBuyAndSellStockWithTransactionFee;
 import util.runner.Answer;
@@ -9,6 +10,7 @@ import util.runner.TestData;
 import util.runner.data.DataExpectation;
 
 /**
+ * [Medium] 309. Best Time to Buy and Sell Stock with Cooldown
  * https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
  *
  * Say you have an array for which the ith element is the price of a given stock on day i.
@@ -28,13 +30,44 @@ import util.runner.data.DataExpectation;
  * 相关题目:
  * 上一题 {@link Q188_BestTimeToBuyAndSellStockIV}
  * 下一题 {@link Q714_BestTimeToBuyAndSellStockWithTransactionFee}
+ *
+ * 题解:
+ * 这题相比 {@link Q122_BestTimeToBuyAndSellStockII} 多了1 个限制条件: 卖出后的1 天不能买入.
  */
 @RunWith(LeetCodeRunner.class)
 public class Q309_BestTimeToBuyAndSellStockWithCooldown {
 
-    // https://soulmachine.gitbooks.io/algorithm-essentials/java/dp/best-time-to-buy-and-sell-stock-with-cooldown.html
+    /**
+     * 类似 122题, 用 dp[i][j] 表示第 i 天持有j 股股票.
+     * 则 dp[i][0] 的值为 dp[i-1][0] (不卖出) 或 dp[i-1][1] + prices[i] (今天卖出), 这个和之前一样
+     * dp[i][1] 的值为 dp[i-1][1] (不买入) 或 dp[i-2][0] - prices[i] (2 天前卖出今天再买入)
+     */
     @Answer
     public int maxProfit(int[] prices) {
+        final int n = prices.length;
+        if (n < 2) {
+            return 0;
+        }
+        int[][] dp = new int[n][2];
+        // 起始的边界条件.
+        dp[0][1] = -prices[0];
+        dp[1][0] = Math.max(0, prices[1] - prices[0]);
+        dp[1][1] = Math.max(-prices[0], -prices[1]);
+        for (int i = 2; i < n; i++) {
+            // 不卖出或卖出
+            dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] + prices[i]);
+            // 不买入或 2 天前卖出后再买入
+            dp[i][1] = Math.max(dp[i - 1][1], dp[i - 2][0] - prices[i]);
+        }
+        return dp[n - 1][0];
+    }
+
+    /**
+     * 网上的其他解答, 与上面的解法类似.
+     * https://soulmachine.gitbooks.io/algorithm-essentials/java/dp/best-time-to-buy-and-sell-stock-with-cooldown.html
+     */
+    @Answer
+    public int maxProfit2(int[] prices) {
         final int n = prices.length;
         if (n < 2) {
             return 0;

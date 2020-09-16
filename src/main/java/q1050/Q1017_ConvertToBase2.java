@@ -1,6 +1,7 @@
 package q1050;
 
 import org.junit.runner.RunWith;
+import q1100.Q1073_AddingTwoNegabinaryNumbers;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -35,6 +36,8 @@ import util.runner.data.DataExpectation;
  * Note:
  *
  * 0 <= N <= 10^9
+ *
+ * 相关题目 {@link Q1073_AddingTwoNegabinaryNumbers}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q1017_ConvertToBase2 {
@@ -79,12 +82,15 @@ public class Q1017_ConvertToBase2 {
      */
     @Answer
     public String baseNeg2_2(int N) {
+        if (N == 0) {
+            return "0";
+        }
         StringBuilder sb = new StringBuilder();
         while (N != 0) {
             sb.append(N & 1);
             N = -(N >> 1);
         }
-        return sb.length() > 0 ? sb.reverse().toString() : "0";
+        return sb.reverse().toString();
     }
 
 

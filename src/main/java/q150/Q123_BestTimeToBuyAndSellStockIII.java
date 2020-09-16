@@ -8,6 +8,7 @@ import util.runner.TestData;
 import util.runner.data.DataExpectation;
 
 /**
+ * [Hard] 123. Best Time to Buy and Sell Stock III
  * https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/
  *
  * Say you have an array for which the ith element is the price of a given stock on day i.
@@ -38,12 +39,15 @@ import util.runner.data.DataExpectation;
  * Output: 0
  * Explanation: In this case, no transaction is done, i.e. max profit = 0.
  *
- * 题解: 下一题 {@link Q188_BestTimeToBuyAndSellStockIV}
+ * 相关题目:
+ * 下一题 {@link Q188_BestTimeToBuyAndSellStockIV}
+ *
+ * 题解:
+ * 相比上题可以无限制买卖这题只能买卖 2 次 (买卖只 1 次交易, 即一买一卖算 1 次交易)
  */
 @RunWith(LeetCodeRunner.class)
 public class Q123_BestTimeToBuyAndSellStockIII {
 
-    // 题目限制最多2 次买卖次数
     @Answer
     public int maxProfit(int[] prices) {
         if (prices == null || prices.length < 2) {
@@ -86,6 +90,14 @@ public class Q123_BestTimeToBuyAndSellStockIII {
             }
         }
         return global[n];
+    }
+
+    /**
+     * 这题是 {@link Q188_BestTimeToBuyAndSellStockIV} 的 k = 2 的特例.
+     */
+    @Answer
+    public int maxProfit3(int[] prices) {
+        return new Q188_BestTimeToBuyAndSellStockIV().maxProfit(2, prices);
     }
 
     @TestData

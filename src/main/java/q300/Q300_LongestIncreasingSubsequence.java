@@ -9,6 +9,7 @@ import util.runner.TestData;
 import util.runner.data.DataExpectation;
 
 /**
+ * [Medium] 300. Longest Increasing Subsequence
  * https://leetcode.com/problems/longest-increasing-subsequence/
  *
  * Given an unsorted array of integers, find the length of longest increasing subsequence.
@@ -29,10 +30,12 @@ import util.runner.data.DataExpectation;
 @RunWith(LeetCodeRunner.class)
 public class Q300_LongestIncreasingSubsequence {
 
-    // O(n^2) 的解法, dp 解法向前找就好了.
+    /**
+     * O(n^2) 的解法, dp 解法向前找就好了.
+     */
     @Answer
     public int lengthOfLIS_ON(int[] nums) {
-        // count[i] 表示到 nums[i] 元素的最大连续数.
+        // count[i] 表示以 nums[i] 元素结尾的最长上升子序列的长度
         int[] count = new int[nums.length];
         int res = 0;
         for (int i = 0; i < nums.length; i++) {
