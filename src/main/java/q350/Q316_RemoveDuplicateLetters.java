@@ -1,6 +1,7 @@
 package q350;
 
 import org.junit.runner.RunWith;
+import q1100.Q1081_SmallestSubsequenceOfDistinctCharacters;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -23,6 +24,8 @@ import util.runner.data.DataExpectation;
  * Output: "acdb"
  *
  * 题解: 参数 s 由全小写字母组成, 现在要删除s 中的重复字符, 并让返回的字符按照字典顺序要最小 (所有可能的删除方案中最小的)
+ *
+ * 相同题目: {@link Q1081_SmallestSubsequenceOfDistinctCharacters}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q316_RemoveDuplicateLetters {
