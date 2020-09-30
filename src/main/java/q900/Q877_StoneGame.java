@@ -1,6 +1,7 @@
 package q900;
 
 import org.junit.runner.RunWith;
+import q1150.Q1140_StoneGameII;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -40,6 +41,8 @@ import util.runner.data.DataExpectation;
  * sum(piles) is odd.
  *
  * 题解: (这题题目设计/测试用例有缺陷, 结果都是true)
+ *
+ * 下一题 {@link Q1140_StoneGameII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q877_StoneGame {

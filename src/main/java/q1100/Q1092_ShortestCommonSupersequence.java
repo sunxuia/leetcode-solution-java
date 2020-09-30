@@ -1,6 +1,7 @@
 package q1100;
 
 import org.junit.runner.RunWith;
+import q1150.Q1143_LongestCommonSubsequence;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -29,6 +30,8 @@ import util.runner.data.DataExpectation;
  *
  * 1 <= str1.length, str2.length <= 1000
  * str1 and str2 consist of lowercase English letters.
+ *
+ * 类似题目 {@link Q1143_LongestCommonSubsequence}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q1092_ShortestCommonSupersequence {
