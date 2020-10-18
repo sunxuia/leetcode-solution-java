@@ -30,6 +30,19 @@ public class JsonParser {
         return parser.convertToMap(object);
     }
 
+    public static List<?> parseJsonToList(String json) {
+        JsonParser parser = new JsonParser();
+        List<JsonToken> tokens = parser.getTokens(json);
+        JsonObject object = parser.parseTokens(tokens);
+        if (object == null) {
+            return null;
+        }
+        if (object.type != JsonObjectType.ARRAY) {
+            throw new GeneratorException("Json root type should be object!");
+        }
+        return parser.convertToList(object);
+    }
+
     /**
      * 表示json 中的词
      */
