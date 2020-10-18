@@ -7,6 +7,7 @@ import util.runner.TestData;
 import util.runner.data.DataExpectation;
 
 /**
+ * [Hard] 41. First Missing Positive
  * https://leetcode.com/problems/first-missing-positive/
  *
  * Given an unsorted integer array, find the smallest missing positive integer.
@@ -35,28 +36,26 @@ import util.runner.data.DataExpectation;
 public class Q041_FirstMissingPositive {
 
     /**
-     * 思路是缺少的数字肯定小于等于数组长度, 那么就把正数放到 -1 值对应的下标中,
+     * 思路是缺少的数字肯定小于等于数组长度, 那么就把正数放到其值 -1 对应的下标中,
      * 最后遍历一遍数组, 找出第1 个和下标+1不符的, 就是需需要的数了.
      */
     @Answer
     public int firstMissingPositive(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] != i + 1) {
-                // 当前数移动到指定下标, 指定下标的数继续移动
-                int v = nums[i];
-                while (v > 0 && v <= nums.length && nums[v - 1] != v) {
-                    int next = nums[v - 1];
-                    nums[v - 1] = v;
-                    v = next;
-                }
+        final int n = nums.length;
+        for (int v : nums) {
+            // 当前数移动到指定下标, 指定下标的数继续移动
+            while (0 < v && v <= n && nums[v - 1] != v) {
+                int next = nums[v - 1];
+                nums[v - 1] = v;
+                v = next;
             }
         }
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < n; i++) {
             if (nums[i] != i + 1) {
                 return i + 1;
             }
         }
-        return nums.length + 1;
+        return n + 1;
     }
 
     @TestData

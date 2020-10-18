@@ -101,7 +101,7 @@ public class Q042_TrappingRainWater {
         return res;
     }
 
-    // 单调递增栈的实现方式. 当遇到比栈顶高度大的时候, 就说明有可能会有坑存在, 可以装雨水.
+    // 单调递减栈的实现方式. 当遇到比栈顶高度大的时候, 就说明有可能会有坑存在, 可以装雨水.
     @Answer
     public int trap3(int[] height) {
         Deque<Integer> stack = new ArrayDeque<>();
