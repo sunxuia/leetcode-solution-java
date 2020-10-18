@@ -1,6 +1,7 @@
 package q100;
 
 import org.junit.runner.RunWith;
+import q1200.Q1186_MaximumSubarraySumWithOneDeletion;
 import q950.Q918_MaximumSumCircularSubarray;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
@@ -8,7 +9,8 @@ import util.runner.TestData;
 import util.runner.data.DataExpectation;
 
 /**
- * https://leetcode.com/problems/maximum-subarray/
+ * 53. Maximum Subarray
+ * [Easy] https://leetcode.com/problems/maximum-subarray/
  *
  * Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest
  * sum and return its sum.
@@ -24,6 +26,7 @@ import util.runner.data.DataExpectation;
  * which is more subtle.
  *
  * 相关题目 {@link Q918_MaximumSumCircularSubarray}
+ * 相关题目 {@link Q1186_MaximumSubarraySumWithOneDeletion}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q053_MaximumSubarray {
@@ -31,13 +34,13 @@ public class Q053_MaximumSubarray {
     @Answer
     public int maxSubArray(int[] nums) {
         int sum = 0, res = nums[0];
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] < 0 && sum + nums[i] < 0) {
+        for (int num : nums) {
+            sum += num;
+            if (sum < 0) {
                 sum = 0;
-                res = Math.max(nums[i], res);
+                res = Math.max(res, num);
             } else {
-                sum += nums[i];
-                res = Math.max(sum, res);
+                res = Math.max(res, sum);
             }
         }
         return res;
