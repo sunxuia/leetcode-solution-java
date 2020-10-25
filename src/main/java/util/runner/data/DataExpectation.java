@@ -106,12 +106,12 @@ public class DataExpectation {
         return new DataExpectationBuilder();
     }
 
-    public static SimpleDataExpectationBuilder createWith(Object... args) {
-        return new SimpleDataExpectationBuilder(args);
+    public static DataExpectationAdaptor createWith(Object... args) {
+        return new DataExpectationAdaptor(args);
     }
 
-    public static SimpleDataExpectationBuilder create(Object arg) {
-        return new SimpleDataExpectationBuilder(new Object[]{arg});
+    public static DataExpectationAdaptor create(Object arg) {
+        return new DataExpectationAdaptor(new Object[]{arg});
     }
 
 }
