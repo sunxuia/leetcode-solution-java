@@ -4,9 +4,6 @@ import java.util.PriorityQueue;
 import java.util.TreeSet;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import util.runner.Answer;
-import util.runner.LeetCodeRunner;
 
 /**
  * https://leetcode.com/problems/exam-room/
@@ -44,10 +41,8 @@ import util.runner.LeetCodeRunner;
  * ExamRoom.seat() and ExamRoom.leave() will be called at most 10^4 times across all test cases.
  * Calls to ExamRoom.leave(p) are guaranteed to have a student currently sitting in seat number p.
  */
-@RunWith(LeetCodeRunner.class)
 public class Q855_ExamRoom {
 
-    @Answer
     public static class ExamRoom {
 
         final int n;
