@@ -3,6 +3,7 @@ package q300;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.runner.RunWith;
+import q1250.Q1201_UglyNumberIII;
 import q350.Q313_SuperUglyNumber;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
@@ -28,6 +29,7 @@ import util.runner.data.DataExpectation;
  * n does not exceed 1690.
  *
  * 相关题目 {@link Q313_SuperUglyNumber}
+ * 下一题 {@link Q1201_UglyNumberIII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q264_UglyNumberII {
