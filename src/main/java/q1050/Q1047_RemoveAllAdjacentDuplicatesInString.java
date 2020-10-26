@@ -3,6 +3,7 @@ package q1050;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import org.junit.runner.RunWith;
+import q1250.Q1209_RemoveAllAdjacentDuplicatesInStringII;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -32,6 +33,8 @@ import util.runner.data.DataExpectation;
  *
  * 1 <= S.length <= 20000
  * S consists only of English lowercase letters.
+ *
+ * 下一题 {@link Q1209_RemoveAllAdjacentDuplicatesInStringII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q1047_RemoveAllAdjacentDuplicatesInString {
