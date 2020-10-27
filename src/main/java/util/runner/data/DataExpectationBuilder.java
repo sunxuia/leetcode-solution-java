@@ -8,7 +8,6 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import org.junit.Assert;
 import util.asserthelper.AssertUtils;
-import util.asserthelper.ErrorStringBuilder;
 import util.asserthelper.ObjectEqualsHelper;
 
 public class DataExpectationBuilder {
@@ -18,14 +17,6 @@ public class DataExpectationBuilder {
     private Map<Integer, Object> expects = new HashMap<>();
 
     private Map<Integer, DefaultDataAssertMethod<?>> assertMethods = new HashMap<>();
-
-    private static class OrList<T> extends ArrayList<T> {
-
-        OrList(T val) {
-            super(2);
-            add(val);
-        }
-    }
 
     public DataExpectationBuilder addArgument(Object val) {
         arguments.add(val);
@@ -161,7 +152,7 @@ public class DataExpectationBuilder {
         res.setArguments(arguments.toArray());
         expects.forEach((index, expect) -> {
             if (expect instanceof OrList) {
-                addAssertMethod(index, OR_EXPECT_ASSERT_METHOD);
+                addAssertMethod(index, OrList.OR_EXPECT_ASSERT_METHOD);
             }
             if (index == -1) {
                 res.setExpect(expect);
@@ -179,22 +170,4 @@ public class DataExpectationBuilder {
         return res;
     }
 
-    private static DataAssertMethod<?> OR_EXPECT_ASSERT_METHOD = (expects, actual, originAssertMethod) -> {
-        OrList<?> orExpects = (OrList<?>) expects;
-        ErrorStringBuilder esb = new ErrorStringBuilder();
-        esb.append("OrExpects not match with \n    actual: ");
-        esb.append(actual);
-        for (Object expect : orExpects) {
-            try {
-                originAssertMethod.accept(expect, actual);
-                return;
-            } catch (AssertionError err) {
-                esb.append("\n    expect: ")
-                        .append(expect)
-                        .append("\n      caused by: [%s]", err);
-
-            }
-        }
-        AssertUtils.fail(esb.toString());
-    };
 }
