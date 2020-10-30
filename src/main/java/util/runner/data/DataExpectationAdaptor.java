@@ -22,6 +22,15 @@ public class DataExpectationAdaptor extends DataExpectation {
         return this;
     }
 
+    public DataExpectationAdaptor expectDouble(double e, double delta) {
+        Assert.assertNull("Should not set assert method before expectDouble.", dataAssertMethod);
+        expect(e);
+        assertMethod((expect, actual, orig) -> {
+            Assert.assertEquals((double) expect, (double) actual, delta);
+        });
+        return this;
+    }
+
     public DataExpectationAdaptor unOrder(String... patterns) {
         Assert.assertFalse("Please set unOrder before orExpect!", expect instanceof OrList);
 
@@ -39,7 +48,7 @@ public class DataExpectationAdaptor extends DataExpectation {
         return this;
     }
 
-    public DataExpectationAdaptor assertMethod(DataAssertMethod method) {
+    public <T> DataExpectationAdaptor assertMethod(DataAssertMethod<T> method) {
         dataAssertMethod = new DefaultDataAssertMethod(method, dataAssertMethod);
         setExpectAssertMethod(dataAssertMethod);
         return this;
