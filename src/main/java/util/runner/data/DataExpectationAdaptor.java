@@ -10,7 +10,7 @@ public class DataExpectationAdaptor extends DataExpectation {
 
     private Object expect = NULL_SYMBOL;
 
-    private DefaultDataAssertMethod dataAssertMethod = null;
+    private DefaultDataAssertMethod dataAssertMethod = DataExpectation.DEFAULT_ASSERT_METHOD;
 
     DataExpectationAdaptor(Object[] arguments) {
         setArguments(arguments);
@@ -23,7 +23,8 @@ public class DataExpectationAdaptor extends DataExpectation {
     }
 
     public DataExpectationAdaptor expectDouble(double e, double delta) {
-        Assert.assertNull("Should not set assert method before expectDouble.", dataAssertMethod);
+        Assert.assertEquals("Should not set assert method before expectDouble.",
+                DataExpectation.DEFAULT_ASSERT_METHOD, dataAssertMethod);
         expect(e);
         assertMethod((expect, actual, orig) -> {
             Assert.assertEquals((double) expect, (double) actual, delta);
@@ -58,7 +59,7 @@ public class DataExpectationAdaptor extends DataExpectation {
         Assert.assertTrue("Please set expect first!", expect != NULL_SYMBOL);
 
         if (expect instanceof OrList) {
-            ((OrList) e).add(e);
+            ((OrList) expect).add(e);
         } else {
             OrList orList = new OrList(expect);
             orList.add(e);
