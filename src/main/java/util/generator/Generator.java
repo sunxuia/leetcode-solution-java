@@ -296,7 +296,7 @@ public class Generator {
     private String convertType(String type, String raw) {
         raw = raw.trim();
         if (type.contains("List")) {
-            raw = raw.replaceAll("\\[", "Arrays.asList(")
+            raw = raw.replaceAll("\\[", "List.of(")
                     .replaceAll("]", ")");
             if (type.contains("char")) {
                 raw = raw.replaceAll("\"", "'");
