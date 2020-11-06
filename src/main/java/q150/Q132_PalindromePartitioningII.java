@@ -1,12 +1,14 @@
 package q150;
 
 import org.junit.runner.RunWith;
+import q1300.Q1278_PalindromePartitioningIII;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
 import util.runner.data.DataExpectation;
 
 /**
+ * [Hard] 132. Palindrome Partitioning II
  * https://leetcode.com/problems/palindrome-partitioning-ii/
  *
  * Given a string s, partition s such that every substring of the partition is a palindrome.
@@ -18,6 +20,8 @@ import util.runner.data.DataExpectation;
  * Input: "aab"
  * Output: 1
  * Explanation: The palindrome partitioning ["aa","b"] could be produced using 1 cut.
+ *
+ * 下一题 {@link Q1278_PalindromePartitioningIII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q132_PalindromePartitioningII {
