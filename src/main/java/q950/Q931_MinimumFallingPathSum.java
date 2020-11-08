@@ -1,6 +1,7 @@
 package q950;
 
 import org.junit.runner.RunWith;
+import q1300.Q1289_MinimumFallingPathSumII;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -32,14 +33,11 @@ import util.runner.data.DataExpectation;
  *
  * 1 <= A.length == A[0].length <= 100
  * -100 <= A[i][j] <= 100
+ *
+ * 下一题 {@link Q1289_MinimumFallingPathSumII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q931_MinimumFallingPathSum {
-
-    @TestData
-    public DataExpectation example = DataExpectation
-            .create(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}})
-            .expect(12);
 
     @Answer
     public int minFallingPathSum(int[][] A) {
@@ -65,5 +63,12 @@ public class Q931_MinimumFallingPathSum {
         }
         return res;
     }
+
+    @TestData
+    public DataExpectation example = DataExpectation.create(new int[][]{
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+    }).expect(12);
 
 }
