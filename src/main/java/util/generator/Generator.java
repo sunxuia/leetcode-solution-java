@@ -184,7 +184,7 @@ public class Generator {
         }
         res.setMethodQuestion("Solution".equals(res.getTestedClassName()));
 
-        Matcher methodMatcher = Pattern.compile("public(?: ([^ ]+)) ([_a-zA-Z0-9]+)\\(([^)]+)\\) \\{")
+        Matcher methodMatcher = Pattern.compile("public(?: ([^ ]+)) ([_a-zA-Z0-9]+) *\\(([^)]+)\\) \\{")
                 .matcher(res.getDecodedCode());
         Pattern argumentPattern = Pattern.compile("([^ ]+) ([^, ]+)(?:,|$)");
         while (methodMatcher.find()) {
