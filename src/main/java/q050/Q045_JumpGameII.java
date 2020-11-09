@@ -1,13 +1,15 @@
 package q050;
 
 import org.junit.runner.RunWith;
+import q1350.Q1306_JumpGameIII;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
 import util.runner.data.DataExpectation;
 
 /**
- * https://leetcode.com/problems/wildcard-matching/submissions/
+ * [Hard] 45. Jump Game II
+ * https://leetcode.com/problems/jump-game-ii/
  *
  * Given an array of non-negative integers, you are initially positioned at the first index of the array.
  *
@@ -25,6 +27,8 @@ import util.runner.data.DataExpectation;
  * Note:
  *
  * You can assume that you can always reach the last index.
+ *
+ * 下一题 {@link Q1306_JumpGameIII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q045_JumpGameII {
