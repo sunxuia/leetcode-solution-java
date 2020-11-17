@@ -16,6 +16,7 @@ public class TestDataFileHelper {
         String wrappedFileName = wrapFileName(fileName);
         return () -> {
             String content = readString(wrappedFileName).get();
+            content = content.replaceAll("\\[|]", "");
             String[] strs = content.split(",");
             int[] res = new int[strs.length];
             for (int i = 0; i < strs.length; i++) {

@@ -58,6 +58,8 @@ import util.runner.data.DataExpectation;
  * 1 <= arr.length <= 1000
  * 1 <= arr[i] <= 10^5
  * 1 <= d <= arr.length
+ *
+ * 上一题 {@link Q1345_JumpGameIV}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q1340_JumpGameV {
