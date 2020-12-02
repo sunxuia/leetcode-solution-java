@@ -79,7 +79,7 @@ public class Q398_RandomPickIndex {
         res = solution.pick(1);
         Assert.assertEquals(0, res);
 
-        solution = new Solution(TestDataFileHelper.readIntegerArray("Q398_LongTestData").get());
+        solution = new Solution(TestDataFileHelper.read("Q398_LongTestData", int[].class).get());
         res = solution.pick(-760627172);
         Assert.assertEquals(4857, res);
     }

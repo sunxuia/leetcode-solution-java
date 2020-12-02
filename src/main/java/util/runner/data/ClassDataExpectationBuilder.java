@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.StringJoiner;
 import util.runner.data.ClassDataExpectation.Command;
 import util.runner.data.TestDataString.TestDataStringType;
 
@@ -37,8 +38,12 @@ public class ClassDataExpectationBuilder {
         Map<String, ClassDataExpectation> res = new LinkedHashMap<>();
         final String constructorName = example.getSimpleName();
 
-        String text = TestDataFileHelper.readString(fileName).get();
-        String[] testCases = text.split("\n\n");
+        List<String> texts = new TestDataFile(fileName).getAll();
+        StringJoiner joiner = new StringJoiner("\n");
+        for (String text : texts) {
+            joiner.add(text);
+        }
+        String[] testCases = joiner.toString().split("\n\n");
         for (int i = 0; i < testCases.length; i++) {
             String[] testCase = testCases[i].split("\n");
             String name;

@@ -10,6 +10,7 @@ import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
 import util.runner.data.DataExpectation;
+import util.runner.data.TestDataFile;
 import util.runner.data.TestDataFileHelper;
 
 /**
@@ -139,19 +140,21 @@ public class Q1345_JumpGameIV {
             .create(new int[]{11, 22, 7, 7, 7, 7, 7, 7, 7, 22, 13})
             .expect(3);
 
+    private TestDataFile testDataFile = new TestDataFile();
+
     @TestData
     public DataExpectation normal1 = DataExpectation
-            .create(TestDataFileHelper.readIntegerArray("Q1345_TestData_1"))
+            .create(TestDataFileHelper.read(testDataFile, 1, int[].class))
             .expect(30);
 
     @TestData
     public DataExpectation overMemory1 = DataExpectation
-            .create(TestDataFileHelper.readIntegerArray("Q1345_TestData_2"))
+            .create(TestDataFileHelper.read(testDataFile, 2, int[].class))
             .expect(2);
 
     @TestData
     public DataExpectation overMemory2 = DataExpectation
-            .create(TestDataFileHelper.readIntegerArray("Q1345_TestData_3"))
+            .create(TestDataFileHelper.read(testDataFile, 3, int[].class))
             .expect(30);
 
 }

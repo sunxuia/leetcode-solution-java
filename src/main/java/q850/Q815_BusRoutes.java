@@ -87,7 +87,7 @@ public class Q815_BusRoutes {
 
     @TestData
     public DataExpectation overTime = DataExpectation
-            .createWith(TestDataFileHelper.read2DArray("Q815_TestData"), 0, 90000)
+            .createWith(TestDataFileHelper.read(int[][].class), 0, 90000)
             .expect(300);
 
 }

@@ -88,7 +88,7 @@ public class Q714_BestTimeToBuyAndSellStockWithTransactionFee {
 
     @TestData
     public DataExpectation overTime = DataExpectation
-            .createWith(TestDataFileHelper.readIntegerArray("Q714_TestData"), 6806)
+            .createWith(TestDataFileHelper.read(int[].class), 6806)
             .expect(309432285);
 
 }

@@ -2,6 +2,7 @@ package q1350;
 
 import java.util.List;
 import org.junit.runner.RunWith;
+import util.common.json.JsonTypeWrapper;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -96,7 +97,7 @@ public class Q1301_NumberOfPathsWithMaxScore {
 
     @TestData
     public DataExpectation normal1 = DataExpectation
-            .create(TestDataFileHelper.readStringArray("Q1301_TestData").then(List::of))
+            .create(TestDataFileHelper.read(JsonTypeWrapper.STRING_LIST))
             .expect(new int[]{1773, 690285631});
 
 }

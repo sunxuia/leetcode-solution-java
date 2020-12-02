@@ -83,7 +83,7 @@ public class Q1289_MinimumFallingPathSumII {
 
     @TestData
     public DataExpectation normal2 = DataExpectation
-            .create(TestDataFileHelper.read2DArray("Q1289_TestData"))
+            .create(TestDataFileHelper.read(int[][].class))
             .expect(200);
 
 }

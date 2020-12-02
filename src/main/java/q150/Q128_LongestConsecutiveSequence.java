@@ -58,7 +58,7 @@ public class Q128_LongestConsecutiveSequence {
 
     @TestData
     public DataExpectation largeNumber = DataExpectation
-            .create(TestDataFileHelper.readIntegerArray("Q128_LongTestData"))
+            .create(TestDataFileHelper.read("Q128_LongTestData", int[].class))
             .expect(290);
 
 }

@@ -96,7 +96,7 @@ public class Q952_LargestComponentSizeByCommonFactor {
     // 18176 个数字
     @TestData
     public DataExpectation overTime = DataExpectation
-            .create(TestDataFileHelper.readIntegerArray("Q952_TestData"))
+            .create(TestDataFileHelper.read(int[].class))
             .expect(16998);
 
 }

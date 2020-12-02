@@ -2,7 +2,8 @@ package q750;
 
 import org.junit.Assert;
 import org.junit.Test;
-import util.runner.data.TestDataFileHelper;
+import util.common.json.JsonParser;
+import util.runner.data.TestDataFile;
 
 /**
  * https://leetcode.com/problems/design-hashmap/
@@ -147,40 +148,21 @@ public class Q706_DesignHashMap {
 
     @Test
     public void testMethod2() {
-        String testData = TestDataFileHelper.readString("Q706_TestData").get();
-        String[] strs = testData.split("\n");
-        String[] methods = strs[0].split(","), argsStrs = strs[1].split("\\],\\[");
-
-        String expectData = TestDataFileHelper.readString("Q706_TestData_Result").get();
-        String[] expects = expectData.split(",");
-
+        TestDataFile testDataFile = new TestDataFile();
+        String[] methods = JsonParser.parseJson(testDataFile.getLine(1), String[].class);
+        Integer[][] args = JsonParser.parseJson(testDataFile.getLine(2), Integer[][].class);
+        Integer[] expects = JsonParser.parseJson(testDataFile.getLine(3), Integer[].class);
         MyHashMap hashMap = new MyHashMap();
         for (int i = 0; i < methods.length; i++) {
-            if (argsStrs[i].startsWith("[")) {
-                argsStrs[i] = argsStrs[i].substring(1);
-            }
-            if (argsStrs[i].endsWith("]")) {
-                argsStrs[i] = argsStrs[i].substring(0, argsStrs[i].length() - 1);
-            }
-            String[] argStrs = argsStrs[i].split(",");
-            int[] arg = new int[argStrs.length];
-            if (!argsStrs[i].isEmpty()) {
-                for (int j = 0; j < argStrs.length; j++) {
-                    arg[j] = Integer.parseInt(argStrs[j]);
-                }
-            }
-            String method = methods[i].replaceAll("\"", "");
-            int expect = "null".equals(expects[i]) ? 0 : Integer.parseInt(expects[i]);
-
-            switch (method) {
+            switch (methods[i]) {
                 case "get":
-                    Assert.assertEquals(expect, hashMap.get(arg[0]));
+                    Assert.assertEquals((int) expects[i], hashMap.get(args[i][0]));
                     break;
                 case "put":
-                    hashMap.put(arg[0], arg[1]);
+                    hashMap.put(args[i][0], args[i][1]);
                     break;
                 case "remove":
-                    hashMap.remove(arg[0]);
+                    hashMap.remove(args[i][0]);
                     break;
                 default:
             }

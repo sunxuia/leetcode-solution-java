@@ -84,7 +84,7 @@ public class Q875_KokoEatingBananas {
 
     @TestData
     public DataExpectation normal2 = DataExpectation
-            .createWith(TestDataFileHelper.readIntegerArray("Q875_TestData"), 63939633)
+            .createWith(TestDataFileHelper.read(int[].class), 63939633)
             .expect(78332);
 
 }

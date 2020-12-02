@@ -166,7 +166,7 @@ public class Q1334_FindTheCityWithTheSmallestNumberOfNeighborsAtAThresholdDistan
 
     @TestData
     public DataExpectation normal1 = DataExpectation
-            .createWith(39, TestDataFileHelper.read2DArray("Q1334_TestData"), 6586)
+            .createWith(39, TestDataFileHelper.read(int[][].class), 6586)
             .expect(38);
 
 }

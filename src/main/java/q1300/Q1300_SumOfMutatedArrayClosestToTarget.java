@@ -93,6 +93,6 @@ public class Q1300_SumOfMutatedArrayClosestToTarget {
     // 1万个数据
     @TestData
     public DataExpectation normal2 = DataExpectation
-            .createWith(TestDataFileHelper.readIntegerArray("Q1300_TestData"), 4203).expect(0);
+            .createWith(TestDataFileHelper.read(int[].class), 4203).expect(0);
 
 }

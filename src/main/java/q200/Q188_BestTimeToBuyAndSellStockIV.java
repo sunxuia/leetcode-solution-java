@@ -147,7 +147,7 @@ public class Q188_BestTimeToBuyAndSellStockIV {
     // 1万个元素的数组
     @TestData
     public DataExpectation overMemory = DataExpectation
-            .createWith(1000000000, TestDataFileHelper.readIntegerArray("Q188_LongTestData"))
+            .createWith(1000000000, TestDataFileHelper.read("Q188_LongTestData", int[].class))
             .expect(1648961);
 
 }

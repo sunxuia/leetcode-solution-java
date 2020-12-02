@@ -87,7 +87,7 @@ public class Q395_LongestSubstringWithAtLeastKRepeatingCharacters {
 
     @TestData
     public DataExpectation overTime = DataExpectation
-            .createWith(TestDataFileHelper.readString("Q395_LongTestData"), 301)
+            .createWith(TestDataFileHelper.read("Q395_LongTestData", String.class), 301)
             .expect(301);
 
 }

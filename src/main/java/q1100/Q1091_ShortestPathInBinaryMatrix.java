@@ -108,7 +108,7 @@ public class Q1091_ShortestPathInBinaryMatrix {
     // 100 * 100
     @TestData
     public DataExpectation overTime = DataExpectation
-            .create(TestDataFileHelper.read2DArray("Q1091_TestData"))
+            .create(TestDataFileHelper.read(int[][].class))
             .expect(-1);
 
 }

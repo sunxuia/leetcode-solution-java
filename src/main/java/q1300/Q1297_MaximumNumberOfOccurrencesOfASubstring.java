@@ -92,11 +92,11 @@ public class Q1297_MaximumNumberOfOccurrencesOfASubstring {
     // 1万个字符, 末尾的字符串匹配
     @TestData
     public DataExpectation normal1 = DataExpectation
-            .createWith(TestDataFileHelper.readString("Q1297_TestData_1"), 6, 20, 26).expect(1);
+            .createWith(TestDataFileHelper.read("Q1297_TestData_1", String.class), 6, 20, 26).expect(1);
 
     // 5万个字符
     @TestData
     public DataExpectation overTime = DataExpectation
-            .createWith(TestDataFileHelper.readString("Q1297_TestData_2"), 3, 5, 26).expect(18);
+            .createWith(TestDataFileHelper.read("Q1297_TestData_2", String.class), 3, 5, 26).expect(18);
 
 }

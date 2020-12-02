@@ -3,10 +3,12 @@ package q850;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.runner.RunWith;
+import util.common.json.JsonTypeWrapper;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
 import util.runner.data.DataExpectation;
+import util.runner.data.TestDataFile;
 import util.runner.data.TestDataFileHelper;
 
 /**
@@ -78,9 +80,11 @@ public class Q802_FindEventualSafeStates {
             .create(new int[][]{{1, 2}, {2, 3}, {5}, {0}, {5}, {}, {}})
             .expect(new int[]{2, 4, 5, 6});
 
+    private TestDataFile file = new TestDataFile();
+
     @TestData
     public DataExpectation overTime = DataExpectation
-            .create(TestDataFileHelper.read2DArray("Q802_TestData"))
-            .expect(TestDataFileHelper.readIntegerArray("Q802_TestData_Result"));
+            .create(TestDataFileHelper.read(file, 1, int[][].class))
+            .expect(TestDataFileHelper.read(file, 2, JsonTypeWrapper.INTEGER_LIST));
 
 }

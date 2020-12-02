@@ -115,7 +115,7 @@ public class Q874_WalkingRobotSimulation {
                     1, 9, -1, -2, 5, -1, 5, 5, -2, 6, 6, 7, 7, 2, 8, 9, -1, 7, 4, 6, 9, 9, 9, -1, 5, 1, 3, 3, -1, 5, 9,
                     7, 4, 8, -1, -2, 1, 3, 2, 9, 3, -1, -2, 8, 8, 7, 5, -2, 6, 8, 4, 6, 2, 7, 2, -1, 7, -2, 3, 3, 2, -2,
                     6, 9, 8, 1, -2, -1, 1, 4, 7},
-            TestDataFileHelper.read2DArray("Q874_TestData"))
+            TestDataFileHelper.read(int[][].class))
             .expect(5140);
 
 }

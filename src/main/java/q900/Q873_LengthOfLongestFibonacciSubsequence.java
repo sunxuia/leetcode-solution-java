@@ -146,7 +146,7 @@ public class Q873_LengthOfLongestFibonacciSubsequence {
 
     @TestData
     public DataExpectation overTime = DataExpectation
-            .create(TestDataFileHelper.readIntegerArray("Q873_TestData"))
+            .create(TestDataFileHelper.read(int[].class))
             .expect(28);
 
 }

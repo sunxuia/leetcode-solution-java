@@ -17,6 +17,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import javax.script.ScriptException;
+import util.common.json.JsonParser;
+import util.common.json.JsonTypeWrapper;
 import util.generator.model.GeneratorQuestion;
 import util.generator.model.GeneratorQuestionArgument;
 import util.generator.model.GeneratorQuestionClass;
@@ -83,7 +85,7 @@ public class Generator {
 
         GeneratorQuestion res = new GeneratorQuestion();
         res.setNo(no);
-        res.setPaidOnly((boolean) statStatusPair.get("paid_only"));
+        res.setPaidOnly(Long.valueOf(1L).equals(statStatusPair.get("paid_only")));
         Map<String, Object> stat = getMapVal(statStatusPair, "stat");
         res.setTitle((String) stat.get("question__title"));
         res.setTitleSlug((String) stat.get("question__title_slug"));
@@ -128,7 +130,7 @@ public class Generator {
         InputStream input = connection.getInputStream();
         String text = new BufferedReader(new InputStreamReader(input))
                 .lines().collect(Collectors.joining(System.lineSeparator()));
-        return JsonParser.parseJsonToMap(text);
+        return JsonParser.parseJson(text, JsonTypeWrapper.DEFAULT_MAP);
     }
 
     private Map<String, Object> postForLeetCodeDetail(String titleSlug) throws IOException {
@@ -158,7 +160,7 @@ public class Generator {
         InputStream input = connection.getInputStream();
         String text = new BufferedReader(new InputStreamReader(input))
                 .lines().collect(Collectors.joining(System.lineSeparator()));
-        return JsonParser.parseJsonToMap(text);
+        return JsonParser.parseJson(text, JsonTypeWrapper.DEFAULT_MAP);
     }
 
     private GeneratorQuestionClass getQuestionClass(GeneratorQuestion q) {

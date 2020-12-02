@@ -99,7 +99,7 @@ public class Q886_PossibleBipartition {
 
     @TestData
     public DataExpectation normal1 = DataExpectation
-            .createWith(50, TestDataFileHelper.read2DArray("Q886_TestData.test.txt"))
+            .createWith(50, TestDataFileHelper.read(int[][].class))
             .expect(true);
 
 }

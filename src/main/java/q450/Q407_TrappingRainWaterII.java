@@ -228,7 +228,7 @@ public class Q407_TrappingRainWaterII {
 
     @TestData
     public DataExpectation overTime = DataExpectation
-            .create(TestDataFileHelper.read2DArray("Q407_LongTestData"))
+            .create(TestDataFileHelper.read("Q407_LongTestData", int[][].class))
             .expect(41564259);
 
 }

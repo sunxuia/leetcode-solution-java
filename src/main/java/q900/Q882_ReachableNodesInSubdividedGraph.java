@@ -133,7 +133,7 @@ public class Q882_ReachableNodesInSubdividedGraph {
 
     @TestData
     public DataExpectation overTime = DataExpectation
-            .createWith(TestDataFileHelper.read2DArray("Q882_TestData"), 25091255, 3000)
+            .createWith(TestDataFileHelper.read(int[][].class), 25091255, 3000)
             .expect(50176030);
 
 }

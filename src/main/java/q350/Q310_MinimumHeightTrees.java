@@ -118,7 +118,7 @@ public class Q310_MinimumHeightTrees {
     @TestData
     public DataExpectation largeData = DataExpectation.builder()
             .addArgument(5000)
-            .addArgument(TestDataFileHelper.read2DArray("Q310_LongTestData"))
+            .addArgument(TestDataFileHelper.read("Q310_LongTestData", int[][].class))
             .expect(new int[]{2499, 2500})
             .unorderResult("")
             .build();

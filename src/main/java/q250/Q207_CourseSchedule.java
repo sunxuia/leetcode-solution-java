@@ -133,7 +133,7 @@ public class Q207_CourseSchedule {
 
     @TestData
     public DataExpectation overTime = DataExpectation
-            .createWith(2000, TestDataFileHelper.read2DArray("Q207_LongTestData"))
+            .createWith(2000, TestDataFileHelper.read("Q207_LongTestData", int[][].class))
             .expect(true);
 
 }

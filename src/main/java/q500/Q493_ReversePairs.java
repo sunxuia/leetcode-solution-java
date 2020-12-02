@@ -137,6 +137,6 @@ public class Q493_ReversePairs {
 
     @TestData
     public DataExpectation overTime = DataExpectation
-            .create(TestDataFileHelper.readIntegerArray("Q493_LongTestData")).expect(625284395);
+            .create(TestDataFileHelper.read("Q493_LongTestData", int[].class)).expect(625284395);
 
 }

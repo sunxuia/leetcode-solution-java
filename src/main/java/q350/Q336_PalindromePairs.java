@@ -10,6 +10,7 @@ import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
 import util.runner.data.DataExpectation;
+import util.runner.data.TestDataFile;
 import util.runner.data.TestDataFileHelper;
 
 /**
@@ -118,10 +119,12 @@ public class Q336_PalindromePairs {
             .unorderResult("")
             .build();
 
+    private TestDataFile testDataFile = new TestDataFile();
+
     @TestData
     public DataExpectation overTime = DataExpectation.builder()
-            .addArgument(TestDataFileHelper.readStringArray("Q336_LongTestData"))
-            .expect(TestDataFileHelper.read2DArray("Q336_LongTestData_Result"))
+            .addArgument(TestDataFileHelper.read(testDataFile, 1, String[].class))
+            .expect(TestDataFileHelper.read(testDataFile, 2, int[][].class))
             .unorderResult("")
             .build();
 

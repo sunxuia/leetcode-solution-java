@@ -8,6 +8,7 @@ import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
 import util.runner.data.DataExpectation;
+import util.runner.data.TestDataFile;
 import util.runner.data.TestDataFileHelper;
 
 /**
@@ -116,10 +117,13 @@ public class Q502_IPO {
     @TestData
     public DataExpectation border = DataExpectation.createWith(1, 0, new int[]{1, 2, 3}, new int[]{1, 1, 2}).expect(0);
 
+    private TestDataFile testDataFile = new TestDataFile();
+
     @TestData
     public DataExpectation overTime1 = DataExpectation.createWith(111, 12,
-            TestDataFileHelper.readIntegerArray("Q502_TestData_1_1"),
-            TestDataFileHelper.readIntegerArray("Q502_TestData_1_2")).expect(126981);
+            TestDataFileHelper.read(testDataFile, 1, int[].class),
+            TestDataFileHelper.read(testDataFile, 2, int[].class))
+            .expect(126981);
 
     @TestData
     public DataExpectation overTime2() {
@@ -128,7 +132,7 @@ public class Q502_IPO {
         for (int i = 0; i < n; i++) {
             arr[i] = i;
         }
-        return DataExpectation.createWith(n, n, arr, arr.clone()).expect(1250025000);
+        return DataExpectation.createWith(n, n, arr, arr.clone()).expect(12_5002_5000);
     }
 
 }

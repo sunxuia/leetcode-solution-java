@@ -74,6 +74,6 @@ public class Q630_CourseScheduleIII {
 
     @TestData
     public DataExpectation overTime = DataExpectation
-            .create(TestDataFileHelper.read2DArray("Q630_TestData")).expect(9931);
+            .create(TestDataFileHelper.read(int[][].class)).expect(9931);
 
 }

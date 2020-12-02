@@ -64,7 +64,7 @@ public class Q974_SubarraySumsDivisibleByK {
     // 3万个数字
     @TestData
     public DataExpectation overTime = DataExpectation
-            .createWith(TestDataFileHelper.readIntegerArray("Q974_TestData"), 586)
+            .createWith(TestDataFileHelper.read(int[].class), 586)
             .expect(767481);
 
 }

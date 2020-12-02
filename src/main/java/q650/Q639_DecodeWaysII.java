@@ -122,6 +122,6 @@ public class Q639_DecodeWaysII {
 
     @TestData
     public DataExpectation overTime = DataExpectation
-            .create(TestDataFileHelper.readString("Q639_TestData")).expect(424827479);
+            .create(TestDataFileHelper.read(String.class)).expect(424827479);
 
 }

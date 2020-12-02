@@ -137,6 +137,6 @@ public class Q1191_KConcatenationMaximumSum {
 
     @TestData
     public DataExpectation overTime = DataExpectation
-            .createWith(TestDataFileHelper.readIntegerArray("Q1191_TestData"), 36263).expect(664859242);
+            .createWith(TestDataFileHelper.read(int[].class), 36263).expect(664859242);
 
 }

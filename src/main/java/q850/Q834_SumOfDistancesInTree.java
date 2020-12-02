@@ -7,6 +7,7 @@ import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
 import util.runner.data.DataExpectation;
+import util.runner.data.TestDataFile;
 import util.runner.data.TestDataFileHelper;
 
 /**
@@ -121,9 +122,11 @@ public class Q834_SumOfDistancesInTree {
             .createWith(7, new int[][]{{5, 2}, {0, 3}, {4, 5}, {0, 2}, {1, 0}, {6, 3}})
             .expect(new int[]{10, 15, 11, 13, 19, 14, 18});
 
+    private TestDataFile testDataFile = new TestDataFile();
+
     @TestData
     public DataExpectation overTime = DataExpectation
-            .createWith(10000, TestDataFileHelper.read2DArray("Q834_TestData"))
-            .expect(TestDataFileHelper.readIntegerArray("Q834_TestData_Result"));
+            .createWith(10000, TestDataFileHelper.read(testDataFile, 1, int[][].class))
+            .expect(TestDataFileHelper.read(testDataFile, 2, int[].class));
 
 }

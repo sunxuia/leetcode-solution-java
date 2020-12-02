@@ -115,7 +115,7 @@ public class Q918_MaximumSumCircularSubarray {
 
     @TestData
     public DataExpectation overTime = DataExpectation
-            .create(TestDataFileHelper.readIntegerArray("Q918_TestData"))
+            .create(TestDataFileHelper.read(int[].class))
             .expect(3565596);
 
 }

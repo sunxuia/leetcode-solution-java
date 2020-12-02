@@ -71,7 +71,6 @@ public class Q575_DistributeCandies {
     public DataExpectation example2 = DataExpectation.create(new int[]{1, 1, 2, 3}).expect(2);
 
     @TestData
-    public DataExpectation normal1 = DataExpectation.create(TestDataFileHelper.readIntegerArray("Q575_TestData"))
-            .expect(20);
+    public DataExpectation normal1 = DataExpectation.create(TestDataFileHelper.read(int[].class)).expect(20);
 
 }

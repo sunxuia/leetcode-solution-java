@@ -6,12 +6,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.runner.RunWith;
-import util.generator.JsonParser;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
 import util.runner.data.DataExpectation;
-import util.runner.data.TestDataFileHelper;
 
 /**
  * [Hard] 1178. Number of Valid Words for Each Puzzle
@@ -131,28 +129,29 @@ public class Q1178_NumberOfValidWordsForEachPuzzle {
             new String[]{"aelwxyz", "aelpxyz", "aelpsxy", "saelpxy", "xaelpsy"})
             .expect(Arrays.asList(0, 1, 3, 2, 0));
 
-    @SuppressWarnings("unchecked")
-    @TestData
-    public DataExpectation normal2() {
-        var data = TestDataFileHelper.readString("Q1178_TestData_normal2").get();
-        var strs = data.split("\n");
-        var list1 = (List<String>) JsonParser.parseJsonToList(strs[0]);
-        var list2 = (List<String>) JsonParser.parseJsonToList(strs[1]);
-        var list3 = (List<Long>) JsonParser.parseJsonToList(strs[2]);
-        return DataExpectation.createWith(list1.toArray(new String[0]), list2.toArray(new String[0]))
-                .expect(list3.stream().mapToInt(Long::intValue).toArray());
-    }
-
-    @SuppressWarnings("unchecked")
-    @TestData
-    public DataExpectation overTime() {
-        var data = TestDataFileHelper.readString("Q1178_TestData_overTime").get();
-        var strs = data.split("\n");
-        var list1 = (List<String>) JsonParser.parseJsonToList(strs[0]);
-        var list2 = (List<String>) JsonParser.parseJsonToList(strs[1]);
-        var list3 = (List<Long>) JsonParser.parseJsonToList(strs[2]);
-        return DataExpectation.createWith(list1.toArray(new String[0]), list2.toArray(new String[0]))
-                .expect(list3.stream().mapToInt(Long::intValue).toArray());
-    }
+    // TODO: 测试数据
+//    @SuppressWarnings("unchecked")
+//    @TestData
+//    public DataExpectation normal2() {
+//        var data = TestDataFileHelper.readString("Q1178_TestData_normal2").get();
+//        var strs = data.split("\n");
+//        var list1 = (List<String>) JsonParser.parseJsonToList(strs[0]);
+//        var list2 = (List<String>) JsonParser.parseJsonToList(strs[1]);
+//        var list3 = (List<Long>) JsonParser.parseJsonToList(strs[2]);
+//        return DataExpectation.createWith(list1.toArray(new String[0]), list2.toArray(new String[0]))
+//                .expect(list3.stream().mapToInt(Long::intValue).toArray());
+//    }
+//
+//    @SuppressWarnings("unchecked")
+//    @TestData
+//    public DataExpectation overTime() {
+//        var data = TestDataFileHelper.readString("Q1178_TestData_overTime").get();
+//        var strs = data.split("\n");
+//        var list1 = (List<String>) JsonParser.parseJsonToList(strs[0]);
+//        var list2 = (List<String>) JsonParser.parseJsonToList(strs[1]);
+//        var list3 = (List<Long>) JsonParser.parseJsonToList(strs[2]);
+//        return DataExpectation.createWith(list1.toArray(new String[0]), list2.toArray(new String[0]))
+//                .expect(list3.stream().mapToInt(Long::intValue).toArray());
+//    }
 
 }

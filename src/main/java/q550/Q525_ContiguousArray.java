@@ -67,7 +67,7 @@ public class Q525_ContiguousArray {
 
     @TestData
     public DataExpectation overTime = DataExpectation
-            .create(TestDataFileHelper.readIntegerArray("Q525_TestData"))
+            .create(TestDataFileHelper.read(int[].class))
             .expect(21560);
 
 }

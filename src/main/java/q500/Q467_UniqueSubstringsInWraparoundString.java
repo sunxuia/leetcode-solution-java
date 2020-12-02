@@ -75,7 +75,7 @@ public class Q467_UniqueSubstringsInWraparoundString {
 
     @TestData
     public DataExpectation overTime = DataExpectation
-            .create(TestDataFileHelper.readString("Q467_TestData"))
+            .create(TestDataFileHelper.read("Q467_TestData", String.class))
             .expect(34151);
 
 }

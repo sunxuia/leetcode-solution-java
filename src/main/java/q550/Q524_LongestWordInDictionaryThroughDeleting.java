@@ -3,10 +3,12 @@ package q550;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.runner.RunWith;
+import util.common.json.JsonTypeWrapper;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
 import util.runner.data.DataExpectation;
+import util.runner.data.TestDataFile;
 import util.runner.data.TestDataFileHelper;
 
 /**
@@ -119,16 +121,12 @@ public class Q524_LongestWordInDictionaryThroughDeleting {
             .createWith("", Arrays.asList("b", "a"))
             .expect("");
 
+    private TestDataFile testDataFile = new TestDataFile();
+
     @TestData
     public DataExpectation overTime = DataExpectation.createWith(
-            "mjmqqjrmzkvhxlyruonekhhofpzzslupzojfuoztvzmmqvmlhgqxehojfowtrinbatjujaxekbc"
-                    + "ydldglkbxsqbbnrkhfdnpfbuaktupfftiljwpgglkjqunvithzlzpgikixqeuimmtbiskemplcv"
-                    + "ljqgvlzvnqxgedxqnznddkiujwhdefziydtquoudzxstpjjitmiimbjfgfjikkjycwgnpdxpepps"
-                    + "turjwkgnifinccvqzwlbmgpdaodzptyrjjkbqmgdrftfbwgimsmjpknuqtijrsnwvtytqqvook"
-                    + "inzmkkkrkgwafohflvuedssukjgipgmypakhlckvizmqvycvbxhlljzejcaijqnfgobuhuiahtm"
-                    + "xfzoplmmjfxtggwwxliplntkfuxjcnzcqsaagahbbneugiocexcfpszzomumfqpaiydssmihdoe"
-                    + "wahoswhlnpctjmkyufsvjlrflfiktndubnymenlmpyrhjxfdcq",
-            TestDataFileHelper.readStringArray("Q524_TestData").then(Arrays::asList))
+            TestDataFileHelper.read(testDataFile, 1, String.class),
+            TestDataFileHelper.read(testDataFile, 2, JsonTypeWrapper.STRING_LIST))
             .expect("ntgcykxhdfescxxypyew");
 
 }

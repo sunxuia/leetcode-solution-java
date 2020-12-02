@@ -104,7 +104,7 @@ public class Q862_ShortestSubarrayWithSumAtLeastK {
 
     @TestData
     public DataExpectation overTime = DataExpectation
-            .createWith(TestDataFileHelper.readIntegerArray("Q862_TestData"), 2984435)
+            .createWith(TestDataFileHelper.read(int[].class), 2984435)
             .expect(11455);
 
 }

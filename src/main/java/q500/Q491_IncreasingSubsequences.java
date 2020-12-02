@@ -7,10 +7,12 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import org.junit.runner.RunWith;
+import util.common.json.JsonTypeWrapper;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
 import util.runner.data.DataExpectation;
+import util.runner.data.TestDataFile;
 import util.runner.data.TestDataFileHelper;
 
 /**
@@ -107,10 +109,12 @@ public class Q491_IncreasingSubsequences {
             )).unorderResult("")
             .build();
 
+    private TestDataFile testDataFile = new TestDataFile("Q491_LongTestData_Result");
+
     @TestData
     public DataExpectation overTime = DataExpectation.builder()
             .addArgument(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15})
-            .expect(TestDataFileHelper.read2DArray("Q491_LongTestData_Result"))
+            .expect(TestDataFileHelper.read(testDataFile, 1, new JsonTypeWrapper<List<List<Integer>>>() {}))
             .unorderResult("")
             .build();
 

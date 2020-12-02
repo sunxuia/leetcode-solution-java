@@ -150,7 +150,7 @@ public class Q1224_MaximumEqualFrequency {
 
     @TestData
     public DataExpectation normal4 = DataExpectation
-            .create(TestDataFileHelper.readIntegerArray("Q1224_TestData"))
+            .create(TestDataFileHelper.read(int[].class))
             .expect(25999);
 
 }

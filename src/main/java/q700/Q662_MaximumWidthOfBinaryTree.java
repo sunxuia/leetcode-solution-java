@@ -173,17 +173,7 @@ public class Q662_MaximumWidthOfBinaryTree {
 
     @TestData
     public DataExpectation overTime = DataExpectation
-            .create(TestDataFileHelper.readString("Q662_TestData").then(str -> {
-                List<Integer> res = new ArrayList<>();
-                for (String s : str.split(",")) {
-                    if ("null".equals(s)) {
-                        res.add(null);
-                    } else {
-                        res.add(Integer.parseInt(s));
-                    }
-                }
-                return TreeNode.createByLevel(res.toArray(new Integer[0]));
-            }))
+            .create(TestDataFileHelper.read(Integer[].class).then(TreeNode::createByLevel))
             .expect(178535);
 
 }

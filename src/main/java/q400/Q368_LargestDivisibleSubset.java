@@ -193,7 +193,7 @@ public class Q368_LargestDivisibleSubset {
 
     @TestData
     public DataExpectation normal5 = DataExpectation.builder()
-            .addArgument(TestDataFileHelper.readIntegerArray("Q368_LongTestData"))
+            .addArgument(TestDataFileHelper.read("Q368_LongTestData", int[].class))
             .expect(new int[]{1, 2, 4, 8, 32, 64, 128, 384, 768})
             .unorderResult()
             .build();

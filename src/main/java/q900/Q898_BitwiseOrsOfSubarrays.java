@@ -95,8 +95,6 @@ public class Q898_BitwiseOrsOfSubarrays {
 
     // 5万的数组
     @TestData
-    public DataExpectation overTime = DataExpectation
-            .create(TestDataFileHelper.readIntegerArray("Q898_TestData"))
-            .expect(242844);
+    public DataExpectation overTime = DataExpectation.create(TestDataFileHelper.read(int[].class)).expect(242844);
 
 }

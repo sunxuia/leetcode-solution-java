@@ -96,7 +96,7 @@ public class Q828_CountUniqueCharactersOfAllSubstringsOfAGivenString {
 
     @TestData
     public DataExpectation overTime = DataExpectation
-            .create(TestDataFileHelper.readString("Q828_TestData"))
+            .create(TestDataFileHelper.read(String.class))
             .expect(29998);
 
 }

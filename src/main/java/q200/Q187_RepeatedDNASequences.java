@@ -78,6 +78,6 @@ public class Q187_RepeatedDNASequences {
     // 10 万个字符
     @TestData
     public DataExpectation overTime = DataExpectation
-            .create(TestDataFileHelper.readString("Q187_LongTestData")).expect(new String[0]);
+            .create(TestDataFileHelper.read("Q187_LongTestData", String.class)).expect(new String[0]);
 
 }

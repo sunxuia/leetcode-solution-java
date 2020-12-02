@@ -5,6 +5,7 @@ import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
 import util.runner.data.DataExpectation;
+import util.runner.data.TestDataFile;
 import util.runner.data.TestDataFileHelper;
 
 /**
@@ -99,9 +100,11 @@ public class Q1163_LastSubstringInLexicographicalOrder {
     @TestData
     public DataExpectation normal1 = DataExpectation.create("cacb").expect("cb");
 
+    private TestDataFile testDataFile = new TestDataFile();
+
     @TestData
     public DataExpectation overTime = DataExpectation
-            .create(TestDataFileHelper.readString("Q1163_TestData"))
-            .expect(TestDataFileHelper.readString("Q1163_TestData"));
+            .create(TestDataFileHelper.read(testDataFile, 1, String.class))
+            .expect(TestDataFileHelper.read(testDataFile, 1, String.class));
 
 }

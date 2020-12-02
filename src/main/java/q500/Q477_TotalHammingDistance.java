@@ -57,6 +57,6 @@ public class Q477_TotalHammingDistance {
 
     @TestData
     public DataExpectation overTime = DataExpectation
-            .create(TestDataFileHelper.readIntegerArray("Q477_LongTestData")).expect(748405562);
+            .create(TestDataFileHelper.read("Q477_LongTestData", int[].class)).expect(748405562);
 
 }

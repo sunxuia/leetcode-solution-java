@@ -10,6 +10,7 @@ import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
 import util.runner.data.DataExpectation;
+import util.runner.data.TestDataFile;
 import util.runner.data.TestDataFileHelper;
 
 /**
@@ -108,9 +109,11 @@ public class Q472_ConcatenatedWords {
     @TestData
     public DataExpectation border1 = DataExpectation.create(new String[]{""}).expect(Collections.emptyList());
 
+    private TestDataFile testDataFile = new TestDataFile("Q472_LongTestData");
+
     @TestData
     public DataExpectation overTime = DataExpectation
-            .create(TestDataFileHelper.readStringArray("Q472_LongTestData"))
-            .expect(TestDataFileHelper.readStringArray("Q472_LongTestData_Result"));
+            .create(TestDataFileHelper.read(testDataFile, 1, String[].class))
+            .expect(TestDataFileHelper.read(testDataFile, 2, List.class));
 
 }

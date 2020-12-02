@@ -115,13 +115,13 @@ public class Q719_FindKthSmallestPairDistance {
     // 1万个数字
     @TestData
     public DataExpectation overTime = DataExpectation
-            .createWith(TestDataFileHelper.readIntegerArray("Q719_TestData_1"), 25000000)
+            .createWith(TestDataFileHelper.read("Q719_TestData_1", int[].class), 25000000)
             .expect(1);
 
     // 500 个各不相同的数字
     @TestData
     public DataExpectation overTime2 = DataExpectation
-            .createWith(TestDataFileHelper.readIntegerArray("Q719_TestData_2"), 62500)
+            .createWith(TestDataFileHelper.read("Q719_TestData_2", int[].class), 62500)
             .expect(302668);
 
 }

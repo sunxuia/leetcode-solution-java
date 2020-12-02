@@ -113,7 +113,7 @@ public class Q646_MaximumLengthOfPairChain {
 
     @TestData
     public DataExpectation overTime = DataExpectation
-            .create(TestDataFileHelper.read2DArray("Q646_TestData"))
+            .create(TestDataFileHelper.read(int[][].class))
             .expect(50);
 
 }

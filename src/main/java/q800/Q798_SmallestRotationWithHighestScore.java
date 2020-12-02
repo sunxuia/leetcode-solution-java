@@ -177,6 +177,6 @@ public class Q798_SmallestRotationWithHighestScore {
 
     @TestData
     public DataExpectation overTime = DataExpectation
-            .create(TestDataFileHelper.readIntegerArray("Q798_TestData")).expect(14914);
+            .create(TestDataFileHelper.read(int[].class)).expect(14914);
 
 }

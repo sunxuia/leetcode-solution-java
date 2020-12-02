@@ -111,7 +111,7 @@ public class Q1330_ReverseSubarrayToMaximizeArrayValue {
      */
     @TestData
     public DataExpectation example3 = DataExpectation
-            .create(TestDataFileHelper.readIntegerArray("Q1330_TestData"))
+            .create(TestDataFileHelper.read(int[].class))
             .expect(1988832659);
 
 }
