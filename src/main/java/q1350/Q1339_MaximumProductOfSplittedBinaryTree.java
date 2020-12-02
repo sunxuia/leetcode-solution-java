@@ -6,6 +6,7 @@ import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
 import util.runner.data.DataExpectation;
+import util.runner.data.TestDataFileHelper;
 
 /**
  * [Medium] 1339. Maximum Product of Splitted Binary Tree
@@ -107,16 +108,11 @@ public class Q1339_MaximumProductOfSplittedBinaryTree {
             .expect(1);
 
     /**
-     * TODO: 测试数据
      * 这个用于测试 int 运算的overflow 问题.
      */
-//    @TestData
-//    public DataExpectation normal1() {
-//        String str = TestDataFileHelper.readString("Q1339_TestData").get();
-//        Integer[] args = JsonParser.parseJsonToList(str).stream()
-//                .map(i -> i == null ? null : ((Long) i).intValue())
-//                .toArray(Integer[]::new);
-//        return DataExpectation.create(TreeNode.createByLevel(args)).expect(763478770);
-//    }
+    @TestData
+    public DataExpectation normal1 = DataExpectation
+            .createWith(TestDataFileHelper.read(Integer[].class).then(TreeNode::createByLevel))
+            .expect(763478770);
 
 }

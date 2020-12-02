@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.runner.RunWith;
+import util.common.json.JsonTypeWrapper;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
 import util.runner.data.DataExpectation;
+import util.runner.data.TestDataFile;
+import util.runner.data.TestDataFileHelper;
 
 /**
  * [Medium] 1268. Search Suggestions System
@@ -106,14 +109,13 @@ public class Q1268_SearchSuggestionsSystem {
             .createWith(new String[]{"havana"}, "tatiana")
             .expect(List.of(List.of(), List.of(), List.of(), List.of(), List.of(), List.of(), List.of()));
 
-    // TODO: 测试数据
-//    @TestData
-//    public DataExpectation normal1() {
-//        String[] strs = TestDataFileHelper.readString("Q1268_TestData").get().split("\n");
-//        String[] products = JsonParser.parseJsonToList(strs[0]).toArray(new String[0]);
-//        String searchWord = strs[1].substring(1, strs[1].length() - 1);
-//        List<List<String>> expect = (List<List<String>>) JsonParser.parseJsonToList(strs[2]);
-//        return DataExpectation.createWith(products, searchWord).expect(expect);
-//    }
+    @TestData
+    public DataExpectation normal1() {
+        TestDataFile testDataFile = new TestDataFile();
+        return DataExpectation.createWith(
+                TestDataFileHelper.read(testDataFile, 1, String[].class),
+                TestDataFileHelper.read(testDataFile, 2, String.class)
+        ).expect(TestDataFileHelper.read(testDataFile, 3, new JsonTypeWrapper<List<List<String>>>() {}));
+    }
 
 }

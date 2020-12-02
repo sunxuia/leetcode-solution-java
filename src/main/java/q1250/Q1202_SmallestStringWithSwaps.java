@@ -5,10 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.runner.RunWith;
+import util.common.json.JsonTypeWrapper;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
 import util.runner.data.DataExpectation;
+import util.runner.data.TestDataFile;
+import util.runner.data.TestDataFileHelper;
 
 /**
  * [Medium] 1202. Smallest String With Swaps
@@ -113,19 +116,14 @@ public class Q1202_SmallestStringWithSwaps {
     public DataExpectation example3 = DataExpectation
             .createWith("cba", Arrays.asList(Arrays.asList(0, 1), Arrays.asList(1, 2)))
             .expect("abc");
-// TODO: 测试数据
-//    @TestData
-//    public DataExpectation overTime() {
-//        String text = TestDataFileHelper.readString("Q1202_TestData").get();
-//        String[] strs = text.split("\n");
-//        String s = strs[0].substring(1, strs[0].length() - 1);
-//        List<List<Integer>> pairs = JsonParser.parseJsonToList(strs[1]).stream()
-//                .map(pair -> {
-//                    List<Long> list = (List<Long>) pair;
-//                    return Arrays.asList(list.get(0).intValue(), list.get(1).intValue());
-//                }).collect(Collectors.toList());
-//        String expect = strs[2].substring(1, strs[2].length() - 1);
-//        return DataExpectation.createWith(s, pairs).expect(expect);
-//    }
+
+    @TestData
+    public DataExpectation overTime() {
+        TestDataFile file = new TestDataFile();
+        return DataExpectation.createWith(
+                TestDataFileHelper.read(file, 1, String.class),
+                TestDataFileHelper.read(file, 2, new JsonTypeWrapper<List<List<Integer>>>() {})
+        ).expect(TestDataFileHelper.read(file, 3, String.class));
+    }
 
 }
