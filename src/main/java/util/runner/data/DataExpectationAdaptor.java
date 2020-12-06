@@ -32,6 +32,10 @@ public class DataExpectationAdaptor extends DataExpectation {
         return this;
     }
 
+    public DataExpectationAdaptor expectDouble(double e) {
+        return expectDouble(e, 0.00001);
+    }
+
     public DataExpectationAdaptor unOrder(String... patterns) {
         Assert.assertFalse("Please set unOrder before orExpect!", expect instanceof OrList);
 
