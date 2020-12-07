@@ -3,6 +3,7 @@ package q700;
 import java.util.HashSet;
 import java.util.Set;
 import org.junit.runner.RunWith;
+import q1400.Q1375_BulbSwitcherIII;
 import q350.Q320_BulbSwitcher;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
@@ -51,6 +52,7 @@ import util.runner.data.DataExpectation;
  * Note: n and m both fit in range [0, 1000].
  *
  * 上一题 {@link Q320_BulbSwitcher}
+ * 下一题 {@link Q1375_BulbSwitcherIII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q672_BulbSwitcherII {
