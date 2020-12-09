@@ -1,5 +1,6 @@
 package util.runner.data;
 
+import java.util.function.Consumer;
 import org.junit.Assert;
 import util.asserthelper.AssertUtils;
 import util.asserthelper.ObjectEqualsHelper;
@@ -56,6 +57,12 @@ public class DataExpectationAdaptor extends DataExpectation {
     public <T> DataExpectationAdaptor assertMethod(DataAssertMethod<T> method) {
         dataAssertMethod = new DefaultDataAssertMethod(method, dataAssertMethod);
         setExpectAssertMethod(dataAssertMethod);
+        return this;
+    }
+
+    public <T> DataExpectationAdaptor assertResult(Consumer<T> method) {
+        expect(null);
+        assertMethod((DataAssertMethod<T>) (e, a, o) -> method.accept(a));
         return this;
     }
 
