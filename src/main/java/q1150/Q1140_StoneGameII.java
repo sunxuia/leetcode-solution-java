@@ -1,6 +1,7 @@
 package q1150;
 
 import org.junit.runner.RunWith;
+import q1450.Q1406_StoneGameIII;
 import q900.Q877_StoneGame;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
@@ -37,6 +38,7 @@ import util.runner.data.DataExpectation;
  * 1 <= piles[i] <= 10 ^ 4
  *
  * 上一题 {@link Q877_StoneGame}
+ * 下一题 {@link Q1406_StoneGameIII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q1140_StoneGameII {
