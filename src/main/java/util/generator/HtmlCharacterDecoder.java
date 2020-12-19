@@ -206,5 +206,9 @@ public class HtmlCharacterDecoder extends Decoder {
         addEscape("&#224;", 'à');
         addEscape("&agrave;", 'à');
         addEscape("&empty;", '∅');
+        addEscape("&ldquo;", '“');
+        addEscape("&rdquo;", '”');
+        addEscape("&lsquo;", '‘');
+        addEscape("&rsquo;", '’');
     }
 }
