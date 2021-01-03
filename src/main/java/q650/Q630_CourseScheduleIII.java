@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 import org.junit.runner.RunWith;
+import q1500.Q1462_CourseScheduleIV;
 import q250.Q210_CourseScheduleII;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
@@ -42,6 +43,7 @@ import util.runner.data.TestDataFileHelper;
  * 2. You can't take two courses simultaneously.
  *
  * 上一题 {@link Q210_CourseScheduleII}
+ * 下一题 {@link Q1462_CourseScheduleIV}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q630_CourseScheduleIII {
