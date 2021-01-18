@@ -3,6 +3,7 @@ package q1450;
 import java.util.Arrays;
 import org.junit.runner.RunWith;
 import q1150.Q1140_StoneGameII;
+import q1550.Q1510_StoneGameIV;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -70,6 +71,8 @@ import util.runner.data.TestDataFileHelper;
  *
  * 上一题 {@link Q1140_StoneGameII}
  * 和上题相比就是在取走的石头的数量上有变化.
+ *
+ * 下一题 {@link Q1510_StoneGameIV}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q1406_StoneGameIII {
