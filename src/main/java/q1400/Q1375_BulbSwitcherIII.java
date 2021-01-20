@@ -1,6 +1,7 @@
 package q1400;
 
 import org.junit.runner.RunWith;
+import q1550.Q1529_BulbSwitcherIV;
 import q700.Q672_BulbSwitcherII;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
@@ -55,6 +56,7 @@ import util.runner.data.DataExpectation;
  * light is a permutation of  [1, 2, ..., n]
  *
  * 上一题 {@link Q672_BulbSwitcherII}
+ * 下一题 {@link Q1529_BulbSwitcherIV}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q1375_BulbSwitcherIII {
