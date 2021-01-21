@@ -58,7 +58,7 @@ public class Q1505_MinimumPossibleIntegerAfterAtMostKAdjacentSwapsOnDigits {
     /**
      * 链表的方式, 时间复杂度 O(N^2), 这种解法会超时.
      */
-    @Answer
+//    @Answer
     public String minInteger_overTime(String num, int k) {
         Node dummy = new Node(), tail = new Node(), prev = dummy;
         for (int i = 0; i < num.length(); i++) {
@@ -124,13 +124,18 @@ public class Q1505_MinimumPossibleIntegerAfterAtMostKAdjacentSwapsOnDigits {
 
     /**
      * 树状数组(Binary Indexed Tree, Fenwick Tree)的解法, 还有另一种线段树的解法.
-     * 思路是在k 次操作能覆盖到的范围内, 把最小的数移动到前面.
+     * 思路同上, 在k 次操作能覆盖到的范围内, 把最小的数移动到前面.
+     *
+     * 树状数组可以保证set 和query 的时间复杂度都是 O(logN).
      * @formatter:off
      * 参考文档
+     * https://zhuanlan.zhihu.com/p/25185969
      * https://blog.csdn.net/Yaokai_AssultMaster/article/details/79492190
      * https://leetcode-cn.com/problems/minimum-possible-integer-after-at-most-k-adjacent-swaps-on-digits/solution/zui-duo-k-ci-jiao-huan-xiang-lin-shu-wei-hou-de-da/
      * https://leetcode-cn.com/problems/minimum-possible-integer-after-at-most-k-adjacent-swaps-on-digits/solution/xiao-bai-xiang-python-shu-zhuang-shu-zu-fang-fa-xi/
      * @formatter:on
+     *
+     * 另一个树状数组的题目参见 {@link Q1536_MinimumSwapsToArrangeABinaryGrid}
      */
     @Answer
     public String minInteger(String num, int k) {
@@ -141,6 +146,7 @@ public class Q1505_MinimumPossibleIntegerAfterAtMostKAdjacentSwapsOnDigits {
             pos[i] = new LinkedList<>();
         }
         for (int i = 0; i < n; i++) {
+            // (树状数组的0 位不能用)
             pos[num.charAt(i) - '0'].offer(i + 1);
         }
         // bit 用来统计前i 项元素中已经被用到元素的总和.
