@@ -2,11 +2,11 @@ package q1550;
 
 import org.junit.runner.RunWith;
 import q1450.Q1406_StoneGameIII;
+import q1600.Q1563_StoneGameV;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
 import util.runner.data.DataExpectation;
-import java.util.*;
 
 /**
  * [Hard] 1510. Stone Game IV
@@ -61,6 +61,7 @@ import java.util.*;
  * 1 <= n <= 10^5
  *
  * 上一题 {@link Q1406_StoneGameIII}
+ * 下一题 {@link Q1563_StoneGameV}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q1510_StoneGameIV {
