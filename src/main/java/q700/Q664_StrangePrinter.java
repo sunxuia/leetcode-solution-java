@@ -1,6 +1,7 @@
 package q700;
 
 import org.junit.runner.RunWith;
+import q1600.Q1591_StrangePrinterII;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -32,6 +33,8 @@ import util.runner.data.DataExpectation;
  * existing character 'a'.
  *
  * Hint: Length of the given string will not exceed 100.
+ *
+ * 下一题 {@link Q1591_StrangePrinterII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q664_StrangePrinter {
