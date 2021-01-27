@@ -3,6 +3,7 @@ package q1600;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.runner.RunWith;
+import q1650.Q1601_MaximumNumberOfAchievableTransferRequests;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -64,7 +65,8 @@ public class Q1595_MinimumCostToConnectTwoGroupsOfPoints {
 
     /**
      * 根据 hint, 可以用 bit mask 来表示右边与左边连接的情况.
-     * 这种做法比较慢.
+     * 其实就是位运算暴力破解的方式, 这种做法比较慢.
+     * 另一个相似题目 {@link Q1601_MaximumNumberOfAchievableTransferRequests}
      */
     @Answer
     public int connectTwoGroups(List<List<Integer>> cost) {
