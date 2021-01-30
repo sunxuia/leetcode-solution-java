@@ -77,10 +77,7 @@ import util.runner.data.TestDataFileHelper;
 @RunWith(LeetCodeRunner.class)
 public class Q1406_StoneGameIII {
 
-    /**
-     * 这个可以通过LeetCode 的OJ, 但是本地需要调整方法栈的大小.
-     */
-//    @Answer
+    @Answer
     public String stoneGameIII(int[] stoneValue) {
         final int n = stoneValue.length;
         int sum = Arrays.stream(stoneValue).sum();

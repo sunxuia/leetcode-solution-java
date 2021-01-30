@@ -43,8 +43,7 @@ import util.runner.data.TestDataFileHelper;
 @RunWith(LeetCodeRunner.class)
 public class Q639_DecodeWaysII {
 
-    // 正常的dfs 会超时, 带缓存的可以通过但是本地调试会出现方法栈溢出的情况(递归方式)
-    // 因此使用 DP 方式的解答
+    // 正常的dfs 会超时, 带缓存的方式可以通过, 这里使用 DP 方式来解答
     @Answer
     public int numDecodings(String s) {
         int next = 1;

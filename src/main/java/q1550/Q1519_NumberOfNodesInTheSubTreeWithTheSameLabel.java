@@ -1,13 +1,12 @@
 package q1550;
 
-import javax.swing.text.View;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.runner.RunWith;
 import util.runner.Answer;
-import util.runner.DebugWith;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
 import util.runner.data.DataExpectation;
-import java.util.*;
 import util.runner.data.TestDataFile;
 import util.runner.data.TestDataFileHelper;
 
@@ -156,13 +155,12 @@ public class Q1519_NumberOfNodesInTheSubTreeWithTheSameLabel {
 
     /**
      * 100000 个节点, 99999 条边, 是从节点 0 ~ 99999 的一条链表.
-     * 运行这个测试用例需要修改方法栈的大小, 否则会出现栈溢出的情况.
      */
-//    @TestData
-//    public DataExpectation overTime = DataExpectation
-//            .createWith(100000,
-//                    TestDataFileHelper.read(testDataFile, 1, int[][].class),
-//                    TestDataFileHelper.read(testDataFile, 2, String.class))
-//            .expect(TestDataFileHelper.read(testDataFile, 3, String.class));
+    @TestData
+    public DataExpectation overTime = DataExpectation
+            .createWith(100000,
+                    TestDataFileHelper.read(testDataFile, 1, int[][].class),
+                    TestDataFileHelper.read(testDataFile, 2, String.class))
+            .expect(TestDataFileHelper.read(testDataFile, 3, int[].class));
 
 }
