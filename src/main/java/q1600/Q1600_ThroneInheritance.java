@@ -75,7 +75,7 @@ import util.asserthelper.AssertUtils;
  * All arguments childName and kingName are distinct.
  * All name arguments of death will be passed to either the constructor or as childName to birth first.
  * For each call to birth(parentName, childName), it is guaranteed that parentName is alive.
- * At most 105 calls will be made to birth and death.
+ * At most 10^5 calls will be made to birth and death.
  * At most 10 calls will be made to getInheritanceOrder.
  *
  * 题解 :

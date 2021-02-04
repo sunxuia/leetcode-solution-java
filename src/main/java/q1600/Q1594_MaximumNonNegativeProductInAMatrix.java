@@ -17,7 +17,7 @@ import util.runner.data.DataExpectation;
  * cols - 1), find the path with the maximum non-negative product. The product of a path is the product of all integers
  * in the grid cells visited along the path.
  *
- * Return the maximum non-negative product modulo 109 + 7. If the maximum product is negative return -1.
+ * Return the maximum non-negative product modulo 10^9 + 7. If the maximum product is negative return -1.
  *
  * Notice that the modulo is performed after getting the maximum product.
  *

@@ -34,7 +34,7 @@ import util.runner.data.DataExpectation;
  * Constraints:
  *
  * 1 <= arr.length <= 500
- * 0 <= arr[i] <= 109
+ * 0 <= arr[i] <= 10^9
  * 1 <= k <= arr.length
  *
  * 题解: 将数组arr 分隔为长度最多为 K 的几个连续子数组, 之后将子数组中的所有元素都赋值为该子数组的最大元素值, 求分隔后所有元素和的最大值.

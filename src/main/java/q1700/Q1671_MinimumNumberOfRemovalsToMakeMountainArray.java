@@ -47,7 +47,7 @@ import util.runner.data.DataExpectation;
  * Constraints:
  *
  * 3 <= nums.length <= 1000
- * 1 <= nums[i] <= 109
+ * 1 <= nums[i] <= 10^9
  * It is guaranteed that you can make a mountain array out of nums.
  */
 @RunWith(LeetCodeRunner.class)

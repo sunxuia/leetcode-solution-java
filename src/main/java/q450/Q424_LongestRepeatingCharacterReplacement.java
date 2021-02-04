@@ -18,7 +18,7 @@ import util.runner.data.DataExpectation;
  * operations.
  *
  * Note:
- * Both the string's length and k will not exceed 104.
+ * Both the string's length and k will not exceed 10^4.
  *
  * Example 1:
  *

@@ -25,7 +25,7 @@ import util.runner.data.DataExpectation;
  *
  * 1 is a super ugly number for any given primes.
  * The given numbers in primes are in ascending order.
- * 0 < k ≤ 100, 0 < n ≤ 106, 0 < primes[i] < 1000.
+ * 0 < k ≤ 100, 0 < n ≤ 10^6, 0 < primes[i] < 1000.
  * The nth super ugly number is guaranteed to fit in a 32-bit signed integer.
  *
  * 相关题目 {@link Q264_UglyNumberII}

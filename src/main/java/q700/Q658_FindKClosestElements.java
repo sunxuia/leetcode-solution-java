@@ -33,7 +33,7 @@ import util.runner.data.DataExpectation;
  *
  * 1 <= k <= arr.length
  * 1 <= arr.length <= 10^4
- * Absolute value of elements in the array and x will not exceed 104
+ * Absolute value of elements in the array and x will not exceed 10^4
  */
 @RunWith(LeetCodeRunner.class)
 public class Q658_FindKClosestElements {

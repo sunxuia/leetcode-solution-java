@@ -23,7 +23,7 @@ import util.runner.data.DataExpectation;
  *
  * Notice that you can use multiple characters from the same string in words provided the conditions above are met.
  *
- * Return the number of ways to form target from words. Since the answer may be too large, return it modulo 109 + 7.
+ * Return the number of ways to form target from words. Since the answer may be too large, return it modulo 10^9 + 7.
  *
  * Example 1:
  *

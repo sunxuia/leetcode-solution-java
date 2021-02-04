@@ -17,7 +17,7 @@ import util.runner.data.DataExpectation;
  * to share endpoints.
  *
  * Return the number of ways we can draw k non-overlapping line segments. Since this number can be huge, return it
- * modulo 109 + 7.
+ * modulo 10^9 + 7.
  *
  * Example 1:
  * <img src="./Q1621_PIC.png">
@@ -38,7 +38,7 @@ import util.runner.data.DataExpectation;
  *
  * Input: n = 30, k = 7
  * Output: 796297179
- * Explanation: The total number of possible ways to draw 7 line segments is 3796297200. Taking this number modulo 109 +
+ * Explanation: The total number of possible ways to draw 7 line segments is 3796297200. Taking this number modulo 10^9 +
  * 7 gives us 796297179.
  *
  * Example 4:

@@ -21,7 +21,7 @@ import util.runner.data.DataExpectation;
  * less than 3, element 5 is greater than 3) and nums will become [1,2,3,3,5].
  *
  * Return the total cost to insert all elements from instructions into nums. Since the answer may be large, return it
- * modulo 109 + 7
+ * modulo 10^9 + 7
  *
  * Example 1:
  *

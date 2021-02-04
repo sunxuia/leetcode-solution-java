@@ -19,7 +19,7 @@ import util.runner.data.DataExpectation;
  * Calculate the maximum value of F(0), F(1), ..., F(n-1).
  *
  * Note:
- * n is guaranteed to be less than 105.
+ * n is guaranteed to be less than 10^5.
  *
  * Example:
  *

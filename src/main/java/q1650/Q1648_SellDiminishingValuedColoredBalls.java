@@ -23,7 +23,7 @@ import util.runner.data.DataExpectation;
  * wants. You can sell the balls in any order.
  *
  * Return the maximum total value that you can attain after selling orders colored balls. As the answer may be too
- * large, return it modulo 109 + 7.
+ * large, return it modulo 10^9 + 7.
  *
  * Example 1:
  * <img src="./Q1648_PIC.png">
@@ -49,7 +49,7 @@ import util.runner.data.DataExpectation;
  * Input: inventory = [1000000000], orders = 1000000000
  * Output: 21
  * Explanation: Sell the 1st color 1000000000 times for a total value of 500000000500000000. 500000000500000000 modulo
- * 109 + 7 = 21.
+ * 10^9 + 7 = 21.
  *
  * Constraints:
  *

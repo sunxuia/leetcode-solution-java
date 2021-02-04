@@ -17,7 +17,7 @@ import org.junit.Test;
  * void append(val) Appends an integer val to the end of the sequence.
  * void addAll(inc) Increments all existing values in the sequence by an integer inc.
  * void multAll(m) Multiplies all existing values in the sequence by an integer m.
- * int getIndex(idx) Gets the current value at index idx (0-indexed) of the sequence modulo 109 + 7. If the index is
+ * int getIndex(idx) Gets the current value at index idx (0-indexed) of the sequence modulo 10^9 + 7. If the index is
  * greater or equal than the length of the sequence, return -1.
  *
  * Example 1:

@@ -43,7 +43,7 @@ import util.runner.data.DataExpectation;
  * Constraints:
  *
  * 1 <= k <= nums.length <= 10^5
- * -104 <= nums[i] <= 10^4
+ * -10^4 <= nums[i] <= 10^4
  *
  * 题解: 要从nums 中每隔不超过k 距离选择1 个元素, 求这些元素的和的最大值.
  */

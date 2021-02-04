@@ -22,7 +22,7 @@ import util.runner.data.TestDataFileHelper;
  *
  * Given the encoded message containing digits and the character '*', return the total number of ways to decode it.
  *
- * Also, since the answer may be very large, you should return the output mod 109 + 7.
+ * Also, since the answer may be very large, you should return the output mod 10^9 + 7.
  *
  * Example 1:
  *

@@ -37,7 +37,7 @@ import util.runner.data.DataExpectation;
  *
  * Constraints:
  *
- * 1 <= n <= 105
+ * 1 <= n <= 10^5
  * n <= k <= 26 * n
  */
 @RunWith(LeetCodeRunner.class)

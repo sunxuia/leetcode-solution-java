@@ -26,7 +26,7 @@ import util.runner.data.DataExpectation;
  * 5 : 101
  * Among them, only integer 3 disobeys the rule (two consecutive ones) and the other 5 satisfy the rule.
  *
- * Note: 1 <= n <= 109
+ * Note: 1 <= n <= 10^9
  */
 @RunWith(LeetCodeRunner.class)
 public class Q600_NonNegativeIntegersWithoutConsecutiveOnes {

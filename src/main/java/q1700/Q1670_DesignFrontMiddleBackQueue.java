@@ -50,7 +50,7 @@ import org.junit.Test;
  *
  * Constraints:
  *
- * 1 <= val <= 109
+ * 1 <= val <= 10^9
  * At most 1000 calls will be made to pushFront, pushMiddle, pushBack, popFront, popMiddle, and popBack.
  */
 public class Q1670_DesignFrontMiddleBackQueue {

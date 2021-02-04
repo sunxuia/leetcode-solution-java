@@ -53,7 +53,7 @@ import util.runner.data.TestDataFileHelper;
  *
  * Constraints:
  *
- * 1 <= a.length, b.length <= 105
+ * 1 <= a.length, b.length <= 10^5
  * a.length == b.length
  * a and b consist of lowercase English letters
  */
