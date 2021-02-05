@@ -2,6 +2,7 @@ package q1600;
 
 import org.junit.runner.RunWith;
 import q1550.Q1510_StoneGameIV;
+import q1700.Q1686_StoneGameVI;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -51,6 +52,7 @@ import util.runner.data.DataExpectation;
  * 1 <= stoneValue[i] <= 10^6
  *
  * 上一题 {@link Q1510_StoneGameIV}
+ * 下一题 {@link Q1686_StoneGameVI}
  *
  * 题解: 题目中有个隐含条件就是Alice 切分的时候不会改变元素顺序和位置, 只是在数组中间分割.
  */
