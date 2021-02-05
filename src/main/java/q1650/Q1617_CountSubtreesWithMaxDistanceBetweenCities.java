@@ -58,6 +58,8 @@ import util.runner.data.DataExpectation;
 public class Q1617_CountSubtreesWithMaxDistanceBetweenCities {
 
     /**
+     * 状态压缩 dp
+     *
      * @formatter:off 
      * 参考文档
      * https://leetcode-cn.com/problems/count-subtrees-with-max-distance-between-cities/solution/5538-java-6msfloyedbfszhuang-ya-by-zhangyixing/
@@ -77,6 +79,7 @@ public class Q1617_CountSubtreesWithMaxDistanceBetweenCities {
             int c1 = edge[0] - 1;
             int c2 = edge[1] - 1;
             dists[c1][c2] = dists[c2][c1] = 1;
+            // 更新直接连接的 2点之间的距离
             dp[(1 << c1) | (1 << c2)] = 1;
         }
 
@@ -92,7 +95,7 @@ public class Q1617_CountSubtreesWithMaxDistanceBetweenCities {
         // 从小到大遍历各种可能的状态
         for (int mask = 1; mask < (1 << n); mask++) {
             if (dp[mask] == 0) {
-                // 无效组合
+                // 无效组合, 遍历到这里没有被更新过说明无法构成符合题意的树
                 continue;
             }
             // 加上1 个节点构成新的集合, 判断是否是组成有效的子树

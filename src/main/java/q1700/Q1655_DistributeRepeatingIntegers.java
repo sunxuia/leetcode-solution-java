@@ -70,7 +70,7 @@ import util.runner.data.DataExpectation;
 public class Q1655_DistributeRepeatingIntegers {
 
     /**
-     * 状态压缩的题.
+     * 状态压缩 dp, 使用mask 表示已经成功赋值的消费者.
      *
      * @formatter:off
      * 参考文档
@@ -106,24 +106,28 @@ public class Q1655_DistributeRepeatingIntegers {
 
         // dp[i][mask] 表示遍历到counts 第i 个时, 是否能为 mask 表示的消费者成功赋值.
         boolean[][] dp = new boolean[n][len];
+        // 为0 个消费者分配都是true
         for (int i = 0; i < n; i++) {
             dp[i][0] = true;
         }
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < len; j++) {
-                if (i > 0 && dp[i - 1][j]) {
-                    // 之前第j 个客户已经给赋值了, 所以直接跳过
-                    dp[i][j] = true;
+            for (int mask = 0; mask < len; mask++) {
+                if (i > 0 && dp[i - 1][mask]) {
+                    // 之前mask 表示的客户子集已经可以赋值了, 所以直接跳过
+                    dp[i][mask] = true;
                     continue;
                 }
-                // 遍历集合 j 的非空子集.
+                // 遍历集合 mask 的非空子集
+                // ( <= mask 的数字与mask 的与结果, 避免了重复遍历的情况 )
                 // 参考 https://oi-wiki.org/math/bit/#_14
-                for (int k = j; k != 0; k = (k - 1) & j) {
-                    int prev = j - k;
+                for (int sub = mask; sub != 0; sub = (sub - 1) & mask) {
+                    // sub 需要的数字由 counts[i] 来提供, 剩余的由 counts[0:i-1] 提供.
+                    int prev = mask - sub;
                     boolean last = i == 0 ? prev == 0 : dp[i - 1][prev];
-                    boolean need = sums[k] <= counts.get(i);
+                    // counts[i] 提供的数字是否能满足sub 表示的全部顾客的需要
+                    boolean need = sums[sub] <= counts.get(i);
                     if (last && need) {
-                        dp[i][j] = true;
+                        dp[i][mask] = true;
                         break;
                     }
                 }

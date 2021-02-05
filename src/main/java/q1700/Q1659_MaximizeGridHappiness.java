@@ -63,6 +63,7 @@ public class Q1659_MaximizeGridHappiness {
 
     /**
      * dp 状态压缩的题.
+     *
      * @formatter:off
      * 参考文档
      * https://leetcode-cn.com/problems/maximize-grid-happiness/solution/you-yi-chong-zhuang-ya-jiao-zuo-hua-dong-chuang-ko/
