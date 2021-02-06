@@ -1,6 +1,7 @@
 package q1350;
 
 import org.junit.runner.RunWith;
+import q1700.Q1696_JumpGameVI;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -60,6 +61,7 @@ import util.runner.data.DataExpectation;
  * 1 <= d <= arr.length
  *
  * 上一题 {@link Q1345_JumpGameIV}
+ * 下一题 {@link Q1696_JumpGameVI}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q1340_JumpGameV {
