@@ -2,6 +2,7 @@ package q950;
 
 import java.util.Arrays;
 import org.junit.runner.RunWith;
+import q1750.Q1728_CatAndMouseII;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -48,6 +49,8 @@ import util.runner.data.DataExpectation;
  * 3 <= graph.length <= 50
  * It is guaranteed that graph[1] is non-empty.
  * It is guaranteed that graph[2] contains a non-zero element.
+ *
+ * 下一题 {@link Q1728_CatAndMouseII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q913_CatAndMouse {
