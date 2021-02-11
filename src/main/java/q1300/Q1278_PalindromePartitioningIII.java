@@ -3,6 +3,7 @@ package q1300;
 import java.util.Arrays;
 import org.junit.runner.RunWith;
 import q150.Q132_PalindromePartitioningII;
+import q1750.Q1745_PalindromePartitioningIV;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -42,6 +43,7 @@ import util.runner.data.DataExpectation;
  * s only contains lowercase English letters.
  *
  * 上一题 {@link Q132_PalindromePartitioningII}
+ * 下一题 {@link Q1745_PalindromePartitioningIV}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q1278_PalindromePartitioningIII {
