@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.TreeMap;
 import org.junit.runner.RunWith;
+import q1800.Q1751_MaximumNumberOfEventsThatCanBeAttendedII;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -59,6 +60,8 @@ import util.runner.data.TestDataFileHelper;
  * 1 <= events.length <= 10^5
  * events[i].length == 2
  * 1 <= startDayi <= endDayi <= 10^5
+ *
+ * 下一题 {@link Q1751_MaximumNumberOfEventsThatCanBeAttendedII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q1353_MaximumNumberOfEventsThatCanBeAttended {
