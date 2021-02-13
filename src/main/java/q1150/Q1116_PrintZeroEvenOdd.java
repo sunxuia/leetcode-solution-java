@@ -1,17 +1,15 @@
 package q1150;
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.function.IntConsumer;
 import org.junit.Assert;
 import org.junit.Test;
+import util.concurrency.ThreadHolder;
 
 /**
  * [Medium] 1116. Print Zero Even Odd
  * https://leetcode.com/problems/print-zero-even-odd/
  */
-public class Q1115_PrintZeroEvenOdd {
+public class Q1116_PrintZeroEvenOdd {
 
     private static class ZeroEvenOdd {
 
@@ -66,40 +64,19 @@ public class Q1115_PrintZeroEvenOdd {
     }
 
     @Test
-    public void testMethod() throws InterruptedException {
+    public void testMethod() {
         runTest(2);
         runTest(5);
     }
 
-    private void runTest(int n) throws InterruptedException {
-        CountDownLatch latch = new CountDownLatch(3);
+    private void runTest(int n) {
         StringBuilder sb = new StringBuilder();
         ZeroEvenOdd zeo = new ZeroEvenOdd(n);
-        threadPool.submit(() -> {
-            try {
-                zeo.zero(v -> sb.append(v));
-                latch.countDown();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        });
-        threadPool.submit(() -> {
-            try {
-                zeo.even(v -> sb.append(v));
-                latch.countDown();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        });
-        threadPool.submit(() -> {
-            try {
-                zeo.odd(v -> sb.append(v));
-                latch.countDown();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        });
-        latch.await();
+        threadHolder.executes(
+                () -> zeo.zero(sb::append),
+                () -> zeo.even(sb::append),
+                () -> zeo.odd(sb::append)
+        );
 
         StringBuilder expect = new StringBuilder();
         for (int i = 1; i <= n; i++) {
@@ -108,6 +85,6 @@ public class Q1115_PrintZeroEvenOdd {
         Assert.assertEquals(expect.toString(), sb.toString());
     }
 
-    private ExecutorService threadPool = Executors.newFixedThreadPool(3);
+    private ThreadHolder threadHolder = new ThreadHolder(3);
 
 }

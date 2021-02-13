@@ -1,14 +1,13 @@
 package q1150;
 
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import org.junit.Assert;
 import org.junit.Test;
+import util.concurrency.ThreadHolder;
 
 /**
- * [Easy] 1114. Print in Order
- * https://leetcode.com/problems/print-in-order/
+ * [Medium] 1115. Print FooBar Alternately
+ * https://leetcode.com/problems/print-foobar-alternately/
  *
  * Suppose we have a class:
  *
@@ -45,7 +44,7 @@ import org.junit.Test;
  * We do not know how the threads will be scheduled in the operating system, even though the numbers in the input
  * seems to imply the ordering. The input format you see is mainly to ensure our tests' comprehensiveness.
  */
-public class Q1114_PrintInOrder {
+public class Q1115_PrintFooBarAlternately {
 
     private static class FooBar {
 
@@ -85,32 +84,18 @@ public class Q1114_PrintInOrder {
     }
 
     @Test
-    public void testMethod() throws InterruptedException {
+    public void testMethod() {
         runTest(1);
         runTest(2);
     }
 
-    private void runTest(int n) throws InterruptedException {
+    private void runTest(int n) {
         CountDownLatch latch = new CountDownLatch(2);
         StringBuilder sb = new StringBuilder();
         FooBar fb = new FooBar(n);
-        threadPool.submit(() -> {
-            try {
-                fb.foo(() -> sb.append("foo"));
-                latch.countDown();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        });
-        threadPool.submit(() -> {
-            try {
-                fb.bar(() -> sb.append("bar"));
-                latch.countDown();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        });
-        latch.await();
+        threadHolder.executes(
+                () -> fb.foo(() -> sb.append("foo")),
+                () -> fb.bar(() -> sb.append("bar")));
 
         StringBuilder expect = new StringBuilder();
         for (int i = 0; i < n; i++) {
@@ -119,6 +104,6 @@ public class Q1114_PrintInOrder {
         Assert.assertEquals(expect.toString(), sb.toString());
     }
 
-    private ExecutorService threadPool = Executors.newFixedThreadPool(2);
+    private ThreadHolder threadHolder = new ThreadHolder(2);
 
 }

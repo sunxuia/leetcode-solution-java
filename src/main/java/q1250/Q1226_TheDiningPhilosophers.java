@@ -3,12 +3,9 @@ package q1250;
 import java.util.Arrays;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 import org.junit.Assert;
 import org.junit.Test;
+import util.concurrency.ThreadHolder;
 
 /**
  * [Medium] 1226. The Dining Philosophers
@@ -110,41 +107,31 @@ public class Q1226_TheDiningPhilosophers {
         }
     }
 
-    ExecutorService threadPool = Executors.newFixedThreadPool(5);
+    private ThreadHolder threadHolder = new ThreadHolder(5);
 
     @Test
-    public void test1() throws InterruptedException {
+    public void test1() {
         doTest(1);
     }
 
     @Test
-    public void test10() throws InterruptedException {
+    public void test10() {
         doTest(10);
     }
 
-    private void doTest(final int n) throws InterruptedException {
+    private void doTest(final int n) {
         DiningPhilosophers dps = new DiningPhilosophers();
         BlockingQueue<int[]> queue = new ArrayBlockingQueue<>(25 * n);
-        CountDownLatch latch = new CountDownLatch(5);
-        for (int i = 0; i < 5; i++) {
-            final int philosopher = i;
-            threadPool.submit(() -> {
-                Runnable pickLeftFork = () -> queue.offer(new int[]{philosopher, 1, 1});
-                Runnable pickRightFork = () -> queue.offer(new int[]{philosopher, 2, 1});
-                Runnable eat = () -> queue.offer(new int[]{philosopher, 0, 3});
-                Runnable putLeftFork = () -> queue.offer(new int[]{philosopher, 1, 2});
-                Runnable putRightFork = () -> queue.offer(new int[]{philosopher, 2, 2});
-                for (int j = 0; j < n; j++) {
-                    try {
-                        dps.wantsToEat(philosopher, pickLeftFork, pickRightFork, eat, putLeftFork, putRightFork);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-                latch.countDown();
-            });
-        }
-        latch.await(10, TimeUnit.SECONDS);
+        threadHolder.executes(philosopher -> {
+            Runnable pickLeftFork = () -> queue.offer(new int[]{philosopher, 1, 1});
+            Runnable pickRightFork = () -> queue.offer(new int[]{philosopher, 2, 1});
+            Runnable eat = () -> queue.offer(new int[]{philosopher, 0, 3});
+            Runnable putLeftFork = () -> queue.offer(new int[]{philosopher, 1, 2});
+            Runnable putRightFork = () -> queue.offer(new int[]{philosopher, 2, 2});
+            for (int j = 0; j < n; j++) {
+                dps.wantsToEat(philosopher, pickLeftFork, pickRightFork, eat, putLeftFork, putRightFork);
+            }
+        });
 
         Assert.assertEquals("Operations count wrong.", 25 * n, queue.size());
         boolean[][][] visited = new boolean[5][3][4];

@@ -2,13 +2,10 @@ package q1200;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 import java.util.function.IntConsumer;
 import org.junit.Assert;
 import org.junit.Test;
+import util.concurrency.ThreadHolder;
 
 /**
  * [Medium] 1195. Fizz Buzz Multithreaded
@@ -116,41 +113,33 @@ public class Q1195_FizzBuzzMultithreaded {
     }
 
     @Test
-    public void testMethod() throws InterruptedException {
+    public void testMethod() {
         doTest(15);
         doTest(100);
     }
 
-    private void doTest(final int n) throws InterruptedException {
+    private void doTest(final int n) {
         FizzBuzz fb = new FizzBuzz(n);
         List<String> outputs = new ArrayList<>(n);
-        CountDownLatch latch = new CountDownLatch(n);
-        invoke(() -> fb.fizz(() -> {
+
+        threadHolder.executes(() -> fb.fizz(() -> {
             synchronized (outputs) {
                 outputs.add("fizz");
-                latch.countDown();
             }
-        }));
-        invoke(() -> fb.buzz(() -> {
+        }), () -> fb.buzz(() -> {
             synchronized (outputs) {
                 outputs.add("buzz");
-                latch.countDown();
             }
-        }));
-        invoke(() -> fb.fizzbuzz(() -> {
+        }), () -> fb.fizzbuzz(() -> {
             synchronized (outputs) {
                 outputs.add("fizzbuzz");
-                latch.countDown();
             }
-        }));
-        invoke(() -> fb.number((int val) -> {
+        }), () -> fb.number((int val) -> {
             synchronized (outputs) {
                 outputs.add(String.valueOf(val));
-                latch.countDown();
             }
         }));
 
-        latch.await();
         Assert.assertEquals(n, outputs.size());
         for (int i = 1; i <= n; i++) {
             String actual = outputs.get(i - 1);
@@ -168,21 +157,6 @@ public class Q1195_FizzBuzzMultithreaded {
         }
     }
 
-    private ExecutorService threadPool = Executors.newFixedThreadPool(4);
-
-    private interface InvokeWrapper {
-
-        void invoke() throws InterruptedException;
-    }
-
-    private Future<?> invoke(InvokeWrapper invokeWrapper) {
-        return threadPool.submit(() -> {
-            try {
-                invokeWrapper.invoke();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
-    }
+    private ThreadHolder threadHolder = new ThreadHolder(4);
 
 }
