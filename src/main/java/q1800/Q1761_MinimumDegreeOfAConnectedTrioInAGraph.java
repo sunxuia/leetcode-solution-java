@@ -50,14 +50,12 @@ public class Q1761_MinimumDegreeOfAConnectedTrioInAGraph {
 
     @Answer
     public int minTrioDegree(int n, int[][] edges) {
-        int[] degrees = new int[n];
         boolean[][] connects = new boolean[n][n];
-        for (int i = 0; i < n; i++) {
-            connects[i][i] = true;
-        }
+        int[] degrees = new int[n];
         for (int[] edge : edges) {
             int u = edge[0] - 1, v = edge[1] - 1;
-            connects[u][v] = connects[v][u] = true;
+            connects[u][v] = true;
+            connects[v][u] = true;
             degrees[u]++;
             degrees[v]++;
         }
@@ -66,8 +64,8 @@ public class Q1761_MinimumDegreeOfAConnectedTrioInAGraph {
             for (int j = i + 1; j < n; j++) {
                 for (int k = j + 1; k < n; k++) {
                     if (connects[i][j] && connects[i][k] && connects[j][k]) {
-                        int count = degrees[i] + degrees[j] + degrees[k] - 6;
-                        res = Math.min(res, count);
+                        int trioDegree = degrees[i] + degrees[j] + degrees[k] - 6;
+                        res = Math.min(res, trioDegree);
                     }
                 }
             }
