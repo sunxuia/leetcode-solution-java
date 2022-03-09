@@ -3,6 +3,7 @@ package q900;
 import java.util.Arrays;
 import java.util.Comparator;
 import org.junit.runner.RunWith;
+import q1800.Q1776_CarFleetII;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -51,6 +52,8 @@ import util.runner.data.DataExpectation;
  * All initial positions are different.
  *
  * 题解: 额外的条件: 后面的车撞上前面的车, 则形成的车队会按照前面车(慢车) 的速度行驶.
+ *
+ * 下一题 {@link Q1776_CarFleetII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q853_CarFleet {
