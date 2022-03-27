@@ -221,6 +221,7 @@ public class Generator {
             decodedContent = decoder.decode(decodedContent);
             decodedContent = decodedContent
                     .replaceAll("<(?:br|hr)\\s*/?>", "\n")
+                    .replaceAll("<sup>(\\d+)</sup>", "^$1")
                     .replaceAll("</?\\s*[a-zA-Z]+(?: [a-zA-Z_]+=\"[^\"]*\")*\\s*/?>", "");
         }
         decodedContent = decodedContent
