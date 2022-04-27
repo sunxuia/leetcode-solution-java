@@ -4,6 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import org.junit.runner.RunWith;
 import q1350.Q1340_JumpGameV;
+import q1900.Q1871_JumpGameVII;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -48,6 +49,7 @@ import util.runner.data.TestDataFileHelper;
  * -10^4 <= nums[i] <= 10^4
  *
  * 上一题 {@link Q1340_JumpGameV}
+ * 下一题 {@link Q1871_JumpGameVII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q1696_JumpGameVI {

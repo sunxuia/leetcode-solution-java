@@ -1,6 +1,7 @@
 package q1700;
 
 import org.junit.runner.RunWith;
+import q1900.Q1872_StoneGameVIII;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -46,6 +47,7 @@ import util.runner.data.DataExpectation;
  * 1 <= stones[i] <= 1000
  *
  * 上一题 {@link Q1686_StoneGameVI}
+ * 下一题 {@link Q1872_StoneGameVIII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q1690_StoneGameVII {
