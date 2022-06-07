@@ -1,6 +1,7 @@
 package q1450;
 
 import org.junit.runner.RunWith;
+import q1950.Q1931_PaintingAGridWithThreeDifferentColors;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -54,6 +55,9 @@ import util.runner.data.DataExpectation;
 @RunWith(LeetCodeRunner.class)
 public class Q1411_NumberOfWaysToPaintN3Grid {
 
+    /**
+     * 相似解法题目 {@link Q1931_PaintingAGridWithThreeDifferentColors}
+     */
     @Answer
     public int numOfWays(int n) {
         final int mod = 10_0000_0007;
