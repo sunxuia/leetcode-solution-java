@@ -2,6 +2,7 @@ package q950;
 
 import org.junit.runner.RunWith;
 import q150.Q115_DistinctSubsequences;
+import q2000.Q1987_NumberOfUniqueGoodSubsequences;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -39,6 +40,7 @@ import util.runner.data.DataExpectation;
  * 1 <= S.length <= 2000
  *
  * 上一题 {@link Q115_DistinctSubsequences}
+ * 相关题目 {@link Q1987_NumberOfUniqueGoodSubsequences}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q940_DistinctSubsequencesII {
@@ -58,8 +60,7 @@ public class Q940_DistinctSubsequencesII {
      * LeetCode 上的解法, 不太好理解
      *
      * @formatter:off 参考文档:
-     * https://leetcode.com/problems/distinct-subsequences-ii/discuss/192030/Java-DP-ON2-time-greater-ON-time-greater
-     * -O1-space
+     * https://leetcode.com/problems/distinct-subsequences-ii/discuss/192030/
      * https://www.jianshu.com/p/02501f516437
      * https://www.cnblogs.com/grandyang/p/12735600.html
      * @formatter:on
