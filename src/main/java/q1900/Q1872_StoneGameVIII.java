@@ -2,6 +2,7 @@ package q1900;
 
 import org.junit.runner.RunWith;
 import q1700.Q1690_StoneGameVII;
+import q2050.Q2029_StoneGameIX;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -65,6 +66,7 @@ import util.runner.data.TestDataFileHelper;
  * -10^4 <= stones[i] <= 10^4
  *
  * 上一题 {@link Q1690_StoneGameVII}
+ * 下一题 {@link Q2029_StoneGameIX}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q1872_StoneGameVIII {
