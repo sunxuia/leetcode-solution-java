@@ -48,7 +48,7 @@ public class Q1815_MaximumNumberOfGroupsGettingFreshDonuts {
      * 就是要尽可能凑batchSize
      * dfs 解法, 会超时
      */
-    @Answer
+//    @Answer
     public int maxHappyGroups(int batchSize, int[] groups) {
         // 统计数量和余数, 减少计算量 (这个步骤没什么用)
         int[] counts = new int[batchSize];

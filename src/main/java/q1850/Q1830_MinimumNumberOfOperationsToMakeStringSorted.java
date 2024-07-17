@@ -74,7 +74,7 @@ public class Q1830_MinimumNumberOfOperationsToMakeStringSorted {
      * 下面的这种解法就是上面的方式了, 不过会超时所以需要优化计算方式.
      */
 
-    @Answer
+//    @Answer
     public int makeStringSorted_overTime(String s) {
         final char[] cs = s.toCharArray();
         int[] counts = new int[26];
