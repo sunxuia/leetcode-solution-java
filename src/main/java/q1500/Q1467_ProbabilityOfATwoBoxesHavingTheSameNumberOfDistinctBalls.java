@@ -1,6 +1,7 @@
 package q1500;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -87,7 +88,7 @@ public class Q1467_ProbabilityOfATwoBoxesHavingTheSameNumberOfDistinctBalls {
     public double getProbability_overTime(int[] balls) {
         n = Arrays.stream(balls).sum() / 2;
         dfs(balls, 0, 0, 0, new ArrayList<>(), new ArrayList<>());
-        return sames.divide(total, 6, BigDecimal.ROUND_HALF_UP).doubleValue();
+        return sames.divide(total, 6,  RoundingMode.HALF_UP).doubleValue();
     }
 
     private int n;

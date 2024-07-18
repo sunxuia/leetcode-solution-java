@@ -1,15 +1,10 @@
 package util.asserthelper;
 
 import org.junit.Assert;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import util.UtilPackageHelper;
 
 public class AssertUtilsTest {
-
-    @Rule
-    public final ExpectedException expectedException = ExpectedException.none();
 
     @Test
     public void testFail() {
@@ -29,10 +24,12 @@ public class AssertUtilsTest {
 
     @Test
     public void assertIn_notIn_throwException() {
-        expectedException.expect(AssertionError.class);
-        expectedException.expectMessage("1 not in range [2, 3, 4]");
-
-        AssertUtils.assertIn(1, 2, 3, 4);
+        try {
+            AssertUtils.assertIn(1, 2, 3, 4);
+            Assert.fail("Expected an AssertionError to be thrown");
+        } catch (AssertionError e) {
+            Assert.assertEquals("1 not in range [2, 3, 4]", e.getMessage());
+        }
     }
 
     @Test
@@ -53,7 +50,14 @@ public class AssertUtilsTest {
 
     @Test
     public void assertEquals_notEqual_throwException() {
-        expectedException.expect(AssertionError.class);
-        AssertUtils.assertEquals(new Integer[]{1, 2, 3}, new Integer[]{1, 2, 4});
+        boolean exceptionThrown = false;
+        try {
+            AssertUtils.assertEquals(new Integer[]{1, 2, 3}, new Integer[]{1, 2, 4});
+        } catch (AssertionError e) {
+            exceptionThrown = true;
+        }
+        if (!exceptionThrown) {
+            Assert.fail("Expected an AssertionError to be thrown");
+        }
     }
 }
