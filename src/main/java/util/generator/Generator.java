@@ -125,6 +125,10 @@ public class Generator {
     }
 
     private Map<String, Object> getForLeetCodeAlgorithms() throws IOException {
+        // 设置系统代理
+        System.setProperty("http.proxyHost", "127.0.0.1");
+        System.setProperty("http.proxyPort", "7890");
+
         URL url = new URL("https://leetcode.com/api/problems/algorithms/");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         InputStream input = connection.getInputStream();
@@ -214,6 +218,7 @@ public class Generator {
             methodCode = methodCode.replaceAll("\n[ \t]+", "\n").trim();
             res.setMethodCode(methodCode);
         }
+        res.setHtmlContent(q.getContent());
 
         String decodedContent = q.getContent();
         HtmlCharacterDecoder decoder = new HtmlCharacterDecoder();
@@ -229,7 +234,6 @@ public class Generator {
                 .replaceAll("^[ \t\r\n]+", "")
                 .replaceAll("[ \t\r\n]+$", "")
                 .replaceAll("(?:\r?\n){3,}", "\n\n");
-        res.setDecodedContent(decodedContent);
 
         Matcher exampleMatcher = Pattern.compile("Example\\s*(?:\\d*)\\s*:").matcher(decodedContent);
         int exampleCount = 0;
@@ -341,7 +345,7 @@ public class Generator {
             code = "    private static " + q.getCode().replaceAll("\n", "\n    ");
         }
         variables.put("code", code);
-        variables.put("desc", " * " + qc.getDecodedContent().replaceAll("\n", "\n * "));
+        variables.put("desc", " * " + qc.getHtmlContent().replaceAll("\n", "\n * "));
         variables.put("q", q);
         variables.put("qc", qc);
         templateEngine.setVariables(variables);

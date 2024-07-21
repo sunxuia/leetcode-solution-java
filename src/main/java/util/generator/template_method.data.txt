@@ -8,8 +8,10 @@ import util.runner.data.DataExpectation;
 import java.util.*;
 
 /**
- * [{{q.difficulty}}] {{ q.no }}. {{ q.title }}
+ * <h3>[{{q.difficulty}}] {{ q.no }}. {{ q.title }}</h3>
+ * <a href="{{ q.url }}">
  * {{ q.url }}
+ * </a><br/>
  *
 {{ desc }}
  */

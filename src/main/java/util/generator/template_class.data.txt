@@ -4,8 +4,10 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * [{{q.difficulty}}] {{ q.no }}. {{ q.title }}
+ * <h3>[{{q.difficulty}}] {{ q.no }}. {{ q.title }}</h3>
+ * <a href="{{ q.url }}">
  * {{ q.url }}
+ * </a><br/>
  *
 {{ desc }}
  */

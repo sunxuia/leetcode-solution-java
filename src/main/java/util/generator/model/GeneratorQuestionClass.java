@@ -12,7 +12,7 @@ public class GeneratorQuestionClass {
     private String className;
     private String directory;
     private boolean isMethodQuestion;
-    private String decodedContent;
+    private String htmlContent;
     private String decodedCode;
     private List<GeneratorQuestionMethod> methods = new ArrayList<>();
 
@@ -54,12 +54,12 @@ public class GeneratorQuestionClass {
         isMethodQuestion = methodQuestion;
     }
 
-    public String getDecodedContent() {
-        return decodedContent;
+    public String getHtmlContent() {
+        return htmlContent;
     }
 
-    public void setDecodedContent(String decodedContent) {
-        this.decodedContent = decodedContent;
+    public void setHtmlContent(String htmlContent) {
+        this.htmlContent = htmlContent;
     }
 
     public String getDecodedCode() {
