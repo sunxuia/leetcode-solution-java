@@ -29,8 +29,8 @@ public class Generator {
 
     /**
      * 在项目的根目录 (leetcode-solution 目录) 运行这个程序
-     * 示例: java -cp target/classes util.generator.Generator 860
-     * -cp target/classes 指定了class 文件的生成目录, 860 是要生成的题目的编号(第860题)
+     * 示例: (860 是要生成的题目的编号, 第860题)
+     * mvn exec:java -Dexec.mainClass=util.generator.Generator -Dexec.args="860"
      */
     public static void main(String[] args) {
         if (args.length < 1) {
