@@ -49,6 +49,8 @@ import util.runner.data.TestDataFileHelper;
  * -30000 <= obstacle[i][0] <= 30000
  * -30000 <= obstacle[i][1] <= 30000
  * The answer is guaranteed to be less than 2 ^ 31.
+ *
+ * 下一题 {q2100.Q2069_WalkingRobotSimulationII}
  */
 @RunWith(LeetCodeRunner.class)
 public class Q874_WalkingRobotSimulation {
