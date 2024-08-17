@@ -132,7 +132,7 @@ public class Q2076_ProcessRestrictedFriendRequests {
         if (parent[i] == i) {
             return i;
         }
-        return findRoot(parent, parent[i]);
+        return parent[i] = findRoot(parent, parent[i]);
     }
 
     @TestData
