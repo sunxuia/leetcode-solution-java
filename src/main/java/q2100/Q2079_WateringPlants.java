@@ -1,6 +1,7 @@
 package q2100;
 
 import org.junit.runner.RunWith;
+import q2150.Q2105_WateringPlantsII;
 import util.runner.Answer;
 import util.runner.LeetCodeRunner;
 import util.runner.TestData;
@@ -81,6 +82,10 @@ import util.runner.data.DataExpectation;
  * 	<li><code>1 &lt;= plants[i] &lt;= 10<sup>6</sup></code></li>
  * 	<li><code>max(plants[i]) &lt;= capacity &lt;= 10<sup>9</sup></code></li>
  * </ul>
+ *
+ * <pre>
+ * 下一题 {@link Q2105_WateringPlantsII}
+ * </pre>
  */
 @RunWith(LeetCodeRunner.class)
 public class Q2079_WateringPlants {
