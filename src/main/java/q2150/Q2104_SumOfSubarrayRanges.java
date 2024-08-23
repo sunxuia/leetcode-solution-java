@@ -87,7 +87,7 @@ public class Q2104_SumOfSubarrayRanges {
     }
 
     // 另一种思路, 找出最大值和最小值之和, 然后相减.
-    // 通过将二分查找递增/递减队列来将时间复杂度降低到 NlogN
+    // 时间复杂度 O(N)
     @Answer
     public long subArrayRanges2(int[] nums) {
         final int n = nums.length;
@@ -104,6 +104,7 @@ public class Q2104_SumOfSubarrayRanges {
         long maxSums = 0;
         for (int i = 1; i < n; i++) {
             // 在递减队列 queue[0:queueSize) 中找出值 > target 的最大下标
+            // (在这里使用二分查找可以略微快一点, 不影响时间复杂度)
             int start = -1, end = queueSize - 1;
             while (start < end) {
                 int mid = (start + end + 1) / 2;
@@ -113,6 +114,11 @@ public class Q2104_SumOfSubarrayRanges {
                     end = mid - 1;
                 }
             }
+            // 不使用二分查找的代码
+            //  int start = queueSize - 1;
+            //  while (start >= 0 && nums[queue[start]] <= nums[i]) {
+            //     start--;
+            // }
             if (start == -1) {
                 // nums[i] 是以 nums[i] 结尾的所有子数组的最大值
                 sums[i] = (long) (i + 1) * nums[i];
@@ -141,6 +147,11 @@ public class Q2104_SumOfSubarrayRanges {
                     end = mid - 1;
                 }
             }
+            // 不使用二分查找的代码
+            // int start = queueSize - 1;
+            // while (start >= 0 && nums[queue[start]] >= nums[i]) {
+            //    start--;
+            // }
             if (start == -1) {
                 sums[i] = (long) (i + 1) * nums[i];
             } else {
