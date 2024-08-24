@@ -77,7 +77,7 @@ public class Q2109_AddingSpacesToAString {
             sb.append(s, prev, space).append(' ');
             prev = space;
         }
-        sb.append(s, spaces[spaces.length - 1], s.length());
+        sb.append(s, prev, s.length());
         return sb.toString();
     }
 
